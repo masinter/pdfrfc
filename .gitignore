@@ -1,0 +1,13 @@
+# emacs detritus
+*~
+*#
+
+# ignore output of md 
+README.html
+
+# ignore output of xml2rfc conversion
+pdfrfc.txt
+pdfrfc.html
+pdfrfc.pdf
+
+
