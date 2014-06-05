@@ -29,7 +29,12 @@
       </address>
     </author>
     <author initials='L.' surname='Masinter'>
-      <!-- fill in -->
+      <!-- please verify this data -->
+      <organization>Adobe</organization>
+      <address>
+        <email>masinter@adobe.com</email>
+        <uri>http://larry.masinter.net</uri>
+      </address>
     </author>
     <author initials='M.' surname='Hardy'>
       <!-- fill in please -->
