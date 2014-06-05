@@ -23,3 +23,11 @@ http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercont
 To PDF via HTML:
 
 http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/masinter/pdfrfc/master/pdfrfc.xml&modeAsFormat=html/pdf&type=ascii
+
+To TEXT:
+
+http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/masinter/pdfrfc/master/pdfrfc.xml&modeAsFormat=txt/ascii&type=ascii
+
+To PDF via TEXT:
+
+http://xml2rfc.tools.ietf.org/cgi-bin/xml2rfc.cgi?url=https://raw.githubusercontent.com/masinter/pdfrfc/master/pdfrfc.xml&modeAsFormat=txt/pdf&type=ascii
