@@ -28,16 +28,26 @@
         <email>tony+rfc2pdf@maillennium.att.com</email>
       </address>
     </author>
-    <author initials='L.' surname='Masinter'>
+    <author initials='L.' surname='Masinter' fullname='Larry Masinter'>
       <!-- please verify this data -->
-      <organization>Adobe</organization>
+      <organization>Adobe Systems</organization>
       <address>
         <email>masinter@adobe.com</email>
         <uri>http://larry.masinter.net</uri>
       </address>
     </author>
-    <author initials='M.' surname='Hardy'>
-      <!-- fill in please -->
+    <author initials='M.' surname='Hardy' fullname='Matthew Hardy'>
+	  <organization>Adobe Systems</organization>
+	  <address>
+		<postal>
+		  <street>345 Park Ave</street>
+		  <city>San Jose</city>
+		  <region>CA</region>
+		  <code>95110</code>
+		  <country>USA</country>
+		</postal>
+		<email>mahardy@adobe.com</email>
+	  </address>
     </author>
     <date />
     <area>RFC Design Team</area>
@@ -147,7 +157,7 @@
 	  will attempt to locate a locally installed font of the same
 	  name.  If it can not find an exact match, it will find a
 	  "close match".  If a close match is not available, it will
-	  fallback to something.</t>
+	  fallback to something.  This is highly implementation dependent.</t>
 	  <t>Recommendation: for consistent viewing, all fonts should
 	  be embedded.  </t>
 	  <t>In addition, since the HTML version of the document is
@@ -158,6 +168,8 @@
 	  Unicode characters; for this purpose, the PDF generation
 	  tool may need a set of fonts and a way of choosing them.</t>
 	  <t> Recommendation: ... TBD ...</t>
+	  <t> For readability, the main body text should be in a serif
+	  font and the headings in a sans-serif font. </t>
 	</section>
 	<section title='Hyperlinks'>
 	  <t>PDF supports hyperlinks both to sections of the same
@@ -263,6 +275,8 @@
 	  where should hyperlinks to RFCs point? to the info page for the RFC? to the PDF version of the RFC?
 	  <vspace/>...<vspace/>
 	  similar questions on references to internet drafts
+	  <vspace/>...<vspace/>
+	  a role-map should be provided here to map the logical tags found in the RFC XML to the standard tagset for PDF.  This would be included in the generated PDF.
 	</t>
       </section>
       <section title='Embedded Files'>
