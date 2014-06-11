@@ -2,7 +2,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 
 <?rfc toc='yes' ?><!-- add table of contents -->
-<?rfc editing='yes' ?><!-- add paragraph numbering -->
+<?rfc editing='no' ?><!-- don't add paragraph numbering -->
 <?rfc symrefs='yes' ?><!-- use references like [ABC] instead of [1] -->
 <?rfc sortrefs='no'?><!-- sort the references alphabetically -->
 <?rfc linkmailto='no'?>
