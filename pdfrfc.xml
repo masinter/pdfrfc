@@ -29,9 +29,15 @@
       </address>
     </author>
     <author initials='L.' surname='Masinter' fullname='Larry Masinter'>
-      <!-- please verify this data -->
       <organization>Adobe Systems</organization>
       <address>
+	<postal>
+	  <street>345 Park Ave</street>
+	  <city>San Jose</city>
+	  <region>CA</region>
+	  <code>95110</code>
+	  <country>USA</country>
+	</postal>
         <email>masinter@adobe.com</email>
         <uri>http://larry.masinter.net</uri>
       </address>
@@ -109,9 +115,9 @@
 	generate one from the Postscript, HTML, or text.</t>
       </section>
     </section>
-    <section title='Requirements and Options for PDF RFCs'>
-      <t>This section lays out the requirements for PDFs produced by
-      the RFC editor for RFCs. The requirements are in two sections:
+    <section title='Options and Requirements for PDF RFCs'>
+      <t>This section lays out the options and requirements for PDFs produced by
+      the RFC editor for RFCs. These are in two sections:
       "Visible" requirements are related to how the PDF appears when
       it is viewed with a PDF viewer. "Internal Structure" requirements
       affect the ability to process PDFs in other ways, but do not
@@ -119,7 +125,7 @@
       <t>In many cases, the choice of PDF requirements is heavily
       influenced by the utility of available tools to create
       PDFs. Most of the discussion of tooling is to be found in
-      the "Tooling" section below.</t>
+      <xref target='tooling'/>.</t>
 
       <section title='"Visible" requirements'>
 	<t> PDF supports rich visible layout of fixed-sized pages.
@@ -130,6 +136,27 @@
 	  style. They should print well on the widest range of
 	  printers, and look good on displays of varying
 	  resolution.</t>
+	</section>
+	<section title='Page size, margins, headings'>
+	  <t>PDF files are laid out for a particular size
+	  of page, margins, and any headers and footers
+	  part of the layout. Recommendations or ideas
+	  for further study:
+	  <list style='hanging'>
+	    <t hangText='Page size'>
+	      US Letter page size, but margins chosen so it will
+	      print and look good on A4 paper.
+	    </t>
+	    <t hangText='Margins'>
+	      The smallest margin consistent with above requirements.
+	    </t>
+	    <t hangText='Headings'>
+	      The same information from the text version
+	      of the document, but set in a smaller font
+	      in a lighter color.
+	    </t>
+	  </list>
+	</t>
 	</section>
 	<section title='Similarity to other outputs'>
 	  <t>There is some advantage to having the PDF files look like
@@ -170,6 +197,8 @@
 	  <t> Recommendation: ... TBD ...</t>
 	  <t> For readability, the main body text should be in a serif
 	  font and the headings in a sans-serif font. </t>
+	  <t> Code, BNF, and other text could use a fixed-width
+	  font to aid in insuring alignment, e.g., in BNF.</t>
 	</section>
 	<section title='Hyperlinks'>
 	  <t>PDF supports hyperlinks both to sections of the same
@@ -316,12 +345,12 @@
       </section>
     </section>
   </section>
-  <section title='Tooling'>
+  <section title='Tooling' anchor='tooling'>
     <t>This section will talk about tools for creating, manipulating, transforming PDF files, including those currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various processes.</t>
     <t>during either phase: generation.</t>
-    <t>during I-D phase: xml2rfc, of course for authors. Copy from PDF files? Review and comment. Digital Signature tools. Comparing two PDF files (versions).
-
-During RFC publishing, xml2rdf. Editing of PDF to correct layout errors. Nits checking, checking conformance with PDF/a and PDF/ua.</t>
+    <t>during I-D phase: xml2rfc, of course for authors. Copy from PDF files? Review and comment. Digital Signature tools. Comparing two PDF files (versions). </t>
+    <t>
+    During RFC publishing, xml2rdf. Editing of PDF to correct layout errors. Nits checking, checking conformance with PDF/a and PDF/ua.</t>
     </section>
     <section title='Picking a PDF Profile'>
       <t>There are profiles of PDF for specific purposes: PDF/UA and PDFA3 etc.
