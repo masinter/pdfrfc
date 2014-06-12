@@ -315,9 +315,14 @@
 	  hyperlinks within the document,
 	  hyperlinks to external locations,
 	  <vspace/>...<vspace/>
-	  where should hyperlinks to RFCs point? to the info page for the RFC? to the PDF version of the RFC?
+	  Where should hyperlinks to RFCs point? to the info page for the RFC? to the PDF version of the RFC?
+	  (NOTE: the RFC Series Editor has stated a preference for them to point to the info page for the RFC.)
 	  <vspace/>...<vspace/>
-	  similar questions on references to internet drafts
+	  Similar questions need to be answered on references to internet drafts:
+	  Where should hyperlinks to internet drafts point? 
+	  To the datatracker entry? 
+	  To the tools entry?
+	  To a PDF version of the internet draft?
 	  <vspace/>...<vspace/>
 	  a role-map should be provided here to map the logical tags found in the RFC XML to the standard tagset 
 	  for PDF.  This would be included in the generated PDF.
@@ -373,6 +378,9 @@
     </section>
     <section title='Picking a PDF Profile'>
       <t>There are profiles of PDF for specific purposes: PDF/UA and PDFA3 etc.
+      </t>
+      <t>
+      	NOTE: add reasoning here about the recommendations. 
       </t>
       <t>Recommendation: use PDF/UA and also PDF/A3.
       </t>
