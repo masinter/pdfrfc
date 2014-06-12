@@ -2,7 +2,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 
 <?rfc toc='yes' ?><!-- add table of contents -->
-<?rfc editing='no' ?><!-- don't add paragraph numbering -->
+<?rfc editing='yes' ?><!-- paragraph numbering -->
 <?rfc symrefs='yes' ?><!-- use references like [ABC] instead of [1] -->
 <?rfc sortrefs='no'?><!-- sort the references alphabetically -->
 <?rfc linkmailto='no'?>
@@ -269,7 +269,8 @@
 	  While Unicode is not required by PDF, certain PDF profiles require its support.
 	</t>
 	<t>
-	  Requirement: PDF files generated must have the full text, exactly as it appears in the original XML for text, or within SVG for images.
+	  Requirement: PDF files generated must have the full text, exactly as it appears in the original XML 
+	  for text, or within SVG for images.
 	  (NOTE: What about text in image illustrations?)
 	</t>
       </section>
@@ -280,10 +281,11 @@
 	  Having this metadata within the PDF file allows it to be extracted by the rendering tools.
 	  It can also include additional information such as pointers to where the document can be found on the RFC Editor web site.
 	</t>
-	<t>PDF supports embedded metadata using XMP. NOTE: Need
-	reference and explanayion.</t>
+	<t>PDF supports embedded metadata using XMP. 
+	NOTE: Need a reference and explanation.</t>
 	<t>
-	  Recommendation: The PDFs generated should have all of the metadata from the XML version embedded directly as XMP metadata, including the author and date information, 
+	  Recommendation: The PDFs generated should have all of the metadata from the XML version embedded directly as XMP metadata, 
+	  including the author and date information, 
 	  set the document series, and a URL for where the document can be retrieved.
 	</t>
       </section>
@@ -313,7 +315,8 @@
 	  <vspace/>...<vspace/>
 	  similar questions on references to internet drafts
 	  <vspace/>...<vspace/>
-	  a role-map should be provided here to map the logical tags found in the RFC XML to the standard tagset for PDF.  This would be included in the generated PDF.
+	  a role-map should be provided here to map the logical tags found in the RFC XML to the standard tagset 
+	  for PDF.  This would be included in the generated PDF.
 	</t>
       </section>
       <section title='Embedded Files'>
@@ -354,11 +357,15 @@
     </section>
   </section>
   <section title='Tooling' anchor='tooling'>
-    <t>NOTE: This section will talk about tools for creating, manipulating, transforming PDF files, including those currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various processes.</t>
+    <t>NOTE: This section will talk about tools for creating, manipulating, transforming PDF files, including those 
+    currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various 
+    processes.</t>
     <t>during either phase: generation.</t>
-    <t>during I-D phase: xml2rfc, of course for authors. Copy from PDF files? Review and comment. Digital Signature tools. Comparing two PDF files (versions). </t>
+    <t>during I-D phase: xml2rfc, of course for authors. Copy from PDF files? Review and comment. Digital Signature 
+    tools. Comparing two PDF files (versions). </t>
     <t>
-    During RFC publishing, xml2rdf. Editing of PDF to correct layout errors. Nits checking, checking conformance with PDF/a and PDF/ua.</t>
+    During RFC publishing, xml2rdf. Editing of PDF to correct layout errors. Nits checking, checking conformance 
+    with PDF/a and PDF/ua.</t>
     </section>
     <section title='Picking a PDF Profile'>
       <t>There are profiles of PDF for specific purposes: PDF/UA and PDFA3 etc.
@@ -377,11 +384,16 @@
       <section title='A Synopsis of PDF Format History'>
 	<t>
 	  <xref target='RFC3778'/> contains some history of PDF.
-	  This is a capsule view, plus additional information on events that have occurred since the publication of <xref target='RFC3778'/>. NOTE: currently doesn't talk about the handoff of change control to ISO and the evolution as an ISO standard 32000. Plans are to update the application/pdf MIME registration to include this information, and then point to that.
+	  This is a capsule view, plus additional information on events that have occurred since the publication 
+	  of <xref target='RFC3778'/>. NOTE: currently doesn't talk about the handoff of change control to ISO 
+	  and the evolution as an ISO standard 32000. Plans are to update the application/pdf MIME registration 
+	  to include this information, and then point to that.
 	</t>
 	<t>
-	  The Portable Document Format (PDF) family of document formats was invented by Adobe Systems in the early 1990s.
-	  At the time, it was a proprietary format that underwent a variety of revisions that matched the release of different versions of
+	  The Portable Document Format (PDF) family of document formats was invented by Adobe Systems in the early 
+	  1990s.
+	  At the time, it was a proprietary format that underwent a variety of revisions that matched the release 
+	  of different versions of
 	  the Adobe Acrobat products.
 	  For example, Acrobat 1 supported PDF version 1.0, Acrobat 2 supported PDF version 1.1, Acrobat 5 supported PDF version 1.4, etc.
 	  <eref target='http://www.adobe.com/devnet/pdf/pdf_reference_archive.html'/>
