@@ -72,10 +72,13 @@
     <section title='Introduction'>
       <t> The RFC Series is evolving, as outlined in <xref
       target='RFC6949'/>. Future documents will use an archival format
-      of XML with renderings in various formats, including PDF.  </t>
+      of XML with renderings in various formats, including PDF.
+      </t>
 
       <t> PDF has a wide range of capabilities and alternatives; not
-      all PDFs are "equal". For example, visually similar documents
+      all PDFs are "equal". 
+      (See <xref target='pdf-history'/> for a brief history of PDF and its options.)
+      For example, visually similar documents
       could be scanned or rasterized images, include text layout
       options, hyperlinks, embedded fonts, digital signatures.  This
       document explains the options and also makes recommendations for
@@ -101,11 +104,12 @@
 	mathematics found in RFCs 1119 and RFC 1142, and compare the
 	figures found in the text version of RFC 3550 with those in
 	the Postscript version.  The RFC editor has provided a PDF
-	rendering of RFCs. Frequently, this has been a print of the
+	rendering of RFCs. Usually, this has been a print of the
 	text file that does not take advantage of any of the broader
-	PDF functionality, although, if there was a Postscript version
-	of the RFC, the RFC editor would use that to generate a PDF
-	instead.</t>
+	PDF functionality, unless there was a Postscript version
+	of the RFC, which would then be used by the RFC editor to 
+	generate the PDF.
+        </t>
       </section>
       <section title='Internet Drafts'>
 	<t>In addition to PDFs generated and published by the RFC
@@ -381,7 +385,7 @@
       <?rfc include='reference.RFC.3778' ?>
       <?rfc include='reference.RFC.6949' ?>
     </references>
-      <section title='A Synopsis of PDF Format History'>
+      <section title='A Synopsis of PDF Format History' anchor='pdf-history'>
 	<t>
 	  <xref target='RFC3778'/> contains some history of PDF.
 	  This is a capsule view, plus additional information on events that have occurred since the publication 
