@@ -60,7 +60,7 @@
     <keyword>Requests for Comment</keyword>
     <abstract>
       <t>
-	This document focuses on the requirements for the PDF
+	This document discusses options and requirements for the PDF
 	rendering of RFCs in the RFC Series, as outlined in RFC
 	6989. It also discusses the use of PDF for Internet Drafts,
 	and available or needed software tools for producing and
@@ -86,8 +86,12 @@
       discusses some of the processes for creating and using PDFs
       and both open source and commercial products.
       </t>
+      <t>NOTE: see <eref target="https://github.com/masinter/pdfrfc"/> 
+      for XML source, related files, and an issue tracker.</t>
     </section>
     <section title='History and current use of PDF with RFCs and Internet Drafts'>
+      <t>NOTE: this section is meant as an overview
+      to give some background.</t>
       <section title='RFCs'>
 	<t>The RFC series has for a long time accepted Postscript
 	renderings of RFCs, either in addition to or instead of the
@@ -116,16 +120,19 @@
       </section>
     </section>
     <section title='Options and Requirements for PDF RFCs'>
-      <t>This section lays out the options and requirements for PDFs produced by
-      the RFC editor for RFCs. These are in two sections:
-      "Visible" requirements are related to how the PDF appears when
-      it is viewed with a PDF viewer. "Internal Structure" requirements
+      <t>This section lays out options and requirements for PDFs produced by
+      the RFC editor for RFCs. There are two sections:
+      "Visible" options are related to how the PDF appears when
+      it is viewed with a PDF viewer. "Internal Structure" options
       affect the ability to process PDFs in other ways, but do not
       change the way the document looks.</t>
       <t>In many cases, the choice of PDF requirements is heavily
       influenced by the utility of available tools to create
       PDFs. Most of the discussion of tooling is to be found in
       <xref target='tooling'/>.</t>
+      <t>NOTE: each option in this section should outline the nature
+      of the design choice, outline the pros and cons, and make a
+      recommendation.</t>
 
       <section title='"Visible" requirements'>
 	<t> PDF supports rich visible layout of fixed-sized pages.
@@ -252,7 +259,7 @@
 	  Another example where higher-level constructs are needed are for accessibility purposes.
 	</t>
 	<t>
-	  Requirement: the tools that are chosen must use the higher-level constructs for text structure.
+	  Requirement: ... TBD ...
 	</t>
       </section>
 
@@ -263,7 +270,7 @@
 	</t>
 	<t>
 	  Requirement: PDF files generated must have the full text, exactly as it appears in the original XML for text, or within SVG for images.
-	  (What about text in image illustrations?)
+	  (NOTE: What about text in image illustrations?)
 	</t>
       </section>
       <section title='Metadata Support'>
@@ -273,7 +280,8 @@
 	  Having this metadata within the PDF file allows it to be extracted by the rendering tools.
 	  It can also include additional information such as pointers to where the document can be found on the RFC Editor web site.
 	</t>
-	<t>PDF supports embedded metadata using XMP. </t>
+	<t>PDF supports embedded metadata using XMP. NOTE: Need
+	reference and explanayion.</t>
 	<t>
 	  Recommendation: The PDFs generated should have all of the metadata from the XML version embedded directly as XMP metadata, including the author and date information, 
 	  set the document series, and a URL for where the document can be retrieved.
@@ -346,7 +354,7 @@
     </section>
   </section>
   <section title='Tooling' anchor='tooling'>
-    <t>This section will talk about tools for creating, manipulating, transforming PDF files, including those currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various processes.</t>
+    <t>NOTE: This section will talk about tools for creating, manipulating, transforming PDF files, including those currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various processes.</t>
     <t>during either phase: generation.</t>
     <t>during I-D phase: xml2rfc, of course for authors. Copy from PDF files? Review and comment. Digital Signature tools. Comparing two PDF files (versions). </t>
     <t>
@@ -369,7 +377,7 @@
       <section title='A Synopsis of PDF Format History'>
 	<t>
 	  <xref target='RFC3778'/> contains some history of PDF.
-	  This is a capsule view, plus additional information on events that have occurred since the publication of <xref target='RFC3778'/>.
+	  This is a capsule view, plus additional information on events that have occurred since the publication of <xref target='RFC3778'/>. NOTE: currently doesn't talk about the handoff of change control to ISO and the evolution as an ISO standard 32000. Plans are to update the application/pdf MIME registration to include this information, and then point to that.
 	</t>
 	<t>
 	  The Portable Document Format (PDF) family of document formats was invented by Adobe Systems in the early 1990s.

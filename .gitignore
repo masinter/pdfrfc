@@ -5,6 +5,9 @@
 # ignore output of md 
 README.html
 
+# Not sure why ethis showed up
+Thumbs.db
+
 # ignore output of xml2rfc conversion
 pdfrfc.txt
 pdfrfc.html
