@@ -242,11 +242,11 @@
 	    <t>Document Signatures</t>
 	</list>
 	</t>
-	<section title='Text Structure'>
+	<section title='Internal Text Representation'>
 	  <t> The contents of a PDF file can be represented in many
 	  ways.  The PDF file could be generated:
 	  <list style='symbols'>
-	    <t>as an image of the visual representation, such as a picture of the word 'IETF'</t>
+	    <t>as an image of the visual representation, such as a picture (e.g., a GIF) of the word 'IETF'</t>
 	    <t>placing individual characters in position on the page, such as saying "put an 'F' here", then "put an 'T' before it",
 	    then "put an 'E' before that", then "put an 'I' before that" to render the word 'IETF'
 	    </t>
@@ -257,10 +257,16 @@
 	  </list>
 	  All of these end up with the same visual representation of the output.
 	  However, each level has trade offs for auxiliary usage of the format.
-	  For example, when using an annotation tool to review a PDF file, it is harder to place a comment
+	  For example, the higher-level construct would allow you to search for the word "IETF" or 
+	  phrases including the word "IETF"", 
+	  whereas using word placement would only allow you to search for "IETF", 
+	  and the other representations would not easily support search at all.
+	  As another example, when using an annotation tool to review a PDF file, it is harder to place a comment
 	  on a location within an image compared to attaching a comment to a given word.
-	  Attaching a comment to a set of words (such as a bracketed set of words) is easier when using higher-level constructs.
-	  Another example where higher-level constructs are needed are for accessibility purposes.
+	  Attaching a comment to a set of words (such as a bracketed set of words) is easier when using higher-level 
+	  constructs.
+	  Another example where higher-level constructs are needed are for accessibility purposes:
+	  text to speech needs the sentences to be presented as a whole and in the proper order.
 	</t>
 	<t>
 	  Requirement: ... TBD ...
