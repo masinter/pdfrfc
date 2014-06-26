@@ -184,9 +184,21 @@
 	  Editor on their web site.)
 	  </t>
 	  <t>Recommendation: the PDF rendition should look like the HTML
-	  rendition, at least in spirit -- for example, visually
-	  searching or scanning should be facilitated. The typeface
-	  and size for printing should be chosen.
+	  rendition, at least in spirit.
+	  For example, some differences from the HTML rendition might be:
+	  <list>
+	  <t>
+	  	Visually searching or scanning should be facilitated. 
+	  </t><t>
+	  	The typeface and size for printing needs be chosen.
+	  </t><t>
+	  	Whether the table of contents contains page numbers needs to be decided.
+	  </t><t>
+	  	Whether page footers and headers are generated needs to be decided.
+	  </t><t>
+	  </t><t>
+	  </t>
+	  </list>
 	  </t>
 	</section>
 	<section title="Typeface choices">
