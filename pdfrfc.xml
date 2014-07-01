@@ -478,5 +478,11 @@
 	  </t>
 	</section>
       </section>
+      <section title='Acknowledgements'>
+      	<t>
+      	The input of the following people is gratefully acknowledged:
+      	Duff Johnson of the PDF Association.
+      	</t>
+      </section>
   </back>
 </rfc>
