@@ -481,7 +481,10 @@
       <section title='Acknowledgements'>
       	<t>
       	The input of the following people is gratefully acknowledged:
-      	Duff Johnson of the PDF Association.
+      	Duff Johnson of the PDF Association,
+      	<!-- Leonard Rosenthal, -->
+      	Martin Duerst, 
+      	....
       	</t>
       </section>
   </back>
