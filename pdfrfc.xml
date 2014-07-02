@@ -12,7 +12,7 @@
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-  docName='draft-hansen-rfc-use-of-pdf-00' category='info' >
+  docName='draft-hansen-rfc-use-of-pdf-01' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -123,7 +123,8 @@
 	generate one from the Postscript, HTML, or text.</t>
       </section>
     </section>
-    <section title='Options and Requirements for PDF RFCs'>
+    <section title='Options and Requirements for PDF RFCs' 
+	     anchor='requirements'>
       <t>This section lays out options and requirements for PDFs produced by
       the RFC editor for RFCs. There are two sections:
       "Visible" options are related to how the PDF appears when
@@ -196,7 +197,6 @@
 	  </t><t>
 	  	Whether page footers and headers are generated needs to be decided.
 	  </t><t>
-	  </t><t>
 	  </t>
 	  </list>
 	  </t>
@@ -222,13 +222,46 @@
 	  font and the headings in a sans-serif font. </t>
 	  <t> Code, BNF, and other text could use a fixed-width
 	  font to aid in insuring alignment, e.g., in BNF.</t>
+
+	  <t>The PDF/A profiles mandate that fonts should be
+	  embedded. Preferably, the software generating the files
+	  would produce PDF/A-conforming files directly, thus ensuring
+	  that all glyphs include Unicode mappings and embedded fonts
+	  from the outset.</t>
+
 	</section>
 	<section title='Hyperlinks'>
 	  <t>PDF supports hyperlinks both to sections of the same
 	  document and to other documents.</t>
-	  <t>Recommendation: All hyperlinks available in the HTML
-	  rendition of the RFC should also be visible and active in the
-	  PDF produced.</t>
+	  <t>The XML2RFC conversion can generate:
+	  <list style='symbols'>
+	    <t>hyperlinks within the document</t>
+	    <t>hyperlinks to external locations</t>
+	    <t>hyperlinks within a table of contents</t>
+	  </list>
+	  </t>
+	  <t>
+	  Where should hyperlinks to RFCs point? to the info page for
+	  the RFC? to the PDF version of the RFC?  (NOTE: the RFC
+	  Series Editor has stated a preference for them to point to
+	  the info page for the RFC.)  Similar questions need to be
+	  answered on references to internet drafts: Where should
+	  hyperlinks to internet drafts point?  To the datatracker
+	  entry?  To the tools entry?  To a PDF version of the
+	  internet draft?</t>
+
+	  <t>Recommendations: 
+	  <list style='symbols'>
+
+	    <t>All hyperlinks available in the HTML rendition of the
+	    RFC should also be visible and active in the PDF
+	    produced.</t>
+	    <t>Table of contents, including page numbers, are useful
+	    when printed. These should be hyperelinked.</t>
+	    <t>Hyperlinks to RFCs and Internet drafts from the
+	    references section should point to a "landing" page which
+	    then links to the various formats available.</t>
+	  </list></t>
 	</section>
       </section>
       <section title='"Invisible" options and requirements'>
@@ -254,35 +287,60 @@
 	    <t>Document Signatures</t>
 	</list>
 	</t>
-	<section title='Internal Text Representation'>
+	<section title='Internal Text Representation' anchor='internal'>
 	  <t> The contents of a PDF file can be represented in many
 	  ways.  The PDF file could be generated:
 	  <list style='symbols'>
-	    <t>as an image of the visual representation, such as a picture (e.g., a GIF) of the word 'IETF'</t>
-	    <t>placing individual characters in position on the page, such as saying "put an 'F' here", then "put an 'T' before it",
-	    then "put an 'E' before that", then "put an 'I' before that" to render the word 'IETF'
+
+	    <t>as an image of the visual representation, such as a
+	    picture (e.g., a GIF) of the word 'IETF'</t>
+
+	    <t>placing individual characters in position on the page,
+	    such as saying "put an 'F' here", then "put an 'T' before
+	    it", then "put an 'E' before that", then "put an 'I'
+	    before that" to render the word 'IETF'
 	    </t>
-	    <t>placing words in position on the page, such as keeping the word 'IETF' would be kept together,
+
+	    <t>placing words in position on the page, such as keeping
+	    the word 'IETF' would be kept together,
+
 	    and</t>
-	    <t>using higher-level constructs for sets of words,
-	    such as keeping the sentence 'The Internet Engineering Task Force (IETF) supports the Internet.' together as a sentence.</t>
+
+	    <t>using higher-level constructs for sets of words, such
+	    as keeping the sentence 'The Internet Engineering Task
+	    Force (IETF) supports the Internet.' together as a
+	    sentence.</t>
+
 	  </list>
-	  All of these end up with the same visual representation of the output.
-	  However, each level has trade offs for auxiliary usage of the format.
-	  For example, the higher-level construct would allow you to search for the word "IETF" or 
-	  phrases including the word "IETF"", 
-	  whereas using word placement would only allow you to search for "IETF", 
-	  and the other representations would not easily support search at all.
-	  As another example, when using an annotation tool to review a PDF file, it is harder to place a comment
-	  on a location within an image compared to attaching a comment to a given word.
-	  Attaching a comment to a set of words (such as a bracketed set of words) is easier when using higher-level 
-	  constructs.
-	  Another example where higher-level constructs are needed are for accessibility purposes:
-	  text to speech needs the sentences to be presented as a whole and in the proper order.
+	  </t>
+	  <t>
+	  All of these end up with the same visual representation of
+	  the output.  However, each level has trade offs for
+	  auxiliary usage of the format.  For example, the
+	  higher-level construct would allow you to search for the
+	  word "IETF" or phrases including the word "IETF"", whereas
+	  using word placement would only allow you to search for
+	  "IETF", and the other representations would not easily
+	  support search at all.  As another example, when using an
+	  annotation tool to review a PDF file, it is harder to place
+	  a comment on a location within an image compared to
+	  attaching a comment to a given word.  Attaching a comment to
+	  a set of words (such as a bracketed set of words) is easier
+	  when using higher-level constructs.  Another example where
+	  higher-level constructs are needed are for accessibility
+	  purposes: text to speech needs the sentences to be presented
+	  as a whole and in the proper order.
 	</t>
 	<t>
 	  Requirement: ... TBD ...
 	</t>
+
+	<t>Use of PDF/UA addresses many of these issues directly. To
+	provide optimal reuse by software that does not understand
+	Tagged PDF, however, it is recommended that the PDF content
+	streams match the logical reading order of the document as
+	closely as possible.</t>
+
       </section>
 
       <section title='Unicode Support'>
@@ -325,46 +383,41 @@
 
       <section title='Tagged PDF'>
 	<t>
-	  ... say more about the use of alternative texts for images,
+	  NOTE: say more about the use of alternative texts for images,
 	  tagging text spans and giving them an ID,
 	  and
 	  providing replacement texts for symbols and images
-	  <vspace/>...<vspace/>
-	  hyperlinks within the document,
-	  hyperlinks to external locations,
-	  <vspace/>...<vspace/>
-	  Where should hyperlinks to RFCs point? to the info page for the RFC? to the PDF version of the RFC?
-	  (NOTE: the RFC Series Editor has stated a preference for them to point to the info page for the RFC.)
-	  <vspace/>...<vspace/>
-	  Similar questions need to be answered on references to internet drafts:
-	  Where should hyperlinks to internet drafts point? 
-	  To the datatracker entry? 
-	  To the tools entry?
-	  To a PDF version of the internet draft?
-	  <vspace/>...<vspace/>
 	  a role-map should be provided here to map the logical tags found in the RFC XML to the standard tagset 
 	  for PDF.  This would be included in the generated PDF.
 	</t>
       </section>
       <section title='Embedded Files'>
-	<section title='Extractable Code Segments and Artwork'>
-	  <t>
-	    It has been suggested that the source input for code
-	    segments (e.g., ABNF, C code, MIBs) be extractable from
-	    the PDF.  This capability might be supported through other
-	    mechanisms from the XML source files, but could also be
-	    supported within the PDF.  PDF/A-2 (based on PDF release
-	    1.7) allows for the embedding of some file formats, while
-	    PDF/A-3 adds support for arbitrary files to be embedded.
-	  </t>
-	</section>
+	<t>PDF has the capability of including other files;
+	(the files are labeled both by a media type and a 
+	purpose, the AFRelationship key.</t>
 	<section title='Extractable XML source'>
 	  <t>
 	    Another suggestion that has been made is that the XML
 	    input file itself could be embedded within the PDF.  This
 	    would make the PDF file totally self-referential.
 	  </t>
+	  <t>Recommendation: embed the XML. </t>
 	</section>
+
+	<section title='Extractable Code Segments and Artwork'>
+	  <t>
+	    It has been suggested that the source input for code
+	    segments (e.g., ABNF, C code, MIBs) be extractable from
+	    the PDF.  This capability might be supported through other
+	    mechanisms from the XML source files, but could also be
+	    supported within the PDF.
+	  </t>
+	  <t>
+	    Note that the PDF/A3 profile supports arbitrary files to
+	    be embedded.
+	  </t>
+	</section>
+	
       </section>
       <section title='Document Signatures'>
 	<t>
@@ -383,26 +436,116 @@
       </section>
     </section>
   </section>
+
   <section title='Tooling' anchor='tooling'>
-    <t>NOTE: This section will talk about tools for creating, manipulating, transforming PDF files, including those 
-    currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various 
-    processes.</t>
-    <t>during either phase: generation.</t>
-    <t>during I-D phase: xml2rfc, of course for authors. Copy from PDF files? Review and comment. Digital Signature 
-    tools. Comparing two PDF files (versions). </t>
-    <t>
-    During RFC publishing, xml2rdf. Editing of PDF to correct layout errors. Nits checking, checking conformance 
-    with PDF/a and PDF/ua.</t>
+
+    <t>NOTE: This section is incomplete. 
+    </t>
+
+    <t>This section will talk about tools for creating, manipulating,
+    transforming PDF files, including those currently in use by the
+    RFC editor and Internet drafts, as well as outlining available PDF
+    tools for various processes.</t>
+
+    <section title='PDF Viewers'>
+
+      <t>As with most file formats, PDF files are experienced
+      through a reader or viewer of PDF files. Through
+      most of the history of PDF, even when PDF was
+      a proprietary file format, there have been multiple
+      PDF viewers.
+      A list of PDF viewers can be found at 
+      <eref target='http://en.wikipedia.org/wiki/List_of_PDF_software#Viewers'/>
+      </t>
+
+      <t>PDF viewers vary in capabilities, and it is important to note
+      which PDF viewers support the features utilized in PDF RFCs ands
+      Internet drafts (features such as links, digital signatures,
+      Tagged PDF and others mentioned in <xref
+      target='requirements'/>).
+      </t>
+
+      <t>A survey of the IETF community might broaden the list
+      of viewers in common use, but an initial list to consider
+      include some that are currently maintained and supported
+      viewers and legacy systems. Maintained viewers:
+
+      <list style='hanging'>
+	<t hangText='Adobe Reader'>
+	Multiple platforms. Supports all of the features on most platforms.</t>
+	<t hangText='Google Chrome'>
+	  Multiple platforms. Web browser which includes PDF support.
+	  Supports some feaatures, although support for attachments...
+	</t>
+	<t hangText='PDF.js'>
+	  Multiple platforms. A JavaScript library to convert PDF
+	  files into HTML5, usable as a web-based viewer that can be
+	  included in web browsers. Used by Mozilla Firefox.
+	</t>
+	<t hangText='Foxit Reader'>
+	  Multiple platforms. PDF Viewer / Reader for Desktop computer and Mobile Devices.
+	</t>
+      </list>
+      </t>
+
+      <t>Several 'legacy' viewers to consider include:
+      Ghostview, Xpdf. 
+      </t>
     </section>
-    <section title='Picking a PDF Profile'>
-      <t>There are profiles of PDF for specific purposes: PDF/UA and PDFA3 etc.
-      </t>
-      <t>
-      	NOTE: add reasoning here about the recommendations. 
-      </t>
-      <t>Recommendation: use PDF/UA and also PDF/A3.
+    <section title='Printers'>
+      <t>While almost all viewers also support printing of
+      PDF files, printing is one of the most important use
+      cases for PDFs. Some printers have direct PDF
+      support. </t>
+    </section>
+    
+    <section title='PDF generation libraries'>
+      <t>Because the xml2rfc format is a unique format,
+      software for converting XML source documents to
+      the various formats will be needed, including
+      PDF generation.</t>
+      <t>Discuss Apache FOP.</t>
+      <t>Creation of PDF could proceed by converstion
+      from HTML, or direct generation.</t>
+      <t>NOTE: should focus on python PDF generation
+      because xml2rfc is in python?
       </t>
     </section>
+    
+    <section title='Other Tools'>
+    <t>In addition to generating and viewing PDF,
+    other categories of PDF tools are available
+    and may be useful both during specification
+    development and for published RFCs.
+    </t>
+    <t>In particular, there should be
+    validators that can be used to insure
+    that Internet Drafts and RFCs meet
+    the requirements established.</t>
+    </section>
+  </section>
+  <section title='Choosing a PDF Profile'>
+
+    <t>As noted in <xref target='profiles'/>, there are profiles of
+    PDF for specific purposes.  These profiles are constraints on the
+    PDF files that bundle several requirements.</t>
+    
+    <t>While a custom set of requirements are feasable, it is
+    effective and useful to use existing profiles to capture PDF
+    requirements, even if those profiles have greater requirements, as
+    it will make the PDF files useful in workflows that expect those
+    profiles.</t>
+
+    <t>In particular, we recommend, for RFCs, that the generated PDF
+    files be required to satisfy the PDF/X3 requirements, as these
+    capture the archivability and long-term stability of PDF files; we
+    simultaneously recommend RFCs implement the PDF/UA requirements,
+    as that profile addresses most of the requirements in <xref
+    target='internal'/> and will help insure the PDF file is usable
+    for a variety of conversion tasks and for accessibility.
+    </t>
+    </section>
+    
   </middle>
   <back>
     <!-- references title='Normative References'>
@@ -441,13 +584,14 @@
 	  previous versions of PDF.
 	  The wikipedia page at  <eref target='http://en.wikipedia.org/wiki/PDF'/> has a nice summary table going into further details.
 	</t>
-	<t>
-	  Certain profiles or subsets of PDF have been standardized.
-	  PDF/X (X for Exchange), PDF/A (A for Archive), PDF/E (E for Engineering), PDF/VT (VT for Variables and Transactions), and PDF/UA
-	  (UA for Universal Access) all have ISO standards associated with them.
-	  Of particular potential interest to the RFC community are PDF/A and PDF/UA.
-	</t>
-	<section title='PDF/A'>
+	<section title='PDF Profiles' anchor='profiles'>
+	  <t>
+	    Certain profiles or subsets of PDF have been standardized.
+	    PDF/X (X for Exchange), PDF/A (A for Archive), PDF/E (E for Engineering), PDF/VT (VT for Variables and Transactions), and PDF/UA
+	    (UA for Universal Access) all have ISO standards associated with them.
+	    Of particular potential interest to the RFC community are PDF/A and PDF/UA.
+	  </t>
+	  <section title='PDF/A'>
 	  <t>
 	    PDF/A in turn has nuances, as there have been a couple updates to it and conformance levels within each version.
 	    PDF/A-1 was based on PDF release 1.4.
@@ -467,6 +611,7 @@
 	    It places some restrictions on the other profiles, such as requiring the use of higher-level constructs for the textual representation
 	    and adds additional requirements for programatic access (think automatic readers for the blind).
 	  </t>
+	</section>
 	</section>
 	<section title='Additional Reading'>
 	  <t>
