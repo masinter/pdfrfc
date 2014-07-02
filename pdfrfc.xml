@@ -85,12 +85,14 @@
       choices, both for the RFC series and also Internet Drafts.</t>
 
       <t> The PDF format and the tools to manipulate it are
-      not as well known as those for other formats. This document
+      not as well known as those for the other RFC formats, at least
+      in the IETF community. This document
       discusses some of the processes for creating and using PDFs
       and both open source and commercial products.
       </t>
       <t>NOTE: see <eref target="https://github.com/masinter/pdfrfc"/> 
-      for XML source, related files, and an issue tracker.</t>
+      for XML source, related files, and an issue tracker for
+      this document.</t>
     </section>
     <section title='History and current use of PDF with RFCs and Internet Drafts'>
       <t>NOTE: this section is meant as an overview
@@ -157,14 +159,15 @@
 	  <list style='hanging'>
 	    <t hangText='Page size'>
 	      US Letter page size, but margins chosen so it will
-	      print and look good on A4 paper.
+	      print and look good on (the slightly larger) A4 paper
+	      size.
 	    </t>
 	    <t hangText='Margins'>
 	      The smallest margin consistent with above requirements.
 	    </t>
 	    <t hangText='Headings'>
 	      The same information from the text version
-	      of the document, but set in a smaller font
+	      of the document, but set in a larger font
 	      in a lighter color.
 	    </t>
 	  </list>
@@ -283,7 +286,7 @@
 	    <t>Metadata</t>
 	    <t>Document Structure</t>
 	    <t>Tagged PDF</t>
-	    <t>Extractable Sections</t>
+	    <t>Extractable Content</t>
 	    <t>Document Signatures</t>
 	</list>
 	</t>
@@ -331,27 +334,29 @@
 	  purposes: text to speech needs the sentences to be presented
 	  as a whole and in the proper order.
 	</t>
+
 	<t>
-	  Requirement: ... TBD ...
-	</t>
-
-	<t>Use of PDF/UA addresses many of these issues directly. To
-	provide optimal reuse by software that does not understand
-	Tagged PDF, however, it is recommended that the PDF content
-	streams match the logical reading order of the document as
-	closely as possible.</t>
-
+	  Recommendation: text in content streams should follow the
+	  XML document's logical order (as specified in the order of
+	  tags) to the extent possible.  This will provide optimal
+	  reuse by software that does not understand Tagged PDF. Use
+	  of PDF/UA addresses many of the other issues directly.</t>
       </section>
 
       <section title='Unicode Support'>
 	<t>
-	  Unicode is being fully supported, so the RFC PDF format must similarly have full support for Unicode.
-	  While Unicode is not required by PDF, certain PDF profiles require its support.
+	  Unicode is being fully supported, so the RFC PDF format must
+	  similarly have full support for Unicode.  While Unicode is
+	  not required by PDF, certain PDF profiles (PDF/UA and
+	  PDF/A-2u and PDF/A-3u) require its support.
 	</t>
 	<t>
-	  Requirement: PDF files generated must have the full text, exactly as it appears in the original XML 
-	  for text, or within SVG for images.
-	  (NOTE: What about text in image illustrations?)
+	  
+	  Requirement: PDF files generated must have the full text,
+	  exactly as it appears in the original XML for text, or
+	  within SVG for SVG images. Raster images should have
+	  alt-text in the PDF. (NOTE: perhaps a separate section
+	  on alt-text?).
 	</t>
       </section>
       <section title='Metadata Support'>
@@ -370,25 +375,34 @@
 	</t>
       </section>
       <section title='Document Structure Support'>
+	<t>PDF supports an 'outline' feature where sections of the
+	document are marked; this oould be used in addition to the
+	table of contents as a navigation aid.</t>
 	<t>
-	  The section structure of an RFC can be mapped into the PDF elements for the document structure.
-	  This will allow the bookmark feature of PDF readers to be used to quickly access sections of the document.
+	  The section structure of an RFC can be mapped into the PDF
+	  elements for the document structure. 
+
+	  This will allow the
+	  bookmark feature of PDF readers to be used to quickly access
+	  sections of the document.
 	</t>
 	<t>
-	  Requirement: The section structure of an RFC must be mapped into the PDF elements for the document structure.
-	  This would include section headings for the boilerplate sections such as the Abstract, Status of the Document,
-	  Table of Contents, and Author Addresses.
+	  Requirement: The section structure of an RFC should be
+	  mapped into the PDF elements for the document structure.
+	  This would include section headings for the boilerplate
+	  sections such as the Abstract, Status of the Document, Table
+	  of Contents, and Author Addresses.
 	</t>
       </section>
 
       <section title='Tagged PDF'>
 	<t>
-	  NOTE: say more about the use of alternative texts for images,
-	  tagging text spans and giving them an ID,
-	  and
-	  providing replacement texts for symbols and images
-	  a role-map should be provided here to map the logical tags found in the RFC XML to the standard tagset 
-	  for PDF.  This would be included in the generated PDF.
+	  NOTE: say more about the use of alternative texts for
+	  images, tagging text spans and giving them an ID, and
+	  providing replacement texts for symbols and images.  A
+	  role-map could be provided here to map the logical tags
+	  found in the RFC XML to the standard tagset for PDF.  This
+	  could be included in the generated PDF.
 	</t>
       </section>
       <section title='Embedded Files'>
@@ -421,10 +435,14 @@
       </section>
       <section title='Document Signatures'>
 	<t>
-	  PDF has supported file signatures since PDF 1.2.  It has
+	  PDF has supported digital signatures since PDF 1.2.  It has
 	  been suggested that the PDF files be signed by the RFC
 	  Editor on creation.  This would allow the signatures to be
 	  authenticated.
+	</t>
+	<t>Digital signatures of PDF files are different from
+	digital signatures of XML in that the signature is intended
+	to apply not only to the 'data' but also of the presentation.s
 	</t>
 	<t>
 	  Recommendation: The RFC PDF documents created by the RFC
@@ -504,7 +522,7 @@
       software for converting XML source documents to
       the various formats will be needed, including
       PDF generation.</t>
-      <t>Discuss Apache FOP.</t>
+      <t>NOTE: Discuss Apache FOP.</t>
       <t>Creation of PDF could proceed by converstion
       from HTML, or direct generation.</t>
       <t>NOTE: should focus on python PDF generation
@@ -513,15 +531,15 @@
     </section>
     
     <section title='Other Tools'>
-    <t>In addition to generating and viewing PDF,
-    other categories of PDF tools are available
-    and may be useful both during specification
-    development and for published RFCs.
+    <t>In addition to generating and viewing PDF, other categories of
+    PDF tools are available and may be useful both during
+    specification development and for published RFCs.
     </t>
-    <t>In particular, there should be
-    validators that can be used to insure
-    that Internet Drafts and RFCs meet
-    the requirements established.</t>
+    <t>These include tools for comparing two PDFs, checkers that could
+    be used to validate the results of converstion.  If all PDF
+    internet drafts and RFCs are generated by conversion from XML via
+    xml2rfc, then explicit validation of PDF and adherance to expected
+    profiles is more important as xml2rfc test suite.</t>
     </section>
   </section>
   <section title='Choosing a PDF Profile'>
