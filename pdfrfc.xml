@@ -635,10 +635,10 @@
   
 </middle>
 <back>
-    <references title='Normative References'>
-      <!-- ?rfc include='reference.ISO.32000-1.2008' ?> -->
-      <reference anchor="PDF">
-	<front>
+  <references>
+    <!-- ?rfc include='reference.ISO.32000-1.2008' ? -->
+    <reference anchor="PDF">
+      <front>
 	  <title>
 	    Portable document format -- Part 1: PDF 1.7
 	  </title>
@@ -651,7 +651,7 @@
 	<annotation>Also available free from Adobe.</annotation>
       </reference>
 
-      <!-- ?rfc include='reference.ISO.16684-1.2012' ?> XMP -->
+      <!-- rfc include='reference.ISO.16684-1.2012' XMP -->
       <reference anchor="XMP">
 	<front>
 	  <title>Extensible metadata platform (XMP) specification --
@@ -668,7 +668,7 @@
 	</annotation>	
       </reference>
 
-      <!-- ?rfc include='reference.ISO.19005-2.2012' ?> PDF/A2 -->
+      <!-- rfc include='reference.ISO.19005-2.2012' PDF/A2 -->
       <reference anchor="PDFA2">
 	<front>
 	  <title>Electronic document file format for long-term
@@ -680,7 +680,7 @@
 	<seriesInfo name="ISO" value="19005-2" />
       </reference>
 
-      <!-- ?rfc include='reference.ISO.19005-3.2012' ?> PDF/A3 -->
+      <!-- rfc include='reference.ISO.19005-3.2012' PDF/A3 -->
       <reference anchor="PDFA3">
 	<front>
 	  <title>Electronic document file format for long-term
@@ -693,7 +693,7 @@
 	<seriesInfo name="ISO" value="19005-3" />
       </reference>
 
-      <!-- ?rfc include='reference.ISO.14289-1.2012' ?> PDF/UA -->
+      <!-- rfc include='reference.ISO.14289-1.2012' PDF/UA -->
       <reference anchor="PDFUA">
 	<front>
 	  <title>Electronic document file format enhancement for
@@ -705,14 +705,10 @@
 	<seriesInfo name="ISO" value="19005-3" />
       </reference>
 
-      simultaneously recommend RFCs implement the PDF/UA requirements,
-    as that profile addresses most of the requirements in <xref
-    target='internal'/> and will help insure the PDF file is usable
-    for a variety of conversion tasks and for accessibility.
-
-
-    </references>
-    <references title='Informative References'>
+<!-- screwy references
+        </references>
+        <references title='Informative References'>
+-->
       <?rfc include='reference.RFC.3778' ?>
       <?rfc include='reference.RFC.6949' ?>
 
