@@ -639,85 +639,82 @@
     <!-- ?rfc include='reference.ISO.32000-1.2008' ? -->
     <reference anchor="PDF">
       <front>
-	  <title>
-	    Portable document format -- Part 1: PDF 1.7
-	  </title>
+	<title>
+	  Portable document format -- Part 1: PDF 1.7
+	</title>
 	  <author>
-	    <organization/>
+	    <organization>ISO</organization>
 	  </author>
 	  <date month="" year="2008"/>
-	</front>
-	<seriesInfo name="ISO" value="32000-1"/>
-	<annotation>Also available free from Adobe.</annotation>
-      </reference>
-
-      <!-- rfc include='reference.ISO.16684-1.2012' XMP -->
-      <reference anchor="XMP">
-	<front>
-	  <title>Extensible metadata platform (XMP) specification --
-	  Part 1: Data model, serialization and core properties
-	  </title>
-	  <author><organization/></author>
-	  <date year="2012"/>
-	</front>
-	<seriesInfo name="ISO" value="16684-1"/>
-	<annotation>Not available free, but there
-	are a number of descriptive resources, e.g.,
-	<eref 
-	 target="http://en.wikipedia.org/wiki/Extensible_Metadata_Platform"/>
-	</annotation>	
-      </reference>
-
-      <!-- rfc include='reference.ISO.19005-2.2012' PDF/A2 -->
-      <reference anchor="PDFA2">
-	<front>
-	  <title>Electronic document file format for long-term
-	  preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2).
-	  </title>
-	  <author><organization/></author>
-	  <date year="2011" />
+      </front>
+      <seriesInfo name="ISO" value="32000-1"/>
+      <annotation>Also available free from Adobe.</annotation>
+    </reference>
+    
+    <!-- rfc include='reference.ISO.16684-1.2012' XMP -->
+    <reference anchor="XMP">
+      <front>
+	<title>Extensible metadata platform (XMP) specification --
+	Part 1: Data model, serialization and core properties
+	</title>
+	<author><organization>ISO</organization></author>
+	<date month="" year="2012"/>
+      </front>
+      <seriesInfo name="ISO" value="16684-1"/>
+      <annotation>Not available free, but there
+      are a number of descriptive resources, e.g.,
+      <eref 
+	  target="http://en.wikipedia.org/wiki/Extensible_Metadata_Platform"/>
+      </annotation>	
+    </reference>
+    
+    <!-- rfc include='reference.ISO.19005-2.2012' PDF/A2 -->
+    <reference anchor="PDFA2">
+      <front>
+	<title>Electronic document file format for long-term
+	preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2).
+	</title>
+	<author><organization>ISO</organization></author>
+	<date month="" year="2011" />
 	</front>
 	<seriesInfo name="ISO" value="19005-2" />
-      </reference>
+    </reference>
 
-      <!-- rfc include='reference.ISO.19005-3.2012' PDF/A3 -->
-      <reference anchor="PDFA3">
-	<front>
-	  <title>Electronic document file format for long-term
-	  preservation -- Part 3: Use of ISO 32000-1 with support for
-	  embedded files (PDF/A-3)
-	  </title>
-	  <author><organization/></author>
-	  <date year="2012" />
-	</front>
-	<seriesInfo name="ISO" value="19005-3" />
-      </reference>
+    <!-- rfc include='reference.ISO.19005-3.2012' PDF/A3 -->
+    <reference anchor="PDFA3">
+      <front>
+	<title>Electronic document file format for long-term
+	preservation -- Part 3: Use of ISO 32000-1 with support for
+	embedded files (PDF/A-3)
+	</title>
+	<author><organization>ISO</organization></author>
+	<date month="" year="2012" />
+      </front>
+      <seriesInfo name="ISO" value="19005-3" />
+    </reference>
 
-      <!-- rfc include='reference.ISO.14289-1.2012' PDF/UA -->
-      <reference anchor="PDFUA">
-	<front>
+    <!-- rfc include='reference.ISO.14289-1.2012' PDF/UA -->
+    <reference anchor="PDFUA">
+      <front>
 	  <title>Electronic document file format enhancement for
 	  accessibility -- Part 1: Use of ISO 32000-1
 	  (PDF/UA-1)</title>
-	  <author><organization/></author>
-	  <date year="2012" />
-	</front>
+	  <author><organization>ISO</organization></author>
+	  <date month="" year="2012" />
+      </front>
 	<seriesInfo name="ISO" value="19005-3" />
-      </reference>
-
-<!-- screwy references
-        </references>
-        <references title='Informative References'>
--->
-      <?rfc include='reference.RFC.3778' ?>
-      <?rfc include='reference.RFC.6949' ?>
-
-    </references>
-    <section title='A Synopsis of PDF Format History' anchor='pdf-history'>
-	<t>
-	  <xref target='RFC3778'/> contains some history of PDF.
-	  This is a capsule view, plus additional information on events that have occurred since the publication 
-	  of <xref target='RFC3778'/>. NOTE: currently doesn't talk about the handoff of change control to ISO 
+    </reference>
+  </references>
+  <references title='Informative References'>
+    <?rfc include='reference.RFC.3778' ?>
+    <?rfc include='reference.RFC.6949' ?>
+    
+  </references>
+  <section title='A Synopsis of PDF Format History' anchor='pdf-history'>
+    <t>
+      <xref target='RFC3778'/> contains some history of PDF.
+      This is a capsule view, plus additional information on events that have occurred since the publication 
+      of <xref target='RFC3778'/>. NOTE: currently doesn't talk about the handoff of change control to ISO 
 	  and the evolution as an ISO standard 32000. Plans are to update the application/pdf MIME registration 
 	  to include this information, and then point to that.
 	</t>
