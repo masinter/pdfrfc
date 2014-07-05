@@ -1,0 +1,917 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard%20http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>PDF for an RFC Series Output Document Format</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";3
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.2" rel="Chapter" title="2 History and current use of PDF with RFCs and Internet Drafts">
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 RFCs">
+<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Internet Drafts">
+<link href="#rfc.section.3" rel="Chapter" title="3 Options and Requirements for PDF RFCs">
+<link href="#rfc.section.3.1" rel="Chapter" title='3.1 "Visible" requirements'>
+<link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 General visible requirements">
+<link href="#rfc.section.3.1.2" rel="Chapter" title="3.1.2 Page size, margins, headings">
+<link href="#rfc.section.3.1.3" rel="Chapter" title="3.1.3 Similarity to other outputs">
+<link href="#rfc.section.3.1.4" rel="Chapter" title="3.1.4 Typeface choices">
+<link href="#rfc.section.3.1.5" rel="Chapter" title="3.1.5 Hyperlinks">
+<link href="#rfc.section.3.2" rel="Chapter" title='3.2 "Invisible" options and requirements'>
+<link href="#rfc.section.3.2.1" rel="Chapter" title="3.2.1 Internal Text Representation">
+<link href="#rfc.section.3.2.2" rel="Chapter" title="3.2.2 Unicode Support">
+<link href="#rfc.section.3.2.3" rel="Chapter" title="3.2.3 Text description of images (alt-text)">
+<link href="#rfc.section.3.2.4" rel="Chapter" title="3.2.4 Metadata Support">
+<link href="#rfc.section.3.2.5" rel="Chapter" title="3.2.5 Document Structure Support">
+<link href="#rfc.section.3.2.6" rel="Chapter" title="3.2.6 Tagged PDF">
+<link href="#rfc.section.3.2.7" rel="Chapter" title="3.2.7 Embedded Files">
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Digital Signatures">
+<link href="#rfc.section.4" rel="Chapter" title="4 Tooling">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 PDF Viewers">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Printers">
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 PDF generation libraries">
+<link href="#rfc.section.4.4" rel="Chapter" title="4.4 Other Tools">
+<link href="#rfc.section.5" rel="Chapter" title="5 Choosing PDF versions and standards">
+<link href="#rfc.references" rel="Chapter" title="6 References">
+<link href="#rfc.references.1" rel="Chapter" title="6.1 References">
+<link href="#rfc.references.2" rel="Chapter" title="6.2 Informative References">
+<link href="#rfc.appendix.Appendix%20A" rel="Chapter" title="Appendix A A Synopsis of PDF Format History">
+<link href="#rfc.appendix.Appendix%20A.1" rel="Chapter" title="Appendix A.1 PDF Profiles">
+<link href="#rfc.appendix.Appendix%20A.1.1" rel="Chapter" title="Appendix A.1.1 PDF/A">
+<link href="#rfc.appendix.Appendix%20A.1.2" rel="Chapter" title="Appendix A.1.2 PDF/UA">
+<link href="#rfc.appendix.Appendix%20A.2" rel="Chapter" title="Appendix A.2 Additional Reading">
+<link href="#rfc.appendix.Appendix%20B" rel="Chapter" title="Appendix B Acknowledgements">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content=
+  "http://greenbytes.de/tech/webdav/rfc2629.xslt, Revision 1.539, 2011-01-02 17:13:00, XSLT vendor: SAXON 6.5.5 from Michael Kay http://saxon.sf.net/" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+  <meta name="dct.creator" content="Doe, J." />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-sample-input-00" />
+  <meta name="dct.issued" scheme="ISO8601" content="2010-12" />
+  
+  <meta name="dct.abstract" content="This document discusses options and requirements for the PDF rendering of RFCs in the RFC Series, as outlined in RFC 6949. It also discusses the use of PDF for Internet Drafts, and available or needed software tools for producing and working with PDF.  " />
+  <meta name="description" content="This document discusses options and requirements for the PDF rendering of RFCs in the RFC Series, as outlined in RFC 6949. It also discusses the use of PDF for Internet Drafts, and available or needed software tools for producing and working with PDF.  " />
+  <meta name="keywords" content="Requests for Comment" />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">Network Working Group</td>
+<td class="right">T. Hansen, Ed.</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">AT&amp;T Laboratories</td>
+</tr>
+<tr>
+<td class="left">Intended status: Informational</td>
+<td class="right">L. Masinter</td>
+</tr>
+<tr>
+<td class="left">Expires: January 02, 2015</td>
+<td class="right">M. Hardy</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">Adobe Systems</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">July 03, 2014</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">PDF for an RFC Series Output Document Format<br />
+  <span class="filename">draft-hansen-rfc-use-of-pdf-01</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>This document discusses options and requirements for the PDF rendering of RFCs in the RFC Series, as outlined in RFC 6949. It also discusses the use of PDF for Internet Drafts, and available or needed software tools for producing and working with PDF.  </p>
+<h1 id="rfc.status"><a href="#rfc.status">Status of this Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet- Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on January 02, 2015.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2014 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>2.   <a href="#rfc.section.2">History and current use of PDF with RFCs and Internet Drafts</a>
+</li>
+<li>2.1.   <a href="#rfc.section.2.1">RFCs</a>
+</li>
+<li>2.2.   <a href="#rfc.section.2.2">Internet Drafts</a>
+</li>
+<li>3.   <a href="#rfc.section.3">Options and Requirements for PDF RFCs</a>
+</li>
+<li>3.1.   <a href="#rfc.section.3.1">"Visible" requirements</a>
+</li>
+<li>3.1.1.   <a href="#rfc.section.3.1.1">General visible requirements</a>
+</li>
+<li>3.1.2.   <a href="#rfc.section.3.1.2">Page size, margins, headings</a>
+</li>
+<li>3.1.3.   <a href="#rfc.section.3.1.3">Similarity to other outputs</a>
+</li>
+<li>3.1.4.   <a href="#rfc.section.3.1.4">Typeface choices</a>
+</li>
+<li>3.1.5.   <a href="#rfc.section.3.1.5">Hyperlinks</a>
+</li>
+<li>3.2.   <a href="#rfc.section.3.2">"Invisible" options and requirements</a>
+</li>
+<li>3.2.1.   <a href="#rfc.section.3.2.1">Internal Text Representation</a>
+</li>
+<li>3.2.2.   <a href="#rfc.section.3.2.2">Unicode Support</a>
+</li>
+<li>3.2.3.   <a href="#rfc.section.3.2.3">Text description of images (alt-text)</a>
+</li>
+<li>3.2.4.   <a href="#rfc.section.3.2.4">Metadata Support</a>
+</li>
+<li>3.2.5.   <a href="#rfc.section.3.2.5">Document Structure Support</a>
+</li>
+<li>3.2.6.   <a href="#rfc.section.3.2.6">Tagged PDF</a>
+</li>
+<li>3.2.7.   <a href="#rfc.section.3.2.7">Embedded Files</a>
+</li>
+<li>3.3.   <a href="#rfc.section.3.3">Digital Signatures</a>
+</li>
+<li>4.   <a href="#rfc.section.4">Tooling</a>
+</li>
+<li>4.1.   <a href="#rfc.section.4.1">PDF Viewers</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">Printers</a>
+</li>
+<li>4.3.   <a href="#rfc.section.4.3">PDF generation libraries</a>
+</li>
+<li>4.4.   <a href="#rfc.section.4.4">Other Tools</a>
+</li>
+<li>5.   <a href="#rfc.section.5">Choosing PDF versions and standards</a>
+</li>
+<li>6.   <a href="#rfc.references">References</a>
+</li>
+<li>6.1.   <a href="#rfc.references.1">References</a>
+</li>
+<li>6.2.   <a href="#rfc.references.2">Informative References</a>
+</li>
+<li>Appendix A.   <a href="#rfc.appendix.Appendix%20A">A Synopsis of PDF Format History</a>
+</li>
+<li>Appendix A.1.   <a href="#rfc.appendix.Appendix%20A.1">PDF Profiles</a>
+</li>
+<li>Appendix A.1.1.   <a href="#rfc.appendix.Appendix%20A.1.1">PDF/A</a>
+</li>
+<li>Appendix A.1.2.   <a href="#rfc.appendix.Appendix%20A.1.2">PDF/UA</a>
+</li>
+<li>Appendix A.2.   <a href="#rfc.appendix.Appendix%20A.2">Additional Reading</a>
+</li>
+<li>Appendix B.   <a href="#rfc.appendix.Appendix%20B">Acknowledgements</a>
+</li>
+<li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> Introduction</h1>
+<p id="rfc.section.1.p.1">The RFC Series is evolving, as outlined in <a href="#RFC6949">[RFC6949]</a>. Future documents will use an archival format of XML with renderings in various formats, including PDF.  </p>
+<p id="rfc.section.1.p.2">Becuase PDF has a wide range of capabilities and alternatives, not all PDFs are "equal".  For example, visually similar documents could consist of scanned or rasterized images, include text layout options, hyperlinks, embedded fonts, and digital signatures.  (See <a href="#pdf-history">Appendix Appendix A</a> for a brief history of PDF.) </p>
+<p id="rfc.section.1.p.3">This document explains some of the relevant options and makes recommendations, both for the RFC series and Internet Drafts.</p>
+<p id="rfc.section.1.p.4">The PDF format and the tools to manipulate it are not as well known as those for the other RFC formats, at least in the IETF community. This document discusses some of the processes for creating and using PDFs using both open source and commercial products.  </p>
+<p id="rfc.section.1.p.5">NOTE: see <a href="https://github.com/masinter/pdfrfc">https://github.com/masinter/pdfrfc</a> for XML source, related files, and an issue tracker for this document.</p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> History and current use of PDF with RFCs and Internet Drafts</h1>
+<p id="rfc.section.2.p.1">NOTE: this section is meant as an overview to give some background.</p>
+<h1 id="rfc.section.2.1">
+<a href="#rfc.section.2.1">2.1.</a> RFCs</h1>
+<p id="rfc.section.2.1.p.1">The RFC series has for a long time accepted Postscript renderings of RFCs, either in addition to or instead of the text renderings of those same RFCs.  These have usually been produced when there was a complicated figure or mathematics within the document.  For example, consider the figures and mathematics found in RFCs 1119 and RFC 1142, and compare the figures found in the text version of RFC 3550 with those in the Postscript version.  The RFC editor has provided a PDF rendering of RFCs. Usually, this has been a print of the text file that does not take advantage of any of the broader PDF functionality, unless there was a Postscript version of the RFC, which would then be used by the RFC editor to generate the PDF.  </p>
+<h1 id="rfc.section.2.2">
+<a href="#rfc.section.2.2">2.2.</a> Internet Drafts</h1>
+<p id="rfc.section.2.2.p.1">In addition to PDFs generated and published by the RFC editor, the IETF tools community has also long supported PDF for Internet Drafts.  Most RFCs start with Internet Drafts, edited by individual authors.  The Internet drafts submission tool at https://datatracker.ietf.org/submit/ accepts PDF and Postscript files in addition to the (required) text submission and (currently optional) XML.  If a PDF wasn't submitted for a particular version of an Internet Draft, the tools would generate one from the Postscript, HTML, or text.</p>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> <a href="#requirements" id="requirements">Options and Requirements for PDF RFCs</a>
+</h1>
+<p id="rfc.section.3.p.1">This section lays out options and requirements for PDFs produced by the RFC editor for RFCs. There are two sections: "Visible" options are related to how the PDF appears when it is viewed with a PDF viewer. "Internal Structure" options affect the ability to process PDFs in other ways, but do not control the way the document appears. (Of course, a viewer UI might display processing capabilities, such as showing if a document has been digitally signed.)</p>
+<p id="rfc.section.3.p.2">In many cases, the choice of PDF requirements is heavily influenced by the capabilities of available tools to create PDFs. Most of the discussion of tooling is to be found in <a href="#tooling">Section 4</a>.</p>
+<p id="rfc.section.3.p.3">NOTE: each option in this section should outline the nature of the design choice, outline the pros and cons, and make a recommendation.</p>
+<h1 id="rfc.section.3.1">
+<a href="#rfc.section.3.1">3.1.</a> "Visible" requirements</h1>
+<p id="rfc.section.3.1.p.1">PDF supports rich visible layout of fixed-sized pages.  </p>
+<h1 id="rfc.section.3.1.1">
+<a href="#rfc.section.3.1.1">3.1.1.</a> General visible requirements</h1>
+<p id="rfc.section.3.1.1.p.1">For a consistent 'look' of RFC and good style, the PDFs produced by the RFC editor should have a clear, consistent, identifiable and easy-to-read style. They should print well on the widest range of printers, and look good on displays of varying resolution.</p>
+<h1 id="rfc.section.3.1.2">
+<a href="#rfc.section.3.1.2">3.1.2.</a> Page size, margins, headings</h1>
+<p id="rfc.section.3.1.2.p.1">PDF files are laid out for a particular size of page, margins, and any headers and footers as part of the layout. Recommendations or ideas for further study: </p>
+
+<dl>
+<dt>Page size</dt>
+<dd style="margin-left: 8">US Letter page size, but margins chosen so it will print and look good on (the slightly taller but narrower) A4 paper size.  </dd>
+<dt>Margins</dt>
+<dd style="margin-left: 8">The smallest margin consistent with above requirements.  </dd>
+<dt>Headings</dt>
+<dd style="margin-left: 8">The same information from the text version of the document, but set in a larger font in a lighter color.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.3.1.3">
+<a href="#rfc.section.3.1.3">3.1.3.</a> Similarity to other outputs</h1>
+<p id="rfc.section.3.1.3.p.1">There is some advantage to having the PDF files look like the text or HTML renderings of the same document.  There are several options even so. The PDF </p>
+
+<ol>
+<li>could look like the text version of the document, or</li>
+<li>could look like the text version of the document but with pictures rendered as pictures instead of using their ASCII-art equivalent, or</li>
+<li>could look like the HTML version.</li>
+</ol>
+
+<p> (Note that numbers 1 and 2 are what are currently produced by the RFC Editor on their web site.) </p>
+<p id="rfc.section.3.1.3.p.2">Recommendation: the PDF rendition should look like the HTML rendition, at least in spirit.  For example, some differences from the HTML rendition might be: </p>
+
+<ul class="empty">
+<li>The typeface and size for printing needs be chosen.  </li>
+<li>Whether the table of contents contains page numbers needs to be decided.  </li>
+<li>Whether page footers and headers are generated needs to be decided.  </li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.3.1.4">
+<a href="#rfc.section.3.1.4">3.1.4.</a> Typeface choices</h1>
+<p id="rfc.section.3.1.4.p.1">A PDF may refer to a font by name, or it may use an embedded font.  When a font is not embedded, a PDF viewer will attempt to locate a locally installed font of the same name.  If it can not find an exact match, it will find a "close match".  If a close match is not available, it will fallback to something implementation dependent and usually undesirable.</p>
+<p id="rfc.section.3.1.4.p.2">Recommendation: for consistent viewing, all fonts should be embedded.  </p>
+<p id="rfc.section.3.1.4.p.3">In addition, if the HTML version of the document is being visually mimiced, the font(s) chosen should have both variable width and constant width components, as well as bold and italic representations.</p>
+<p id="rfc.section.3.1.4.p.4">The typefaces used by Internet Drafts and by RFCs need not be identical. </p>
+<p id="rfc.section.3.1.4.p.5">Few fonts have glyphs for the entire repertoire of Unicode characters; for this purpose, the PDF generation tool may need a set of fonts and a way of choosing them.</p>
+<p id="rfc.section.3.1.4.p.6">Typefaces are typically licensed and, in many cases, there is a fee for use by PDF creation tools; however, not for display or print of the embedded fonts.  </p>
+<p id="rfc.section.3.1.4.p.7">Recommendations: </p>
+
+<ul>
+<li>For readability when printed, the main body text should be in a serif font and the headings in a sans-serif font. </li>
+<li>Code, BNF, and other text could use a fixed-width font to aid in insuring alignment, e.g., in BNF.</li>
+<li>Type faces used by the xml2rfc application for Internet drafts should be freely available, and included with the xml2rfc application. </li>
+<li>The range of Unicode characters allowed in the XML source for Internet Drafts and RFCs may be bounded by the availability of embeddable fonts with appropriate glyphs.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.1.4.p.8">The PDF/A and PDF/UA standards mandate the embedding of fonts. Preferably, the software generating the files would produce PDF/A-conforming files directly, thus ensuring that all glyphs include Unicode mappings and embedded fonts from the outset.</p>
+<h1 id="rfc.section.3.1.5">
+<a href="#rfc.section.3.1.5">3.1.5.</a> Hyperlinks</h1>
+<p id="rfc.section.3.1.5.p.1">PDF supports hyperlinks both to sections of the same document and to other documents.</p>
+<p id="rfc.section.3.1.5.p.2">The XML2RFC conversion can generate: </p>
+
+<ul>
+<li>hyperlinks within the document</li>
+<li>hyperlinks to external locations</li>
+<li>hyperlinks within a table of contents</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.1.5.p.3">Where should hyperlinks to RFCs point? to the info page for the RFC? to the PDF version of the RFC?  (NOTE: the RFC Series Editor has stated a preference for them to point to the info page for the RFC.)  Similar questions need to be answered on references to internet drafts: Where should hyperlinks to internet drafts point?  To the datatracker entry?  To the tools entry?  To a PDF version of the internet draft?</p>
+<p id="rfc.section.3.1.5.p.4">Recommendations: </p>
+
+<ul>
+<li>All hyperlinks available in the HTML rendition of the RFC should also be visible and active in the PDF produced.</li>
+<li>Table of contents, including page numbers, are useful when printed. These should be hyperelinked.</li>
+<li>Hyperlinks to RFCs and Internet drafts from the references section should point to a "landing" page which then links to the various formats available.</li>
+</ul>
+<h1 id="rfc.section.3.2">
+<a href="#rfc.section.3.2">3.2.</a> "Invisible" options and requirements</h1>
+<p id="rfc.section.3.2.p.1">PDF offers a number of features which improve the utility of PDF files in a variety of workflows, at the cost of extra effort in the xml2rfc conversion process; the tradeoffs may be different for the RFC editor production of RFCs and for Internet Drafts.</p>
+<h1 id="rfc.section.3.2.1">
+<a href="#rfc.section.3.2.1">3.2.1.</a> <a href="#internal" id="internal">Internal Text Representation</a>
+</h1>
+<p id="rfc.section.3.2.1.p.1">The contents of a PDF file can be represented in many ways.  The PDF file could be generated: </p>
+
+<ul>
+<li>as an image of the visual representation, such as a JPEG image of the word 'IETF'</li>
+<li>placing individual characters in position on the page, such as saying "put an 'F' here", then "put an 'T' before it", then "put an 'E' before that", then "put an 'I' before that" to render the word 'IETF'</li>
+<li>placing words in position on the page, such as keeping the word 'IETF' would be kept together, and</li>
+<li>insuring that the running order of text in the content stream matches logical reading order, e.g., keeping the sentence 'The Internet Engineering Task Force (IETF) supports the Internet.' together as a sentence.</li>
+<li>A "role map" feature of PDF would allow mapping the logical tags found in the original XML into tags in the PDF.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.2.1.p.2">All of these end up with essentially the same visual representation of the output.  However, each level has tradeoffs for auxiliary uses, such as searching or indexing, commenting and annotation, and accessibility (text-to-speech).</p>
+<p id="rfc.section.3.2.1.p.3">Recommendations: </p>
+
+<ul>
+<li>text in content streams should follow the XML document's logical order (in the order of tags) to the extent possible.  This will provide optimal reuse by software that does not understand Tagged PDF.  (PDF/UA requires this.)</li>
+<li>We should investigate the use of role-maps to capture more of the xml2rfc source structure, to the point where it might even be possible to reconstruct much or all of the source. However, there is not a compelling use case over embedding the original XML, as described in <a href="#embedXML">Section 3.2.7</a>. </li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.3.2.2">
+<a href="#rfc.section.3.2.2">3.2.2.</a> Unicode Support</h1>
+<p id="rfc.section.3.2.2.p.1">PDF itself does not require use of Unicode.  Text is represented as a sequence of glyphs which then can be mapped to Unicode. </p>
+<p id="rfc.section.3.2.2.p.2">Recommendations: </p>
+
+<ul class="empty">
+<li>PDF files generated must have the full text, as it appears in the original XML.</li>
+<li>Unicode normalization may occur.</li>
+<li>Text within SVG for SVG images should also have Unicode mappings.</li>
+<li>Alt-text for  images should also have Unicode.</li>
+</ul>
+<h1 id="rfc.section.3.2.3">
+<a href="#rfc.section.3.2.3">3.2.3.</a> Text description of images (alt-text)</h1>
+<p id="rfc.section.3.2.3.p.1">NOTE: This section should describe how alt-text for images is presented in PDF....TBD</p>
+<h1 id="rfc.section.3.2.4">
+<a href="#rfc.section.3.2.4">3.2.4.</a> Metadata Support</h1>
+<p id="rfc.section.3.2.4.p.1">Metadata encodes information about the document authors, the document series, date created, etc. using the RDF Dublin core (and other elements).  Having this metadata within the PDF file allows it to be used by search engines, viewers and other reuse tools.  </p>
+<p id="rfc.section.3.2.4.p.2">PDF supports embedded metadata using XMP <a href="#XMP">[XMP]</a>, the Extensible Metadata Platform (XMP).  </p>
+<p id="rfc.section.3.2.4.p.3">Recommendation: The PDFs generated should have all of the metadata from the XML version embedded directly as XMP metadata, including the author and date information, set the document series, and a URL for where the document can be retrieved.  </p>
+<h1 id="rfc.section.3.2.5">
+<a href="#rfc.section.3.2.5">3.2.5.</a> Document Structure Support</h1>
+<p id="rfc.section.3.2.5.p.1">PDF supports an 'outline' feature where sections of the document are marked; this oould be used in addition to the table of contents as a navigation aid.</p>
+<p id="rfc.section.3.2.5.p.2">The section structure of an RFC can be mapped into the PDF elements for the document structure.  This will allow the bookmark feature of PDF readers to be used to quickly access sections of the document.  </p>
+<p id="rfc.section.3.2.5.p.3">Requirement: The section structure of an RFC should be mapped into the PDF elements for the document structure.  This would include section headings for the boilerplate sections such as the Abstract, Status of the Document, Table of Contents, and Author Addresses.  </p>
+<h1 id="rfc.section.3.2.6">
+<a href="#rfc.section.3.2.6">3.2.6.</a> Tagged PDF</h1>
+<p id="rfc.section.3.2.6.p.1">NOTE: say more about the use of alternative texts for images, tagging text spans, and providing replacement texts for symbols and images.  A role-map could be provided here to map the logical tags found in the RFC XML to the standard tagset for PDF.  This could be included in the generated PDF.  </p>
+<h1 id="rfc.section.3.2.7">
+<a href="#rfc.section.3.2.7">3.2.7.</a> <a href="#embedXML" id="embedXML">Embedded Files</a>
+</h1>
+<p id="rfc.section.3.2.7.p.1">PDF has the capability of including other files; the files may be labeled both by a media type and a role, the AFRelationship key <a href="#PDFA3">[PDFA3]</a>.  In this way, the PDF file acts also as a container.</p>
+<p id="rfc.section.3.2.7.p.2">Embedded content may be compressed.</p>
+<p id="rfc.section.3.2.7.p.3">Many PDF viewers support the ability to view and extract embedded files, although this capability is not universal.</p>
+<p id="rfc.section.3.2.7.p.4">Embedding content in the PDF file allows the PDF to act as a complete package, which can be transformed, archived, digitally signed. Useful possibilities: </p>
+
+<ul class="empty">
+<li>Embed the source XML input file itself within the PDF.  If the source SVG and images for illustrations are also embedded, this would make the PDF file totally self-referential.</li>
+<li>Embed directly extractable components that are useful for independent processing, including ABNF, MIBs, source code for reference implementations.  This capability might be supported through other mechanisms from the XML source files, but could also be supported within the PDF. </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.3.2.7.p.5">Recommendations: </p>
+
+<ul class="empty">
+<li>Embed the XML source and all illustrations, for both RFCs and Internet Drafts, as a standard feature for xml2rfc's PDF output.</li>
+<li>Finding, extracting and embedding other components will require additional markup to clearly identify them, and additional review to insure the correctness of embedded files which are not visible.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.3.3">
+<a href="#rfc.section.3.3">3.3.</a> Digital Signatures</h1>
+<p id="rfc.section.3.3.p.1">PDF has supported digital signatures since PDF 1.2.  There are multiple methods for signing PDF files.  The signature is intended to apply not only to the bits in the file (that they haven't been modified) but also to lock down the visual presentation as well.  </p>
+<p id="rfc.section.3.3.p.2">Normally, the authenticity of RFC files is not an issue, since the RFC editor maintains a repository of all RFCs which is widely replicated. However, the RFC Editor and staff are at times called to provide evidence that a particular RFC is the 'original' and has not been visually modified, and there may be other use cases.</p>
+<p id="rfc.section.3.3.p.3">Recommendation: The use cases for digital signatures need further review, including management of certificates for the RFC editor function. PDFs produced by the RFC editor likely SHOULD be signed. As signatures also apply to embedded content, this will provide a way of signing the source XML as well.  There is no need for digital signatures on Internet Drafts.  </p>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> <a href="#tooling" id="tooling">Tooling</a>
+</h1>
+<p id="rfc.section.4.p.1">This section is incomplete; it will talk about tools for creating, manipulating, transforming PDF files, including those currently in use by the RFC editor and Internet drafts, as well as outlining available PDF tools for various processes.</p>
+<h1 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> PDF Viewers</h1>
+<p id="rfc.section.4.1.p.1">As with most file formats, PDF files are experienced through a reader or viewer of PDF files, and there are numerous viewers. One partial list of PDF viewers can be found at <a href="http://en.wikipedia.org/wiki/List_of_PDF_software#Viewers">http://en.wikipedia.org/wiki/List_of_PDF_software#Viewers</a>.  </p>
+<p id="rfc.section.4.1.p.2">PDF viewers vary in capabilities, and it is important to note which PDF viewers support the features utilized in PDF RFCs ands Internet drafts (features such as links, digital signatures, Tagged PDF and others mentioned in <a href="#requirements">Section 3</a>).  </p>
+<p id="rfc.section.4.1.p.3">A survey of the IETF community might broaden the list of viewers in common use, but an initial list to consider include some that are currently maintained and supported viewers and legacy systems. Maintained viewers include: </p>
+
+<dl>
+<dt>Adobe Reader</dt>
+<dd style="margin-left: 8">Multiple platforms. Supports all of the features on most platforms.</dd>
+<dt>Google Chrome</dt>
+<dd style="margin-left: 8">Multiple platforms. Web browser which includes PDF support.  Rapidly moving target, open source.  </dd>
+<dt>PDF.js</dt>
+<dd style="margin-left: 8">Multiple platforms. A JavaScript library to convert PDF files into HTML5, usable as a web-based viewer that can be included in web browsers. Used by Mozilla Firefox.  Also rapidly moving target.  </dd>
+<dt>Foxit Reader</dt>
+<dd style="margin-left: 8">Multiple platforms. PDF Viewer / Reader for Desktop computer and Mobile Devices.  Recently licensed by Google, and the code for this purpose was made open source; see <a href="http://www.i-programmer.info/news/136-open-source/7433-google-open-sources-pdf-software-library.html">http://www.i-programmer.info/news/136-open-source/7433-google-open-sources-pdf-software-library.html</a>.  </dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.4.1.p.4">Several 'legacy' viewers to consider include: Ghostview, Xpdf.  </p>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> Printers</h1>
+<p id="rfc.section.4.2.p.1">While almost all viewers also support printing of PDF files, printing is one of the most important use cases for PDFs. Some printers have direct PDF support. </p>
+<h1 id="rfc.section.4.3">
+<a href="#rfc.section.4.3">4.3.</a> PDF generation libraries</h1>
+<p id="rfc.section.4.3.p.1">Because the xml2rfc format is a unique format, software for converting XML source documents to the various formats will be needed, including PDF generation.</p>
+<p id="rfc.section.4.3.p.2">NOTE: Discuss Apache FOP.</p>
+<p id="rfc.section.4.3.p.3">Creation of PDF could proceed by converstion from HTML, or direct generation.</p>
+<p id="rfc.section.4.3.p.4">NOTE: should focus on python PDF generation because xml2rfc is in python? </p>
+<h1 id="rfc.section.4.4">
+<a href="#rfc.section.4.4">4.4.</a> Other Tools</h1>
+<p id="rfc.section.4.4.p.1">In addition to generating and viewing PDF, other categories of PDF tools are available and may be useful both during specification development and for published RFCs.  </p>
+<p id="rfc.section.4.4.p.2">These include tools for comparing two PDFs, checkers that could be used to validate the results of converstion.</p>
+<p id="rfc.section.4.4.p.3">"Validation" of whether an arbitrary author-generated PDF file would be quite difficult; there are few PDF validation tools. However, if internet drafts and RFCs are generated by conversion from XML via xml2rfc, then explicit validation of PDF and adherance to expected profiles is mainly useful to insure xml2rfc has functioned properly.</p>
+<p id="rfc.section.4.4.p.4">Recommendations: </p>
+
+<ul>
+<li>Discourage (but allow) submission of a PDF representation for Internet Drafts. In most cases, the PDF for an Internet draft should be produced automatically when XML is suhmitted, with an opportunity to verify the conversion. </li>
+<li>The RFC editor should create PDF files from the XML rather than accepting PDFs from the author.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> Choosing PDF versions and standards</h1>
+<p id="rfc.section.5.p.1">PDF has gone through several revisions, primarily addition of features, as noted in in <a href="#pdf-history">Appendix Appendix A</a>.  PDF features have generally been added in a way that older viewers 'fail gracefully', but even so, the older the PDF version produced, the more legacy viewers will support that version, but the fewer features will be enabled.  </p>
+<p id="rfc.section.5.p.2">As PDF has evoled a broad set capabilities, additional standards for PDF files are applicable. These standards establish ground rules that are important for specific applications.  For example PDF/X was specifically designed for Prepress digital data exchange, with careful attention to color management and printing instructions, while PDF/E standard was designed for engineering documents.</p>
+<p id="rfc.section.5.p.3">Two additional standards families are important to the RFC format, though: long-term preservation (PDF/A), and user acessibility (PDF/UA). These standards are then supported by various software libraries and tools.</p>
+<p id="rfc.section.5.p.4">It is effective and useful to use these standards to capture PDF for RFC requirements, and they will make the PDF files useful in workflows that expect them.</p>
+<p id="rfc.section.5.p.5">Recommendations: </p>
+
+<ul class="empty">
+<li>Choose PDF 1.7; although relatively recent, it is well supported by widely available viewers.</li>
+<li>Require PDF/X2 for RFCs. It captures the archivability and long-term stability of PDF 1.7 files. </li>
+<li>Use PDF/X3 for embedding additional data (incluing the source files) in RFCs and Internet Drafts.</li>
+<li>Require PDF/UA for RFCs.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.references">
+<a href="#rfc.references">6.</a> References</h1>
+<h1 id="rfc.references.1">
+<a href="#rfc.references.1">6.1.</a> References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="PDF">[PDF]</b></td>
+<td class="top">
+<a>ISO</a>, "<a>Portable document format -- Part 1: PDF 1.7 </a>", ISO 32000-1, 2008.<p>Also available free from Adobe.</p>
+</td>
+</tr>
+<tr>
+<td class="reference"><b id="XMP">[XMP]</b></td>
+<td class="top">
+<a>ISO</a>, "<a>Extensible metadata platform (XMP) specification -- Part 1: Data model, serialization and core properties </a>", ISO 16684-1, 2012.<p>Not available free, but there are a number of descriptive resources, e.g., </p>
+</td>
+</tr>
+<tr>
+<td class="reference"><b id="PDFA2">[PDFA2]</b></td>
+<td class="top">
+<a>ISO</a>, "<a>Electronic document file format for long-term preservation -- Part 2: Use of ISO 32000-1 (PDF/A-2).  </a>", ISO 19005-2, 2011.</td>
+</tr>
+<tr>
+<td class="reference"><b id="PDFA3">[PDFA3]</b></td>
+<td class="top">
+<a>ISO</a>, "<a>Electronic document file format for long-term preservation -- Part 3: Use of ISO 32000-1 with support for embedded files (PDF/A-3) </a>", ISO 19005-3, 2012.</td>
+</tr>
+<tr>
+<td class="reference"><b id="PDFUA">[PDFUA]</b></td>
+<td class="top">
+<a>ISO</a>, "<a>Electronic document file format enhancement for accessibility -- Part 1: Use of ISO 32000-1 (PDF/UA-1)</a>", ISO 19005-3, 2012.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.references.2">
+<a href="#rfc.references.2">6.2.</a> Informative References</h1>
+<table><tbody>
+<tr>
+<td class="reference"><b id="RFC3778">[RFC3778]</b></td>
+<td class="top">
+<a>Taft, E.</a>, <a>Pravetz, J.</a>, <a>Zilles, S.</a> and <a>L. Masinter</a>, "<a href="http://tools.ietf.org/html/rfc3778">The application/pdf Media Type</a>", RFC 3778, May 2004.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC6949">[RFC6949]</b></td>
+<td class="top">
+<a>Flanagan, H.</a> and <a>N. Brownlee</a>, "<a href="http://tools.ietf.org/html/rfc6949">RFC Series Format Requirements and Future Development</a>", RFC 6949, May 2013.</td>
+</tr>
+</tbody></table>
+<h1 id="rfc.appendix.Appendix A">
+<a href="#rfc.appendix.Appendix%20A">Appendix A.</a> <a href="#pdf-history" id="pdf-history">A Synopsis of PDF Format History</a>
+</h1>
+<p><a href="#RFC3778">[RFC3778]</a> contains some history of PDF.  This is a capsule view, plus additional information on events that have occurred since the publication of <a href="#RFC3778">[RFC3778]</a>. NOTE: currently doesn't talk about the handoff of change control to ISO and the evolution as an ISO standard 32000. Plans are to update the application/pdf MIME registration to include this information, and then point to that.  </p>
+<p id="rfc.section.Appendix A.p.2">The Portable Document Format (PDF) family of document formats was invented by Adobe Systems in the early 1990s.  At the time, it was a proprietary format that underwent a variety of revisions that matched the release of different versions of the Adobe Acrobat products.  For example, Acrobat 1 supported PDF version 1.0, Acrobat 2 supported PDF version 1.1, Acrobat 5 supported PDF version 1.4, etc.  <a href="http://www.adobe.com/devnet/pdf/pdf_reference_archive.html">http://www.adobe.com/devnet/pdf/pdf_reference_archive.html</a> </p>
+<p id="rfc.section.Appendix A.p.3">Each release (and extension level) introduced new features.  For example, (1.0) character, word and image rendering, externally-referenced or embedded fonts, (1.1) passwords, encryption, device-independent color, (1.2) interactive forms, unicode, signatures, compression, (1.3) web semantic capture, embedded files, Adobe javascript, (1.4) metadata streams, tagged PDF, (1.5) controllable hiding of sections, slideshows, (1.6) 3D artwork, OpenType font embedding, linking into embedded files, and (1.7) video and audio support.  After release 1.7, additional Extension Levels have been introduced.  Each release also provided enhancements to the previous support.  For example, encryption was introduced in 1.1, but AES encryption wasn't supported until 1.7 extension level 3.  A PDF reader for PDF 1.1 is not able to read and display a PDF 1.7 file, but a PDF reader for PDF 1.7 can also handle all previous versions of PDF.  The wikipedia page at  <a href="http://en.wikipedia.org/wiki/PDF">http://en.wikipedia.org/wiki/PDF</a> has a nice summary table going into further details.  </p>
+<h1 id="rfc.appendix.Appendix A.1">
+<a href="#rfc.appendix.Appendix%20A.1">Appendix A.1.</a> <a href="#profiles" id="profiles">PDF Profiles</a>
+</h1>
+<p id="rfc.section.Appendix A.1.p.1">Certain profiles or subsets of PDF have been standardized.  PDF/X (X for Exchange), PDF/A (A for Archive), PDF/E (E for Engineering), PDF/VT (VT for Variables and Transactions), and PDF/UA (UA for Universal Access) all have ISO standards associated with them.  Of particular potential interest to the RFC community are PDF/A and PDF/UA.  </p>
+<h1 id="rfc.appendix.Appendix A.1.1">
+<a href="#rfc.appendix.Appendix%20A.1.1">Appendix A.1.1.</a> PDF/A</h1>
+<p id="rfc.section.Appendix A.1.1.p.1">PDF/A in turn has nuances, as there have been a couple updates to it and conformance levels within each version.  PDF/A-1 was based on PDF release 1.4.  PDF/A-2 was based on PDF release 1.7, and PDF/A-3 adds embedded arbitrary files.  PDF/A is considered a profile because it mandates that certain optional features be used.  At a high level, the conformance levels are B (basic), U (mandatory unicode mapping [not in PDF/A-1]) and A (accessible).  The requirements for conformance level A are that: the document structure must be represented within the PDF (e.g., section headings, table cells, paragraph divisions), tagged PDF is used (e.g.,  element anchors) and that language tags be used where appropriate.  When referring to PDF/A, you would refer to the version and conformance level.  So PDF/A-1A would be the profile for the Accessible conformance level of version 1 of PDF/A, which was based on PDF 1.4.  </p>
+<h1 id="rfc.appendix.Appendix A.1.2">
+<a href="#rfc.appendix.Appendix%20A.1.2">Appendix A.1.2.</a> PDF/UA</h1>
+<p id="rfc.section.Appendix A.1.2.p.1">The PDF/UA (Universal Access) profile is orthogonal to the other profiles, specifying user accessibility requirements.  It places some restrictions on the other profiles, such as requiring the use of higher-level constructs for the textual representation and adds additional requirements for programatic access (think automatic readers for the blind).  </p>
+<h1 id="rfc.appendix.Appendix A.2">
+<a href="#rfc.appendix.Appendix%20A.2">Appendix A.2.</a> Additional Reading</h1>
+<p><a href="http://www.pdflib.com/fileadmin/pdflib/pdf/whitepaper/Whitepaper-Technical-Introduction-to-PDFA.pdf">http://www.pdflib.com/fileadmin/pdflib/pdf/whitepaper/Whitepaper-Technical-Introduction-to-PDFA.pdf</a> <a href="http://www.pdfa.org/wp-content/uploads/2011/08/tn0003_metadata_in_pdfa-1_2008-03-128.pdf">http://www.pdfa.org/wp-content/uploads/2011/08/tn0003_metadata_in_pdfa-1_2008-03-128.pdf</a> <a href="http://www.pdfa.org/wp-content/uploads/2011/08/PDFA-in-a-Nutshell_1b.pdf">http://www.pdfa.org/wp-content/uploads/2011/08/PDFA-in-a-Nutshell_1b.pdf</a> <a href="http://www.pdfa.org/2011/08/pdfa-%E2%80%93-a-look-at-the-technical-side/">http://www.pdfa.org/2011/08/pdfa-%E2%80%93-a-look-at-the-technical-side/</a> <a href="http://pdf.editme.com/pdfa">http://pdf.editme.com/pdfa</a> </p>
+<h1 id="rfc.appendix.Appendix B">
+<a href="#rfc.appendix.Appendix%20B">Appendix B.</a> Acknowledgements</h1>
+<p id="rfc.section.Appendix B.p.1">The input of the following people is gratefully acknowledged: Duff Johnson of the PDF Association, Martin Duerst, ....  </p>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Tony Hansen</span> editor
+	  <span class="n hidden">
+		<span class="family-name">Hansen</span>
+	  </span>
+	</span>
+	<span class="org vcardline">AT&T Laboratories</span>
+	<span class="adr">
+	  <span>200 Laurel Ave. South</span>
+
+	  <span class="vcardline">
+		<span class="locality">Middletown</span>,  
+		<span class="region">NJ</span> 
+		<span class="code">07748</span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: tony+rfc2pdf@maillennium.att.com</span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Larry Masinter</span> 
+	  <span class="n hidden">
+		<span class="family-name">Masinter</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Adobe Systems</span>
+	<span class="adr">
+	  <span>345 Park Ave</span>
+
+	  <span class="vcardline">
+		<span class="locality">San Jose</span>,  
+		<span class="region">CA</span> 
+		<span class="code">95110</span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: masinter@adobe.com</span>
+
+<span class="vcardline">URI: <a href="http://larry.masinter.net">http://larry.masinter.net</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Matthew Hardy</span> 
+	  <span class="n hidden">
+		<span class="family-name">Hardy</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Adobe Systems</span>
+	<span class="adr">
+	  <span>345 Park Ave</span>
+
+	  <span class="vcardline">
+		<span class="locality">San Jose</span>,  
+		<span class="region">CA</span> 
+		<span class="code">95110</span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: mahardy@adobe.com</span>
+
+  </address>
+</div>
+
+</body>
+</html>
