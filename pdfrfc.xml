@@ -2,7 +2,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 
 <?rfc toc='yes' ?><!-- add table of contents -->
-<?rfc editing='yes' ?><!-- paragraph numbering -->
+<?rfc editing='no' ?><!-- paragraph numbering -->
 <?rfc symrefs='yes' ?><!-- use references like [ABC] instead of [1] -->
 <?rfc sortrefs='no'?><!-- sort the references alphabetically -->
 <?rfc linkmailto='no'?>
@@ -12,7 +12,7 @@
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-  docName='draft-hansen-rfc-use-of-pdf-01' category='info' >
+     docName='draft-hansen-rfc-use-of-pdf-01' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -29,7 +29,7 @@
       </address>
     </author>
     <author initials='L.' surname='Masinter' fullname='Larry Masinter'>
-      <organization>Adobe Systems</organization>
+      <organization>Adobe</organization>
       <address>
 	<postal>
 	  <street>345 Park Ave</street>
@@ -43,17 +43,17 @@
       </address>
     </author>
     <author initials='M.' surname='Hardy' fullname='Matthew Hardy'>
-	  <organization>Adobe Systems</organization>
-	  <address>
-		<postal>
-		  <street>345 Park Ave</street>
-		  <city>San Jose</city>
-		  <region>CA</region>
-		  <code>95110</code>
-		  <country>USA</country>
-		</postal>
-		<email>mahardy@adobe.com</email>
-	  </address>
+      <organization>Adobe</organization>
+      <address>
+	<postal>
+	  <street>345 Park Ave</street>
+	  <city>San Jose</city>
+	  <region>CA</region>
+	  <code>95110</code>
+	  <country>USA</country>
+	</postal>
+	<email>mahardy@adobe.com</email>
+      </address>
     </author>
     <date />
     <area>RFC Design Team</area>
@@ -75,7 +75,7 @@
       of XML with renderings in various formats, including PDF.
       </t>
 
-      <t> Becuase PDF has a wide range of capabilities and
+      <t>Because PDF has a wide range of capabilities and
       alternatives, not all PDFs are "equal".  For example, visually
       similar documents could consist of scanned or rasterized images,
       include text layout options, hyperlinks, embedded fonts, and
@@ -150,7 +150,6 @@
 
       <section title='"Visible" requirements'>
 	<t> PDF supports rich visible layout of fixed-sized pages.
-
 	</t>
 	<section title='General visible requirements'>
 	  <t> For a consistent 'look' of RFC and good style, the PDFs
@@ -160,26 +159,27 @@
 	  printers, and look good on displays of varying
 	  resolution.</t>
 	</section>
-	<section title='Page size, margins, headings'>
+	<section title='Page size, margins, headers and footers'>
 	  <t>PDF files are laid out for a particular size
-	  of page, margins, and any headers and footers
-	  as part of the layout. Recommendations or ideas
-	  for further study:
-	  <list style='hanging'>
-	    <t hangText='Page size'>
-	      US Letter page size, but margins chosen so it will print
-	      and look good on (the slightly taller but narrower) A4
-	      paper size.
-	    </t>
-	    <t hangText='Margins'>
-	      The smallest margin consistent with above requirements.
-	    </t>
-	    <t hangText='Headings'>
-	      The same information from the text version of the
-	      document, but set in a larger font in a lighter color.
-	    </t>
-	  </list>
-	</t>
+	    of page, margins, and any headers and footers
+	    part of the layout.  There are two paper sizes
+	    in common use: "US Letter" (8.5 x 11 inches, 216x279 mm, in
+	    popular use in North America) and "A4" (210x297 mm, 8.27x11.7 inches,
+	    standard for the rest of the world).
+	    Usually PDF printing software is used in a "shrink to fit"
+	    mode where the printing is adjusted to fit the paper in
+	    the printer. Whatever page size is chosen, the margins
+	    and header positioning will need to be chosen to look
+	    good on both paper sizes using common printing methods.
+	    In addition, for both Internet Drafts and RFCs, margins should
+	    be the smallest consistent with the above requirement.
+	  </t>
+	  <t>Page headers and footers should contain similar
+	    information as the headings in the current text versions
+	    of documents, including page numbers, short title,
+	    author, working group, but typeset in a lighter color, smaller
+	    typeface, so as to be inobtrusive.
+	  </t>
 	</section>
 	<section title='Similarity to other outputs'>
 	  <t>There is some advantage to having the PDF files look like
@@ -192,21 +192,12 @@
 	    ASCII-art equivalent, or</t>
 	    <t>could look like the HTML version.</t>
 	  </list>
-	  (Note that numbers 1 and 2 are what are currently produced by the RFC
-	  Editor on their web site.)
 	  </t>
-	  <t>Recommendation: the PDF rendition should look like the HTML
-	  rendition, at least in spirit.
-	  For example, some differences from the HTML rendition might be:
-	  <list>
-	    <t>
-	      The typeface and size for printing needs be chosen.
-	  </t><t>
-	  Whether the table of contents contains page numbers needs to be decided.
-	  </t><t>
-	  Whether page footers and headers are generated needs to be decided.
-	  </t>
-	  </list>
+	  <t>Recommendation: the PDF rendition should look like the
+	  HTML rendition, at least in spirit.  For example, some
+	  differences from the HTML rendition might include different
+	  typeface and size (chosen for printing), page numbers in the
+	  table of contents, page headers and footers and headers.
 	  </t>
 	</section>
 	<section title="Typeface choices">
@@ -237,29 +228,37 @@
 	    <t> For readability when printed, the main body text
 	    should be in a serif font and the headings in a sans-serif
 	    font. </t>
+
 	    <t> Code, BNF, and other text could use a fixed-width
 	    font to aid in insuring alignment, e.g., in BNF.</t>
+
 	    <t> Type faces used by the xml2rfc application
 	    for Internet drafts should be freely available,
 	    and included with the xml2rfc application. </t>
+
 	    <t> The range of Unicode characters allowed in
 	    the XML source for Internet Drafts and RFCs may
 	    be bounded by the availability of embeddable fonts with 
 	    appropriate glyphs.</t>
-	  </list>
-	  </t>
 
-	  <t>The PDF/A and PDF/UA standards mandate the embedding
+	  </list>
+
+	</t>
+	</section>
+	<section title='Embedding of Fonts'>
+	  <t>The PDF/A standards mandate the embedding
 	  of fonts. Preferably, the software generating the files
 	  would produce PDF/A-conforming files directly, thus ensuring
 	  that all glyphs include Unicode mappings and embedded fonts
 	  from the outset.</t>
 
 	</section>
+
+
 	<section title='Hyperlinks'>
 	  <t>PDF supports hyperlinks both to sections of the same
 	  document and to other documents.</t>
-	  <t>The XML2RFC conversion can generate:
+	  <t>The conversion to PDF can generate:
 	  <list style='symbols'>
 	    <t>hyperlinks within the document</t>
 	    <t>hyperlinks to external locations</t>
@@ -334,7 +333,7 @@
 	  <t>Recommendations:
 	  <list style='symbols'>
 	    
-	    <t>text in content streams should follow the XML
+	    <t>Text in content streams should follow the XML
 	    document's logical order (in the order of tags) to the
 	    extent possible.  This will provide optimal reuse by
 	    software that does not understand Tagged PDF.
@@ -493,13 +492,12 @@
     </section>
     <section title='Tooling' anchor='tooling'>
 
-      <t>This section is incomplete; it will talk about tools for
+      <t>This section discusses tools for viewing, comparing,
       creating, manipulating, transforming PDF files, including those
       currently in use by the RFC editor and Internet drafts, as well
       as outlining available PDF tools for various processes.</t>
 
     <section title='PDF Viewers'>
-
       <t>As with most file formats, PDF files are experienced through
       a reader or viewer of PDF files, and there are numerous
       viewers. One partial list of PDF viewers can be found at <eref
@@ -507,7 +505,7 @@
       </t>
 
       <t>PDF viewers vary in capabilities, and it is important to note
-      which PDF viewers support the features utilized in PDF RFCs ands
+      which PDF viewers support the features utilized in PDF RFCs and
       Internet drafts (features such as links, digital signatures,
       Tagged PDF and others mentioned in <xref
       target='requirements'/>).
@@ -558,13 +556,13 @@
       software for converting XML source documents to
       the various formats will be needed, including
       PDF generation.</t>
-      <t>NOTE: Discuss Apache FOP.</t>
-      <t>Creation of PDF could proceed by converstion
-      from HTML, or direct generation.</t>
-      <t>NOTE: should focus on python PDF generation
-      because xml2rfc is in python?
+      <t>
+	One promising
+	direction is suggested in
+	<eref target="http://greenbytes.de/tech/webdav/rfc2629xslt/rfc2629xslt.html#output.pdf.fop"/>: using
+	XSLT to generate XSL-FO which is then processed by a formatting object processor such as Apache FOP.
       </t>
-    </section>
+   </section>
     
     <section title='Other Tools'>
     <t>In addition to generating and viewing PDF, other categories of
@@ -572,12 +570,14 @@
     specification development and for published RFCs.
     </t>
     <t>These include tools for comparing two PDFs, checkers that could
-    be used to validate the results of converstion.</t>
-    <t>"Validation" of whether an arbitrary author-generated PDF file
+    be used to validate the results of conversion, review and comment
+    tools which attach annotations to PDF files, digital signature
+    creation and validation.</t>
+    <t>Validation of an arbitrary author-generated PDF file
     would be quite difficult; there are few PDF validation
     tools. However, if internet drafts and RFCs are generated by
     conversion from XML via xml2rfc, then explicit validation of PDF
-    and adherance to expected profiles is mainly useful to insure
+    and adherance to expected profiles would mainly be useful to insure
     xml2rfc has functioned properly.</t>
     <t>Recommendations:
     <list style='symbols'>
@@ -622,12 +622,10 @@
       <t> Choose PDF 1.7; although relatively recent, it is well
       supported by widely available viewers.</t>
 
-      <t> Require PDF/X2 for RFCs. It captures the archivability and
-      long-term stability of PDF 1.7 files. </t>
-
-      <t> Use PDF/X3 for embedding additional data (incluing
+      <t> Require PDF/A3 for RFCs. It captures the archivability and
+      long-term stability of PDF 1.7 files. 
+      Use PDF/A3 for embedding additional data (incluing
       the source files) in RFCs and Internet Drafts.</t>
-
       <t> Require PDF/UA for RFCs.</t>
     </list>
     </t>
@@ -782,10 +780,13 @@
       <section title='Acknowledgements'>
       	<t>
       	The input of the following people is gratefully acknowledged:
-      	Duff Johnson of the PDF Association,
-      	<!-- Leonard Rosenthal, -->
-      	Martin Duerst, 
-      	....
+	Brian Carpenter,
+	Chris Dearlove,
+	Martin Duerst,
+	Joe Hildebrand,
+	Duff Johnson,
+	Leonard Rosenthal,
+	....
       	</t>
       </section>
   </back>

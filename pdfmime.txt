@@ -4,22 +4,22 @@
 
 Network Working Group                                           M. Hardy
 Internet-Draft                                               L. Masinter
-Intended status: Informational                             Adobe Systems
-Expires: January 17, 2015                                     D. Johnson
-                                                         PDF Association
-                                                           July 16, 2014
+Obsoletes: 3778 (if approved)                                      Adobe
+Intended status: Informational                                D. Johnson
+Expires: January 22, 2015                                PDF Association
+                                                           July 21, 2014
 
 
                      The application/pdf Media Type
-                   draft-hardy-app-pdf-media-type-01
+                        draft-hardy-pdf-mime-00
 
 Abstract
-<1>
-   PDF [ISOPDF], the 'Portable Document Format', is an ISO standard (ISO
+
+   PDF, the 'Portable Document Format', is an ISO standard (ISO
    32000-1:2008) defining a final-form document representation language
    in use for document exchange, including on the Internet, since 1993.
    This document provides an overview of the PDF format and updates the
-   media type registration of 'application/pdf'.
+   media type registration of 'application/pdf'.  It replaces RFC 3778.
 
 Status of This Memo
 
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 17, 2015.
+   This Internet-Draft will expire on January 22, 2015.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 1]
+Hardy, et al.           Expires January 22, 2015                [Page 1]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -75,14 +75,14 @@ Table of Contents
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
-<2>
+
    This document is intended to provide updated information on the
    registration of the MIME Media Type "application/pdf" for documents
    defined in the PDF [ISOPDF], 'Portable Document Format', syntax.
    Additionally, this document provides a brief history of the PDF
    format, describes several of the key capabilities of the format and
    addresses some security concerns.
-<3>
+
    PDF is used widely in the Internet community.  The first version of
    PDF, 1.0, was published in 1993 by Adobe Systems [REF needed].  Since
    then PDF has grown to be a widely-used format for capturing and
@@ -90,28 +90,28 @@ Table of Contents
    e-mail and virtually every other document exchange mechanism.  In
    2008, PDF 1.7 was published as an ISO standard [ISOPDF], ISO
    32000-1:2008.
-<4>
+
    PDF represents "final form" formatted documents with a fixed layout
    and appearance.  PDF pages may include text, images, graphics and
    multimedia content such as video and audio.  PDF is also capable of
    containing higher level structures including annotations, bookmarks,
    file attachments, hyperlinks, logical structure and metadata.  A rich
    JavaScript model has been defined for interacting with PDF documents.
-<5>
+
    PDF supports encryption and digital signatures.  The encryption
    capability is combined with access control information to facilitate
    management of the functionality available to the recipient.  PDF
    supports the inclusion of metadata through XMP [XMP] metadata as well
    as directly via PDF structures.
-<6>
+
    In addition to the ISO 32000-1:2008 PDF standard, several ISO PDF
    subset standards have been defined to address specific use cases.
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 2]
+Hardy, et al.           Expires January 22, 2015                [Page 2]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
    These standards include PDF for Archival (PDF/A), PDF for Engineering
@@ -119,7 +119,7 @@ Internet-Draft                PDF for RFCs                     July 2014
    Data and Transactional Printing (PDF/VT) and PDF for Prepress Digital
    Data Exchange (PDF/X).  The subset standards are fully compliant PDF
    files capable of being displayed in a general PDF viewer.
-<7>
+
    PDF usage is widespread enough for 'application/pdf' to be used in
    other IETF specifications.  RFC 2346 [RFC2346] describes how to
    better structure PDF files for international exchange of documents
@@ -130,12 +130,12 @@ Internet-Draft                PDF for RFCs                     July 2014
    content negotiation.
 
 2.  History
-<8>
+
    PDF was originally envisioned as a way to communicate and view
    printed information electronically across a wide variety of machine
    configurations, operating systems, and communication networks in a
    reliable manner.
-<9>
+
    PDF relies on the same fundamental imaging model as the PostScript
    [PS] page description language to render complex text, images, and
    graphics in a device and resolution-independent manner, bringing this
@@ -148,32 +148,32 @@ Internet-Draft                PDF for RFCs                     July 2014
    links and annotations, that are not part of the page itself, but are
    useful for navigation, building collections of related documents and
    for reviewing and commenting on documents.
-<10>
+
    The application/pdf media type was first registered in 1993 by Paul
    Lindner for use by the gopher protocol and was subsequently updated
    in 1994 by Steve Zilles.
 
 3.  Fragment Identifiers
-<11>
+
    A set of fragment identifiers [RFC2396] and their handling are
    defined in Adobe Technical Note 5428 [PDFOpen].  This section
    summarizes that material.
-<12>
+
    A fragment identifier consists of one or more PDF-open parameters in
    a single URL, separated by the ampersand (&) or pound (#) character.
    Each parameter implies an action to be performed and the value to be
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 3]
+Hardy, et al.           Expires January 22, 2015                [Page 3]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
    used for that action.  Actions are processed and executed from left
    to right as they appear in the character string that makes up the
    fragment identifier.
-<13>
+
    The PDF-open parameters allow the specification of a particular page
    or named destination to open.  Named destinations are similar to the
    "anchors" used in HTML or the IDs used in XML.  Once the target is
@@ -181,36 +181,36 @@ Internet-Draft                PDF for RFCs                     July 2014
    either by specifying the position of a viewing rectangle and its
    scale or size coordinates or by specifying a view relative to the
    viewing window in which the chosen page is to be presented.
-<14>
+
    The list of PDF-open parameters and the action they imply is:
-<15>
+
    namedest=<name>
    Open to a specified named destination (which includes a view).
-<16>
+
    page=<pagenum>
    Open the specified (physical) page.
-<17>
+
    zoom=<scale>,<left>,<top>
    Set the <scale> and scrolling factors. <left>, and <top> are measured
    from the top left corner of the page, independent of the size of the
    page.  The pair <left> and <top> are optional but both must appear if
    present.
-<18>
+
    view=<keyword>,<position>
    Set the view to show some specified portion of the page or its
    bounding box; keywords are defined by Table 8.2 of the PDF Reference,
    version 1.5 (NEEDS UPDATING TO ISO REF).  The <position> value is
    required for some of the keywords and not allowed for others.
-<19>
+
    viewrect=<left>,<top>,<wd>,<ht>
    As with the zoom parameter, set the scale and scrolling factors, but
    using an explicit width and height instead of a scale percentage.
-<20>
+
    highlight=<lt>,<rt>,<top>,<btm>
    Highlight a rectangle on the chosen page where <lt>, <rt>, <top>, and
    <btm> are the coordinates of the sides of the rectangle measured from
    the top left corner of the page.
-<21>
+
    All specified actions are executed in order; later actions will
    override the effects of previous actions; for this reason, page
    actions should appear before zoom actions.  Commands are not case
@@ -221,22 +221,22 @@ Internet-Draft                PDF for RFCs                     July 2014
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 4]
+Hardy, et al.           Expires January 22, 2015                [Page 4]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
 4.  Subset Standards
-<22>
+
    TODO: Describe the subset standards, their history and include
    references to the ISO documents.
 
 5.  Accessibility for PDF
-<23>
+
    TODO: Describe the Accessibility capabilities of PDF.
 
 6.  PDF Implementations
-<24>
+
    There are a number of widely available, independently implemented,
    interoperable implementations of PDF for a wide variety of platforms
    and systems.  Since the PDF specification was published and freely
@@ -244,21 +244,21 @@ Internet-Draft                PDF for RFCs                     July 2014
    companies and organizations, including web-browser developers, make
    PDF creation, viewing, and manipulation tools for many years prior to
    ISO standardization of PDF.
-<25>
+
    TODO: Update the above list to ensure relevance to update market
    conditions...
 
 7.  Security Considerations
-<26>
+
    TODO: Clean up of this section is still required...
-<27>
+
    An "application/pdf" resource contains information to be parsed and
    processed by the recipient's PDF system.  Because PDF is both a
    representation of formatted documents and a container system for the
    resources need to reproduce or view said documents, it is possible
    that a PDF file has embedded resources not described in the PDF
    Reference.
-<28>
+
    Although it is not a defined feature of PDF, a PDF processor could
    extract these resources and store them on the recipients system.
    Furthermore, a PDF processor may accept and execute "plug-in" modules
@@ -270,22 +270,22 @@ Internet-Draft                PDF for RFCs                     July 2014
    intended recipients.  Message-receiving and -displaying software
    should make sure that any non-standard plug-ins are secure and do not
    present a security threat.
-<29>
+
    PDF may contain "scripts" to customize the displaying and processing
    of PDF files.  These scripts are expressed in a version of
    JavaScript.  They are intended for execution by the PDF processor.
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 5]
+Hardy, et al.           Expires January 22, 2015                [Page 5]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
    User agents executing such scripts or programs must be extremely
    careful to insure that untrusted software is executed in a protected
    environment.
-<30>
+
    In general, any information stored outside of the direct control of
    the user -- including referenced application software or plug-ins and
    embedded files, scripts or other material not covered in the PDF
@@ -296,54 +296,53 @@ Internet-Draft                PDF for RFCs                     July 2014
    document.
 
 8.  IANA Considerations
-<31>
+
    This document updates the registration of 'application/pdf', a media
    type registration as defined in Multipurpose Internet Mail Extensions
    MIME) Part Four: Registration Procedures [RFC2048]:
-<32>
+
    MIME media type name: application
-<33>
+
    MIME subtype name: pdf
-<34>
+
    Required parameters: none
-<35>
+
    Optional parameter: none
-<36>
+
    Encoding considerations: PDF files frequently contain binary data,
    and thus must be encoded in non-binary contexts.
-<37>
+
    Security considerations: See Section 7 of this document.
-<38>
+
    Interoperability considerations: See Section 6 of this document.
-<39>
+
    Published specification: ISO 32000-1:2008 (PDF 1.7) [ISOPDF].
-<40>
+
    Applications which use this media type: See Section 6 of this
    document.
-<41>
+
    Additional information:
-<42>
+
    Magic number(s): All PDF files start with the characters '%PDF-'
    using the PDF version number, e.g., '%PDF-1.7'.  These characters are
    in US-ASCII encoding.
-<43>
+
    File extension(s): .pdf
-<44>
+
    Macintosh File Type Code(s): "PDF "
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 6]
+Hardy, et al.           Expires January 22, 2015                [Page 6]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
-<45>
    For further information: Duff Johnson <duff.johnson@pdfa.org>, Cherie
    Ekholm <cheriee@microsoft.com>, ISO 32000 Project Leaders
-<46>
+
    Intended usage: COMMON
-<47>
+
    Author/Change controller: Duff Johnson <duff.johnson@pdfa.org>,
    Cherie Ekholm <cheriee@microsoft.com>, ISO 32000 Project Leaders
 
@@ -389,9 +388,10 @@ Internet-Draft                PDF for RFCs                     July 2014
 
 
 
-Hardy, et al.           Expires January 17, 2015                [Page 7]
+
+Hardy, et al.           Expires January 22, 2015                [Page 7]
 
-Internet-Draft                PDF for RFCs                     July 2014
+Internet-Draft               application/pdf                   July 2014
 
 
    [RFC3297]  Klyne, G., Iwazaki, R., and D. Crocker, "Content
@@ -401,7 +401,7 @@ Internet-Draft                PDF for RFCs                     July 2014
 Authors' Addresses
 
    Matthew Hardy
-   Adobe Systems
+   Adobe
    345 Park Ave
    San Jose, CA  95110
    USA
@@ -410,7 +410,7 @@ Authors' Addresses
 
 
    Larry Masinter
-   Adobe Systems
+   Adobe
    345 Park Ave
    San Jose, CA  95110
    USA
@@ -426,6 +426,7 @@ Authors' Addresses
    Germany
 
    Email: duff.johnson@pdfa.org
+   URI:   http://www.pdfa.org
 
 
 
@@ -444,5 +445,4 @@ Authors' Addresses
 
 
 
-
-Hardy, et al.           Expires January 17, 2015                [Page 8]
+Hardy, et al.           Expires January 22, 2015                [Page 8]
