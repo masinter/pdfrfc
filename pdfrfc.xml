@@ -162,7 +162,7 @@
 	  as to be inobtrusive.
 	  </t>
 	</section>
-	<section tytle='paragraph numbering'>
+	<section title='paragraph numbering'>
 	  <t>One common feature of the new RFC output formats
 	  are visible paragraph numbers, to aid in discussions.
 	  In the PDF and thus printed rendition, it is possible
@@ -619,8 +619,8 @@
      however) include:
      <list style='symbols'>
        <t><eref target="https://sourceforge.net/projects/sourcesans.adobe/?source=directory">Source Sans</eref></t>
-       <t><eref target=https://sourceforge.net/projects/sourceserifpro.adobe/?source=directory">Source Serif Pro</eref></t>
-       <t><eref target=https://sourceforge.net/projects/sourcecodepro.adobe/?source=drectory">Source Code Pro</eref></t>
+       <t><eref target="https://sourceforge.net/projects/sourceserifpro.adobe/?source=directory">Source Serif Pro</eref></t>
+       <t><eref target="https://sourceforge.net/projects/sourcecodepro.adobe/?source=drectory">Source Code Pro</eref></t>
      </list>
      </t>
    </section>
