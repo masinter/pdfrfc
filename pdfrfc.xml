@@ -12,7 +12,7 @@
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-     docName='draft-hansen-rfc-use-of-pdf-01' category='info' >
+     docName='draft-hansen-rfc-use-of-pdf-02' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -98,37 +98,6 @@
       for XML source, related files, and an issue tracker for
       this document.</t>
     </section>
-    <section title='History and current use of PDF with RFCs and Internet Drafts'>
-      <t>NOTE: this section is meant as an overview
-      to give some background.</t>
-      <section title='RFCs'>
-	<t>The RFC series has for a long time accepted Postscript
-	renderings of RFCs, either in addition to or instead of the
-	text renderings of those same RFCs.  These have usually been
-	produced when there was a complicated figure or mathematics
-	within the document.  For example, consider the figures and
-	mathematics found in RFCs 1119 and RFC 1142, and compare the
-	figures found in the text version of RFC 3550 with those in
-	the Postscript version.  The RFC editor has provided a PDF
-	rendering of RFCs. Usually, this has been a print of the
-	text file that does not take advantage of any of the broader
-	PDF functionality, unless there was a Postscript version
-	of the RFC, which would then be used by the RFC editor to 
-	generate the PDF.
-        </t>
-      </section>
-      <section title='Internet Drafts'>
-	<t>In addition to PDFs generated and published by the RFC
-	editor, the IETF tools community has also long supported PDF
-	for Internet Drafts.  Most RFCs start with Internet Drafts,
-	edited by individual authors.  The Internet drafts submission
-	tool at https://datatracker.ietf.org/submit/ accepts PDF and
-	Postscript files in addition to the (required) text submission
-	and (currently optional) XML.  If a PDF wasn't submitted for a
-	particular version of an Internet Draft, the tools would
-	generate one from the Postscript, HTML, or text.</t>
-      </section>
-    </section>
     <section title='Options and Requirements for PDF RFCs' 
 	     anchor='requirements'>
       <t>This section lays out options and requirements for PDFs produced by
@@ -151,6 +120,7 @@
       <section title='"Visible" requirements'>
 	<t> PDF supports rich visible layout of fixed-sized pages.
 	</t>
+
 	<section title='General visible requirements'>
 	  <t> For a consistent 'look' of RFC and good style, the PDFs
 	  produced by the RFC editor should have a clear, consistent,
@@ -159,26 +129,94 @@
 	  printers, and look good on displays of varying
 	  resolution.</t>
 	</section>
-	<section title='Page size, margins, headers and footers'>
-	  <t>PDF files are laid out for a particular size
-	    of page, margins, and any headers and footers
-	    part of the layout.  There are two paper sizes
-	    in common use: "US Letter" (8.5 x 11 inches, 216x279 mm, in
-	    popular use in North America) and "A4" (210x297 mm, 8.27x11.7 inches,
-	    standard for the rest of the world).
-	    Usually PDF printing software is used in a "shrink to fit"
-	    mode where the printing is adjusted to fit the paper in
-	    the printer. Whatever page size is chosen, the margins
-	    and header positioning will need to be chosen to look
-	    good on both paper sizes using common printing methods.
-	    In addition, for both Internet Drafts and RFCs, margins should
-	    be the smallest consistent with the above requirement.
+
+	<section title='Page size, margins'>
+	  <t>PDF files are laid out for a particular size of page and
+	  margins. There are two paper sizes in common use: "US
+	  Letter" (8.5 x 11 inches, 216x279 mm, in popular use in
+	  North America) and "A4" (210x297 mm, 8.27x11.7 inches,
+	  standard for the rest of the world).  Usually PDF printing
+	  software is used in a "shrink to fit" mode where the
+	  printing is adjusted to fit the paper in the printer.</t>
+	  
+	  <t>Recommendation: There is some controversy, but the
+	  argument for choosing A4 over US Letter is appealing.
+	  Whatever page size is chosen, the margins and header
+	  positioning will need to be chosen to look good on both
+	  paper sizes using common printing methods.  In addition, for
+	  both Internet Drafts and RFCs, margins should be the
+	  smallest consistent with the above requirement.
 	  </t>
+	</section>
+
+	<section title='headers and footers'>
+	  <t>Page headers and footers are part of the page layout.
+	  There are a variety of options. Note that page headers and
+	  footers in PDF can be typeset in a way that the entire
+	  (longer) title might fit.</t>
+
 	  <t>Page headers and footers should contain similar
-	    information as the headings in the current text versions
-	    of documents, including page numbers, short title,
-	    author, working group, but typeset in a lighter color, smaller
-	    typeface, so as to be inobtrusive.
+	  information as the headings in the current text versions of
+	  documents, including page numbers, title, author, working
+	  group, but typeset in a lighter color, smaller typeface, so
+	  as to be inobtrusive.
+	  </t>
+	</section>
+	<section tytle='paragraph numbering'>
+	  <t>One common feature of the new RFC output formats
+	  are visible paragraph numbers, to aid in discussions.
+	  In the PDF and thus printed rendition, it is possible
+	  to make paragraph numbers unobtrusive, and even
+	  to impinge on the margins.</t>
+	  <t>Recmmendation: show paragraph numbeers in the
+	  right margin, not left, small font, light color,
+	  and, if possible, code
+	  them in a way as to not interfere with screen readers.
+	  </t>
+	</section>
+
+	<section title="Paged content layout quality">
+	  <t>The process of creating a paged document from running text
+	  typically involves insuring related material is present 
+	  on the same page together, and that artifacts of pagination
+	  don't interfere with easy reading of the document. Typical
+	  high-quality layout processors do several things:
+	  <list style='hanging'>
+	    <t hangText='widow and orphan management'>
+	      Insure a page break does not occur after the first
+	      line of a paragraph, or before the last line
+	      (unless the entire paragraph is only one line).
+	    </t>
+	    <t hangText='keep section heading contiguous'>
+	      Do not page break immediately after a section heading.
+	      If there isn't room on a page for the first (two)
+	      lines of a section after the section heading, 
+	      page break before the heading.
+	    </t>
+	    <t hangText='avoid splitting artwork'>
+	      Figures should not be split from figure titles.
+	      If possible, keep the figure on the same page
+	      as the (first) mention of the figure.
+	    </t>
+	    <t hangText='headers for long tables after page breaks'>
+	      Another common option in producing paginated documents
+	      is to include the column headings of a table if
+	      the table cannot be displayed on a single page.
+	    </t>
+	  </list>
+	  </t>
+	  <t>Layout engines differ in the quality of the algorithms
+	  used to automate these processes. In some cases, the
+	  automated processes require some manual assistance
+	  to insure, for example, that a text line intended
+	  as a heading is 'kept' with the text it is heading for.</t>
+	  <t>Recommendation: Minimize requirements for authors
+	  to add specific markup to
+	  the XML source for assisting with with manually
+	  enhancing layout for Internet Drafts.  Choose a
+	  layout engine for the RFC Editor so that manual
+	  intervention is minmized, and that widow and
+	  orphan processing, heading keep are automatic.
 	  </t>
 	</section>
 	<section title='Similarity to other outputs'>
@@ -240,10 +278,24 @@
 	    the XML source for Internet Drafts and RFCs may
 	    be bounded by the availability of embeddable fonts with 
 	    appropriate glyphs.</t>
-
+	    
 	  </list>
 
 	</t>
+	</section>
+	<section title='Hyphenation and line breaks'>
+	  <t>Typically, when doing page layout of running text,
+	  especially with narrow page width and long words,
+	  layout processors of English text often have the 
+	  option of hyphenating words, or using existing
+	  hyphens as a place to introduce word breaks.
+	  However, line breaks mid-word where the 'word'
+	  is actually technically a sequence of characters
+	  representing a protocol element or protocol
+	  sequence is actively harmful.</t>
+	  <t>Recommendation: do not introduce any hyphens
+	  into the visual display or any line breaks
+	  mid-word even for hyphens in the text.</t>
 	</section>
 	<section title='Embedding of Fonts'>
 	  <t>The PDF/A standards mandate the embedding
@@ -251,10 +303,7 @@
 	  would produce PDF/A-conforming files directly, thus ensuring
 	  that all glyphs include Unicode mappings and embedded fonts
 	  from the outset.</t>
-
 	</section>
-
-
 	<section title='Hyperlinks'>
 	  <t>PDF supports hyperlinks both to sections of the same
 	  document and to other documents.</t>
@@ -563,6 +612,18 @@
 	XSLT to generate XSL-FO which is then processed by a formatting object processor such as Apache FOP.
       </t>
    </section>
+   <section title='Typefaces'>
+     <t>This section is intended to discuss available typefaces
+     that might satisfy requirements. Some openly available
+     fixed-width typefaces (without extensive Unicode support,
+     however) include:
+     <list style='symbols'>
+       <t><eref target="https://sourceforge.net/projects/sourcesans.adobe/?source=directory">Source Sans</eref></t>
+       <t><eref target=https://sourceforge.net/projects/sourceserifpro.adobe/?source=directory">Source Serif Pro</eref></t>
+       <t><eref target=https://sourceforge.net/projects/sourcecodepro.adobe/?source=drectory">Source Code Pro</eref></t>
+     </list>
+     </t>
+   </section>
     
     <section title='Other Tools'>
     <t>In addition to generating and viewing PDF, other categories of
@@ -590,6 +651,7 @@
     </list>
     </t>
     </section>
+
   </section>
 
   <section title='Choosing PDF versions and standards'>
@@ -610,7 +672,9 @@
     standard was designed for engineering documents.</t>
     <t>Two additional standards families are important to the
     RFC format, though: long-term preservation (PDF/A), and user
-    acessibility (PDF/UA). These standards are then supported
+    acessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
+    PDF/A-2, PDF/A-3), each of which have conformance levels.
+    These standards are then supported
     by various software libraries and tools.</t>
 
     <t>It is effective and useful to use these standards to capture
@@ -622,9 +686,12 @@
       <t> Choose PDF 1.7; although relatively recent, it is well
       supported by widely available viewers.</t>
 
-      <t> Require PDF/A3 for RFCs. It captures the archivability and
-      long-term stability of PDF 1.7 files. 
-      Use PDF/A3 for embedding additional data (incluing
+      <t> Require PDF/A-3, conformance level 'u' for RFCs. 
+      This requirement captures the archivability and
+      long-term stability of PDF 1.7 files, and many of
+      the requirement features.</t>
+
+      <t>Use PDF/A-3 for embedding additional data (including
       the source files) in RFCs and Internet Drafts.</t>
       <t> Require PDF/UA for RFCs.</t>
     </list>
@@ -708,6 +775,38 @@
     <?rfc include='reference.RFC.6949' ?>
     
   </references>
+    <section title='History and current use of PDF with RFCs and Internet Drafts'>
+      <t>NOTE: this section is meant as an overview
+      to give some background.</t>
+      <section title='RFCs'>
+	<t>The RFC series has for a long time accepted Postscript
+	renderings of RFCs, either in addition to or instead of the
+	text renderings of those same RFCs.  These have usually been
+	produced when there was a complicated figure or mathematics
+	within the document.  For example, consider the figures and
+	mathematics found in RFC 1119 and RFC 1142, and compare the
+	figures found in the text version of RFC 3550 with those in
+	the Postscript version.  The RFC editor has provided a PDF
+	rendering of RFCs. Usually, this has been a print of the
+	text file that does not take advantage of any of the broader
+	PDF functionality, unless there was a Postscript version
+	of the RFC, which would then be used by the RFC editor to 
+	generate the PDF.
+        </t>
+      </section>
+      <section title='Internet Drafts'>
+	<t>In addition to PDFs generated and published by the RFC
+	editor, the IETF tools community has also long supported PDF
+	for Internet Drafts.  Most RFCs start with Internet Drafts,
+	edited by individual authors.  The Internet drafts submission
+	tool at https://datatracker.ietf.org/submit/ accepts PDF and
+	Postscript files in addition to the (required) text submission
+	and (currently optional) XML.  If a PDF wasn't submitted for a
+	particular version of an Internet Draft, the tools would
+	generate one from the Postscript, HTML, or text.</t>
+      </section>
+    </section>
+
   <section title='A Synopsis of PDF Format History' anchor='pdf-history'>
     <t>
       <xref target='RFC3778'/> contains some history of PDF.
