@@ -9,13 +9,13 @@ README.html
 Thumbs.db
 
 # ignore output of xml2rfc conversion
-# go ahead and upload
-# pdfrfc.txt
-# pdfrfc.html
-# pdfrfc.pdf 
 
-# pdfmime.txt
-# pdfmime.html
-# pdfmime.pdf
+pdfrfc.txt
+pdfrfc.html
+pdfrfc.pdf 
+
+pdfmime.txt
+pdfmime.html
+pdfmime.pdf
 
 
