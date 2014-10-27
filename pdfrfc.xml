@@ -76,7 +76,7 @@
       </t>
 
       <t>Because PDF has a wide range of capabilities and
-      alternatives, not all PDFs are "equal".  For example, visually
+      alternatives; not all PDFs are "equal".  For example, visually
       similar documents could consist of scanned or rasterized images,
       include text layout options, hyperlinks, embedded fonts, and
       digital signatures.  (See <xref target='pdf-history'/> for a
@@ -117,11 +117,11 @@
       of the design choice, outline the pros and cons, and make a
       recommendation.</t>
 
-      <section title='"Visible" requirements'>
+      <section title='"Visible" Requirements'>
 	<t> PDF supports rich visible layout of fixed-sized pages.
 	</t>
 
-	<section title='General visible requirements'>
+	<section title='General Visible Requirements'>
 	  <t> For a consistent 'look' of RFC and good style, the PDFs
 	  produced by the RFC editor should have a clear, consistent,
 	  identifiable and easy-to-read
@@ -130,7 +130,7 @@
 	  resolution.</t>
 	</section>
 
-	<section title='Page size, margins'>
+	<section title='Page Size, Margins'>
 	  <t>PDF files are laid out for a particular size of page and
 	  margins. There are two paper sizes in common use: "US
 	  Letter" (8.5 x 11 inches, 216x279 mm, in popular use in
@@ -149,7 +149,7 @@
 	  </t>
 	</section>
 
-	<section title='headers and footers'>
+	<section title='Headers and Footers'>
 	  <t>Page headers and footers are part of the page layout.
 	  There are a variety of options. Note that page headers and
 	  footers in PDF can be typeset in a way that the entire
@@ -158,50 +158,55 @@
 	  <t>Page headers and footers should contain similar
 	  information as the headings in the current text versions of
 	  documents, including page numbers, title, author, working
-	  group, but typeset in a lighter color, smaller typeface, so
-	  as to be inobtrusive.
+	  group. However, the page headers and footers should be typeset
+	  in a lighter color, smaller typeface, so as to be inobtrusive.
 	  </t>
 	</section>
-	<section title='paragraph numbering'>
-	  <t>One common feature of the new RFC output formats
-	  are visible paragraph numbers, to aid in discussions.
+	<section title='Paragraph Numbering'>
+	  <t>One common feature of the RFC output formats
+	  are optional visible paragraph numbers, to aid in discussions.
 	  In the PDF and thus printed rendition, it is possible
 	  to make paragraph numbers unobtrusive, and even
 	  to impinge on the margins.</t>
 	  <t>Recmmendation: show paragraph numbeers in the
-	  right margin, not left, small font, light color,
+	  right margin (not left), small font, light color,
 	  and, if possible, code
 	  them in a way as to not interfere with screen readers.
 	  </t>
 	</section>
 
-	<section title="Paged content layout quality">
+	<section title="Paged Content Layout Quality">
 	  <t>The process of creating a paged document from running text
-	  typically involves insuring related material is present 
+	  typically involves insuring that related material is present 
 	  on the same page together, and that artifacts of pagination
 	  don't interfere with easy reading of the document. Typical
 	  high-quality layout processors do several things:
 	  <list style='hanging'>
-	    <t hangText='widow and orphan management'>
-	      Insure a page break does not occur after the first
-	      line of a paragraph, or before the last line
+	    <t hangText='Widow and Orphan Management'>
+	      Widows and orphans should be avoided automatically
 	      (unless the entire paragraph is only one line).
+	      Insure that a page break does not occur after the first
+	      line of a paragraph (orphans), if necessary, using slightly longer
+	      page sizes.
+	      Similarly, insure that a page break does not occur before
+	      the last line of a paragraph (widows).
 	    </t>
-	    <t hangText='keep section heading contiguous'>
+	    <t hangText='Keep Section Heading Contiguous'>
 	      Do not page break immediately after a section heading.
 	      If there isn't room on a page for the first (two)
 	      lines of a section after the section heading, 
 	      page break before the heading.
 	    </t>
-	    <t hangText='avoid splitting artwork'>
+	    <t hangText='Avoid Splitting Artwork'>
 	      Figures should not be split from figure titles.
 	      If possible, keep the figure on the same page
 	      as the (first) mention of the figure.
 	    </t>
-	    <t hangText='headers for long tables after page breaks'>
+	    <t hangText='Headers for Long Tables after Page Breaks'>
 	      Another common option in producing paginated documents
 	      is to include the column headings of a table if
 	      the table cannot be displayed on a single page.
+	      Similarly, tables should not be split from the table titles.
 	    </t>
 	  </list>
 	  </t>
@@ -215,8 +220,9 @@
 	  the XML source for assisting with with manually
 	  enhancing layout for Internet Drafts.  Choose a
 	  layout engine for the RFC Editor so that manual
-	  intervention is minmized, and that widow and
-	  orphan processing, heading keep are automatic.
+	  intervention is minimized, and that widow and
+	  orphan processing, heading and title contiguation
+	    are automatic.
 	  </t>
 	</section>
 	<section title='Similarity to other outputs'>
@@ -233,23 +239,23 @@
 	  </t>
 	  <t>Recommendation: the PDF rendition should look like the
 	  HTML rendition, at least in spirit.  For example, some
-	  differences from the HTML rendition might include different
+	  differences from the HTML rendition would include different
 	  typeface and size (chosen for printing), page numbers in the
-	  table of contents, page headers and footers and headers.
+	  table of contents and index, and the use of page headers and footers.
 	  </t>
 	</section>
-	<section title="Typeface choices">
+	<section title="Typeface Choices">
 	  <t> A PDF may refer to a font by name, or it may use an
 	  embedded font.  When a font is not embedded, a PDF viewer
 	  will attempt to locate a locally installed font of the same
 	  name.  If it can not find an exact match, it will find a
 	  "close match".  If a close match is not available, it will
-	  fallback to something implementation dependent and 
+	  fall back to something implementation dependent and 
 	  usually undesirable.</t>
 	  <t>Recommendation: for consistent viewing, all fonts should
 	  be embedded.  </t>
 	  <t>In addition, if the HTML version of the document is
-	  being visually mimiced, the font(s) chosen should have
+	  being visually mimicked, the font(s) chosen should have
 	  both variable width and constant width components, as well
 	  as bold and italic representations.</t>
 	  <t> The typefaces used by Internet Drafts and by RFCs
@@ -267,7 +273,7 @@
 	    should be in a serif font and the headings in a sans-serif
 	    font. </t>
 
-	    <t> Code, BNF, and other text could use a fixed-width
+	    <t> Code, BNF, and other text should use a fixed-width
 	    font to aid in insuring alignment, e.g., in BNF.</t>
 
 	    <t> Type faces used by the xml2rfc application
@@ -278,12 +284,17 @@
 	    the XML source for Internet Drafts and RFCs may
 	    be bounded by the availability of embeddable fonts with 
 	    appropriate glyphs.</t>
-	    
+
+	    <t> If there is a non-freely available font that provides
+	      all of the desired features that is deemed better than
+	      the freely-available options, the IETF community might
+	      consider acquiring the rights to use such a font.</t>
 	  </list>
 
 	</t>
 	</section>
-	<section title='Hyphenation and line breaks'>
+
+	<section title='Hyphenation and Line Breaks'>
 	  <t>Typically, when doing page layout of running text,
 	  especially with narrow page width and long words,
 	  layout processors of English text often have the 
@@ -297,6 +308,7 @@
 	  into the visual display or any line breaks
 	  mid-word even for hyphens in the text.</t>
 	</section>
+
 	<section title='Embedding of Fonts'>
 	  <t>The PDF/A standards mandate the embedding
 	  of fonts. Preferably, the software generating the files
@@ -304,6 +316,7 @@
 	  that all glyphs include Unicode mappings and embedded fonts
 	  from the outset.</t>
 	</section>
+
 	<section title='Hyperlinks'>
 	  <t>PDF supports hyperlinks both to sections of the same
 	  document and to other documents.</t>
@@ -331,14 +344,15 @@
 	    RFC should also be visible and active in the PDF
 	    produced.</t>
 	    <t>Table of contents, including page numbers, are useful
-	    when printed. These should be hyperelinked.</t>
+	    when printed. These should be hyperlinked.</t>
 	    <t>Hyperlinks to RFCs and Internet drafts from the
 	    references section should point to a "landing" page which
 	    then links to the various formats available.</t>
 	  </list></t>
 	</section>
       </section>
-      <section title='"Invisible" options and requirements'>
+
+      <section title='"Invisible" Options and Requirements'>
 	<t>PDF offers a number of features which improve the utility
 	of PDF files in a variety of workflows, at the cost of extra
 	effort in the xml2rfc conversion process; the tradeoffs may be
@@ -350,26 +364,27 @@
 	  ways.  The PDF file could be generated:
 	  <list style='symbols'>
 
-	    <t>as an image of the visual representation, such as a
-	    JPEG image of the word 'IETF'</t>
+	    <T>as an image of the visual representation, such as a
+	    JPEG image of the word 'IETF'. That is, there might be no internal
+	      representation of letters, words or paragraphs at all.</t>
 
 	    <t>placing individual characters in position on the page,
 	    such as saying "put an 'F' here", then "put an 'T' before
 	    it", then "put an 'E' before that", then "put an 'I'
-	    before that" to render the word 'IETF'</t>
+	    before that" to render the word 'IETF'. That is, there might be
+	      no internal representation of words or paragraphs at all.
+	    </t>
 
 	    <t>placing words in position on the page, such as keeping
-	    the word 'IETF' would be kept together, and</t>
+	    the word 'IETF' would be kept together. That is, there might be
+	      no internal representation of paragraphs at all.</t>
 
 	    <t>insuring that the running order of text in the content
-	    stream matches logical reading order, e.g., keeping the
-	    sentence 'The Internet Engineering Task Force (IETF)
-	    supports the Internet.' together as a sentence.</t>
-
-	    <t>A "role map" feature of PDF would allow mapping the
-	    logical tags found in the original XML into tags in the
-	    PDF.</t>
-	    
+	    stream matches the logical reading order. That is, a sentence
+	    sentence such as 'The Internet Engineering Task Force (IETF)
+	    supports the Internet.' would be kept together as a sentence,
+	      and multiple sentences within a paragraph would be kept together.
+	    </t>
 	  </list>
 	  </t>
 
@@ -377,7 +392,14 @@
 	  representation of the output.  However, each level has
 	  tradeoffs for auxiliary uses, such as searching or indexing,
 	  commenting and annotation, and accessibility
-	  (text-to-speech).</t>
+	  (text-to-speech).
+	    Keeping the running order of text in the content stream in the
+	    proper order supports all of these auxiliar uses.
+	  </t>
+
+	  <t>In addition, the "role map" feature of PDF would additionally allow for the
+	    mapping of the logical tags found in the original XML into tags in the
+	    PDF.</t>
 
 	  <t>Recommendations:
 	  <list style='symbols'>
@@ -394,7 +416,6 @@
 	    the source. However, there is not a compelling use case
 	    over embedding the original XML, as described in <xref
 	    target='embedXML' />. </t>
-
 	  </list>
 	</t>
       </section>
@@ -414,7 +435,7 @@
 	</list></t>
       </section>
 
-      <section title='Text description of images (alt-text)'>
+      <section title='Text Description of Images (Alt-Text)'>
 	<t>NOTE: This section should describe how alt-text
 	for images is presented in PDF....TBD</t>
       </section>
@@ -434,11 +455,12 @@
 	<t>
 	  Recommendation: The PDFs generated should have all of the
 	  metadata from the XML version embedded directly as XMP
-	  metadata, including the author and date information, set the
+	  metadata, including the author, date, the
 	  document series, and a URL for where the document can be
 	  retrieved.
 	</t>
       </section>
+
       <section title='Document Structure Support'>
 	<t>PDF supports an 'outline' feature where sections of the
 	document are marked; this oould be used in addition to the
@@ -482,7 +504,7 @@
 	is not universal.</t>
 	<t>Embedding content in the PDF file allows the PDF to act as
 	a complete package, which can be transformed, archived,
-	digitally signed. Useful possibilities:
+	and digitally signed. Useful possibilities:
 
 	<list>
 	  <t>Embed the source XML input file itself within the PDF.
@@ -500,13 +522,15 @@
 	  Recommendations: 
 	  <list>
 	    <t>Embed the XML source and all illustrations,
-	    for both RFCs and Internet Drafts, as a standard
+	    for RFCs, as a standard
 	    feature for xml2rfc's PDF output.</t>
+	    <t>If possible, make this a standard feature for
+	      Internet Drafts as well.</t>
 
 	    <t>Finding, extracting and embedding other components
 	    will require additional markup to clearly identify them,
 	    and additional review to insure the correctness of
-	    embedded files which are not visible.</t>
+	    embedded files that are not visible.</t>
 	  </list>
 	</t>
       </section>
@@ -522,19 +546,22 @@
 	</t>
 
 	<t>Normally, the authenticity of RFC files is not an issue,
-	since the RFC editor maintains a repository of all RFCs which
-	is widely replicated. However, the RFC Editor and staff are at
-	times called to provide evidence that a particular RFC is the
-	'original' and has not been visually modified, and there
-	may be other use cases.</t>
+	  since the RFC editor maintains a repository of all RFCs which
+	  is widely replicated. However, the RFC Editor and staff are at
+	  times called to provide evidence that a particular RFC is the
+	  'original' and has not been visually modified, and there
+	  may be other use cases.
+	  As signatures also apply to embedded content, embedding the
+	  XML source will provide a way of signing the source XML as well.
+	</t>
 
 	<t>
-	  Recommendation: The use cases for digital signatures need
-	  further review, including management of certificates for the
-	  RFC editor function. PDFs produced by the RFC editor likely
-	  SHOULD be signed. As signatures also apply to embedded
-	  content, this will provide a way of signing the source XML
-	  as well.  There is no need for digital signatures on
+	  Recommendation: 
+	  PDFs produced by the RFC editor SHOULD be signed.
+	  The management of certificates for the RFC editor function
+	  needs further review.
+	</t>
+	<t>There is no need for digital signatures on
 	  Internet Drafts.
 	</t>
       </section>
@@ -600,18 +627,23 @@
       support. </t>
     </section>
     
-    <section title='PDF generation libraries'>
+    <section title='PDF Generation Libraries'>
       <t>Because the xml2rfc format is a unique format,
-      software for converting XML source documents to
-      the various formats will be needed, including
-      PDF generation.</t>
+	software for converting XML source documents to
+	the various formats will be needed, including
+	PDF generation.
+      </t>
       <t>
 	One promising
 	direction is suggested in
 	<eref target="http://greenbytes.de/tech/webdav/rfc2629xslt/rfc2629xslt.html#output.pdf.fop"/>: using
 	XSLT to generate XSL-FO which is then processed by a formatting object processor such as Apache FOP.
       </t>
+      <t>
+	Several libraries are also available for generating PDF signatures.
+      </t>
    </section>
+
    <section title='Typefaces'>
      <t>This section is intended to discuss available typefaces
      that might satisfy requirements. Some openly available
@@ -622,53 +654,57 @@
        <t><eref target="https://sourceforge.net/projects/sourceserifpro.adobe/?source=directory">Source Serif Pro</eref></t>
        <t><eref target="https://sourceforge.net/projects/sourcecodepro.adobe/?source=drectory">Source Code Pro</eref></t>
      </list>
+     A font that looks promising for its broad Unicode support is
+     <eref target="https://www.rosettatype.com/Skolar">Skolar</eref>,
+     but it requires licensing.
+     Another potentially useful set of typefaces is the <eref target="https://www.google.com/get/noto/">Noto</eref> family from Google.
      </t>
    </section>
-    
-    <section title='Other Tools'>
+
+   <section title='Other Tools'>
     <t>In addition to generating and viewing PDF, other categories of
-    PDF tools are available and may be useful both during
-    specification development and for published RFCs.
+      PDF tools are available and may be useful both during
+      specification development and for published RFCs.
+      These include tools for comparing two PDFs, checkers that could
+      be used to validate the results of conversion, reviewing and commentary
+      tools that attach annotations to PDF files, and digital signature
+      creation and validation.
     </t>
-    <t>These include tools for comparing two PDFs, checkers that could
-    be used to validate the results of conversion, review and comment
-    tools which attach annotations to PDF files, digital signature
-    creation and validation.</t>
     <t>Validation of an arbitrary author-generated PDF file
-    would be quite difficult; there are few PDF validation
-    tools. However, if internet drafts and RFCs are generated by
-    conversion from XML via xml2rfc, then explicit validation of PDF
-    and adherance to expected profiles would mainly be useful to insure
-    xml2rfc has functioned properly.</t>
+      would be quite difficult; there are few PDF validation
+      tools. However, if internet drafts and RFCs are generated by
+      conversion from XML via xml2rfc, then explicit validation of PDF
+      and adherance to expected profiles would mainly be useful to insure
+      that xml2rfc has functioned properly.
+    </t>
     <t>Recommendations:
     <list style='symbols'>
       <t>Discourage (but allow) submission of a PDF representation
-      for Internet Drafts. In most cases, the PDF for an Internet
-      draft should be produced automatically when XML is suhmitted,
-      with an opportunity to verify the conversion. </t>
-      <t>The RFC editor should create PDF files from the XML
-      rather than accepting PDFs from the author.</t>
+	for Internet Drafts. In most cases, the PDF for an Internet
+	draft should be produced automatically when XML is suhmitted,
+	with an opportunity to verify the conversion.
+      </t>
     </list>
     </t>
-    </section>
+   </section>
 
   </section>
 
-  <section title='Choosing PDF versions and standards'>
+  <section title='Choosing PDF versions and Standards'>
 
-    <t> PDF has gone through several revisions, primarily addition of
+    <t> PDF has gone through several revisions, primarily for the addition of
     features, as noted in in <xref target='pdf-history'/>.  PDF
     features have generally been added in a way that older viewers
     'fail gracefully', but even so, the older the PDF version
     produced, the more legacy viewers will support that version,
     but the fewer features will be enabled.
     </t>
-    <t>As PDF has evoled a broad set capabilities, additional
+    <t>As PDF has evolved a broad set of capabilities, additional
     standards for PDF files are applicable. These standards
     establish ground rules that are important for specific
     applications.  For example PDF/X was specifically designed
     for Prepress digital data exchange, with careful attention
-    to color management and printing instructions, while PDF/E
+    to color management and printing instructions, while the PDF/E
     standard was designed for engineering documents.</t>
     <t>Two additional standards families are important to the
     RFC format, though: long-term preservation (PDF/A), and user
@@ -684,16 +720,20 @@
     <t>Recommendations:
     <list>
       <t> Choose PDF 1.7; although relatively recent, it is well
-      supported by widely available viewers.</t>
+      supported by widely available viewers.
+      </t>
 
-      <t> Require PDF/A-3, conformance level 'u' for RFCs. 
-      This requirement captures the archivability and
-      long-term stability of PDF 1.7 files, and many of
-      the requirement features.</t>
+      <t> For RFCs, require PDF/A-3 with conformance level 'U'.
+	This captures the archivability and
+	long-term stability of PDF 1.7 files, mandatory Unicode mapping,
+	and many of the requirement features.
+      </t>
 
       <t>Use PDF/A-3 for embedding additional data (including
-      the source files) in RFCs and Internet Drafts.</t>
-      <t> Require PDF/UA for RFCs.</t>
+      the XML source file) in RFCs and Internet Drafts.
+      </t>
+
+      <t> Use PDF/UA.</t>
     </list>
     </t>
   </section>
@@ -775,7 +815,8 @@
     <?rfc include='reference.RFC.6949' ?>
     
   </references>
-    <section title='History and current use of PDF with RFCs and Internet Drafts'>
+
+    <section title='History and Current Use of PDF with RFCs and Internet Drafts'>
       <t>NOTE: this section is meant as an overview
       to give some background.</t>
       <section title='RFCs'>
@@ -846,13 +887,14 @@
 	  </t>
 	  <section title='PDF/A'>
 	  <t>
-	    PDF/A in turn has nuances, as there have been a couple updates to it and conformance levels within each version.
-	    PDF/A-1 was based on PDF release 1.4.
-	    PDF/A-2 was based on PDF release 1.7, and PDF/A-3 adds embedded arbitrary files.
+	    PDF/A in turn has nuances, as there have been a few updates to it and conformance levels within each version.
+	    PDF/A-1 was based on PDF release 1.4,
+	    PDF/A-2 was based on PDF release 1.7, and
+	    PDF/A-3 adds embedded arbitrary files.
 	    PDF/A is considered a profile because it mandates that certain optional features be used.
-	    At a high level, the conformance levels are B (basic), U (mandatory unicode mapping [not in PDF/A-1]) and A (accessible).
+	    At a high level, the conformance levels are B (basic), U (mandatory Unicode mapping [not in PDF/A-1]) and A (accessible).
 	    The requirements for conformance level A are that: the document structure must be represented within the PDF (e.g., section
-	    headings, table cells, paragraph divisions), tagged PDF is used (e.g.,  element anchors) and that language tags be used where
+	    headings, table cells, paragraph divisions), tagged PDF is used (e.g., element anchors) and that language tags be used where
 	    appropriate.
 	    When referring to PDF/A, you would refer to the version and conformance level.
 	    So PDF/A-1A would be the profile for the Accessible conformance level of version 1 of PDF/A, which was based on PDF 1.4.
@@ -882,6 +924,7 @@
 	Brian Carpenter,
 	Chris Dearlove,
 	Martin Duerst,
+	Heather Flanagan,
 	Joe Hildebrand,
 	Duff Johnson,
 	Leonard Rosenthal,
