@@ -364,7 +364,7 @@
 	  ways.  The PDF file could be generated:
 	  <list style='symbols'>
 
-	    <T>as an image of the visual representation, such as a
+	    <t>as an image of the visual representation, such as a
 	    JPEG image of the word 'IETF'. That is, there might be no internal
 	      representation of letters, words or paragraphs at all.</t>
 
