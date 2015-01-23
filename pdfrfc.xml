@@ -566,7 +566,9 @@
 	    sections such as the Abstract, Status of the Document, Table
 	    of Contents, and Author Addresses, plus the obvious
 	    section headings that are normally included in
-	    the Table of Contents.
+	    the Table of Contents. If possible, this should be done in a way
+	    that the same fragment identifiers for the HTML version of
+	    the RFC will work for the PDF version.
 	  </t>
 	</section>
 
