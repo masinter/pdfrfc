@@ -12,7 +12,7 @@
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-     docName='draft-hansen-rfc-use-of-pdf-04' category='info' >
+     docName='draft-hansen-rfc-use-of-pdf-05' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -71,14 +71,14 @@
   <middle>
     <section title='Introduction'>
       <t> The RFC Series is evolving, as outlined in
-	<xref target='RFC6949'/>. Future documents will use an archival format
-	of XML with renderings in various formats, including PDF.
+	<xref target='RFC6949'/>. Future documents will use an canonical format, XML,
+	with renderings in various formats, including PDF.
       </t>
 
       <t>Because PDF has a wide range of capabilities and
 	alternatives; not all PDFs are "equal".  For example, visually
 	similar documents could consist of scanned or rasterized images,
-	include text layout options, hyperlinks, embedded fonts, and
+	or include text layout options, hyperlinks, embedded fonts, and
 	digital signatures.  (See <xref target='pdf-history'/> for a
 	brief history of PDF.)
       </t>
@@ -117,7 +117,7 @@
 	PDFs. Most of the discussion of tooling is to be found in
 	<xref target='tooling'/>.
       </t>
-      <t>NOTE: each option in this section should outline the nature
+      <t>NOTE: each option in this section will eventually outline the nature
 	of the design choice, outline the pros and cons, and make a
 	recommendation.
       </t>
@@ -193,7 +193,7 @@
 	    don't interfere with easy reading of the document. Typical
 	    high-quality layout processors do several things:
 	    <list style='hanging'>
-	      <t hangText='Widow and Orphan Management'>
+	      <t hangText='Widow and Orphan Management:'>
 		Widows and orphans should be avoided automatically
 		(unless the entire paragraph is only one line).
 		Insure that a page break does not occur after the first
@@ -202,29 +202,29 @@
 		Similarly, insure that a page break does not occur before
 		the last line of a paragraph (widows).
 	      </t>
-	      <t hangText='Keep Section Heading Contiguous'>
+	      <t hangText='Keep Section Heading Contiguous:'>
 		Do not page break immediately after a section heading.
 		If there isn't room on a page for the first (two)
 		lines of a section after the section heading,
 		page break before the heading.
 	      </t>
-	      <t hangText='Avoid Splitting Artwork'>
+	      <t hangText='Avoid Splitting Artwork:'>
 		Figures should not be split from figure titles.
 		If possible, keep the figure on the same page
 		as the (first) mention of the figure.
 	      </t>
-	      <t hangText='Headers for Long Tables after Page Breaks'>
+	      <t hangText='Headers for Long Tables after Page Breaks:'>
 		Another common option in producing paginated documents
 		is to include the column headings of a table if
 		the table cannot be displayed on a single page.
 		Similarly, tables should not be split from the table titles.
 	      </t>
-	      <t hangText='keepWithNext and keepWithPrevious'>
+	      <t hangText='keepWithNext and keepWithPrevious:'>
 		The XML attributes of 'keepWithNext' and 'keepWithPrevious'
 		should be followed whenever possible.
 	      </t>
-	      <t hangText='Whitespace Preservation'>
-		The XML entities such as NBSP andNBHYPHEN should be
+	      <t hangText='Whitespace Preservation:'>
+		The XML entities such as NBSP and NBHYPHEN should be
 		followed as directed whenever possible.
 	      </t>
 	    </list>
@@ -235,11 +235,10 @@
 	    to insure, for example, that a text line intended
 	    as a heading is 'kept' with the text it is heading for.
 	  </t>
-	  <t>Recommendation: Minimize requirements for authors
-	    to add specific markup to
-	    the XML source for assisting with with manually
-	    enhancing layout for Internet Drafts.  Choose a
-	    layout engine for the RFC Editor so that manual
+	  <t>Recommendation: <!-- Minimize the requirements for authors
+	    to add specific markup to the XML source for assisting with
+	    manually enhancing layout for Internet Drafts. -->
+	    Choose a layout engine so that manual
 	    intervention is minimized, and that widow and
 	    orphan processing, heading and title contiguation
 	    are automatic.
@@ -275,6 +274,13 @@
 		TBA
 	      </t>
 	    </list>
+	    Most of the choices used for the CSS rendering are also
+	    applicable:
+	    <list>
+	      <t>
+		TBA
+	      </t>
+	    </list>
 	  </t>
 	</section>
 	<section title="Typeface Choices">
@@ -300,6 +306,9 @@
 	  <t> Few fonts have glyphs for the entire repertoire of
 	    Unicode characters; for this purpose, the PDF generation
 	    tool may need a set of fonts and a way of choosing them.
+	    The RFC Editor is defining where Unicode characters
+	    may be used within
+	    RFCs.<xref target='I-D.draft-flanagan-nonascii'/>
 	  </t>
 	  <t>Typefaces are typically licensed and, in many cases,
 	    there is a fee for use by PDF creation tools; however,
@@ -337,6 +346,15 @@
 	  </t>
 	</section>
 
+	<section title='Embedding of Fonts'>
+	  <t>The PDF/A standards mandate the embedding
+	    of fonts. Preferably, the software generating the files
+	    would produce PDF/A-conforming files directly, thus ensuring
+	    that all glyphs include Unicode mappings and embedded fonts
+	    from the outset.
+	  </t>
+	</section>
+
 	<section title='Hyphenation and Line Breaks'>
 	  <t>Typically, when doing page layout of running text,
 	    especially with narrow page width and long words,
@@ -351,15 +369,6 @@
 	  <t>Recommendation: do not introduce any hyphens
 	    into the visual display or any line breaks
 	    mid-word even for hyphens in the text.
-	  </t>
-	</section>
-
-	<section title='Embedding of Fonts'>
-	  <t>The PDF/A standards mandate the embedding
-	    of fonts. Preferably, the software generating the files
-	    would produce PDF/A-conforming files directly, thus ensuring
-	    that all glyphs include Unicode mappings and embedded fonts
-	    from the outset.
 	  </t>
 	</section>
 
@@ -457,9 +466,10 @@
 	    proper order supports all of these auxiliar uses.
 	  </t>
 
-	  <t>In addition, the "role map" feature of PDF would additionally allow for the
-	    mapping of the logical tags found in the original XML into tags in the
-	    PDF.
+	  <t>In addition, the "role map" feature of PDF
+	    (<eref target="http://help.adobe.com/en_US/acrobat/X/pro/using/WS58a04a822e3e50102bd615109794195ff-7cd8.w.html"/>)
+	    would additionally allow for the mapping of the logical tags
+	    found in the original XML into tags in the PDF.
 	  </t>
 
 	  <t>Recommendations:
@@ -472,7 +482,7 @@
 		(PDF/UA requires this.)
 	      </t>
 
-	      <t>We should investigate the use of role-maps to capture
+	      <t>We should investigate the use of PDF role maps to capture
 		more of the xml2rfc source structure, to the point where
 		it might even be possible to reconstruct much or all of
 		the source. However, there is not a compelling use case
@@ -498,7 +508,7 @@
 	      <t>Text within SVG for SVG images should
 		also have Unicode mappings.
 	      </t>
-	      <t>Alt-text for  images should also have Unicode.
+	      <t>Alt-text for images should also support Unicode.
 	      </t>
 	  </list>
 	  </t>
@@ -523,7 +533,10 @@
 
 	<section title='Text Description of Images (Alt-Text)'>
 	  <t>NOTE: This section should describe how alt-text
-	    for images is presented in PDF....TBD
+	    for images is presented in PDF.
+	    One possibility is to follow the guidance found in
+	    <eref target="http://www.w3.org/TR/WCAG20-TECHS/PDF1.html"/>.
+	    More TBD
 	  </t>
 	</section>
 
@@ -580,6 +593,8 @@
 	    role-map could be provided here to map the logical tags
 	    found in the RFC XML to the standard tagset for PDF.  This
 	    could be included in the generated PDF.
+	    (See also
+	    <eref target="http://www.pdfa.org/2011/10/the-value-of-tagged-pdf/"/>.)
 	  </t>
 	</section>
 
@@ -655,12 +670,15 @@
 
 	<t>
 	  Recommendation:
-	  PDFs produced by the RFC editor SHOULD be signed.
+	  PDFs produced by the RFC editor will be signed with a PDF digital
+	  signature.
 	  The management of certificates for the RFC editor function
 	  needs further review.
 	</t>
-	<t>There is no need for digital signatures on
-	  Internet Drafts.
+
+	<t>Recommendation:
+	  At this time, the authors see no need for Internet Drafts to be signed
+	  with a PDF digital signature.
 	</t>
       </section>
     </section>
@@ -791,6 +809,7 @@
     <references title='Informative References'>
       <?rfc include='reference.RFC.3778' ?>
       <?rfc include='reference.RFC.6949' ?>
+      <?rfc include='reference.I-D.draft-flanagan-nonascii' ?>
 
     </references>
 
