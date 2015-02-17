@@ -308,7 +308,7 @@
 	    tool may need a set of fonts and a way of choosing them.
 	    The RFC Editor is defining where Unicode characters
 	    may be used within
-	    RFCs.<xref target='I-D.draft-flanagan-nonascii'/>
+	    RFCs.<xref target='I-D.flanagan-nonascii'/>
 	  </t>
 	  <t>Typefaces are typically licensed and, in many cases,
 	    there is a fee for use by PDF creation tools; however,
@@ -809,7 +809,7 @@
     <references title='Informative References'>
       <?rfc include='reference.RFC.3778' ?>
       <?rfc include='reference.RFC.6949' ?>
-      <?rfc include='reference.I-D.draft-flanagan-nonascii' ?>
+      <?rfc include='reference.I-D.flanagan-nonascii' ?>
 
     </references>
 
