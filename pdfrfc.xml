@@ -62,7 +62,7 @@
       <t>
 	This document discusses options and requirements for the PDF
 	rendering of RFCs in the RFC Series, as outlined in RFC
-	6949. It also discusses the use of PDF for Internet Drafts,
+	6949. It also discusses the use of PDF for Internet-Drafts,
 	and available or needed software tools for producing and
 	working with PDF.
       </t>
@@ -76,7 +76,7 @@
       </t>
 
       <t>Because PDF has a wide range of capabilities and
-	alternatives; not all PDFs are "equal".  For example, visually
+	alternatives, not all PDFs are "equal".  For example, visually
 	similar documents could consist of scanned or rasterized images,
 	or include text layout options, hyperlinks, embedded fonts, and
 	digital signatures.  (See <xref target='pdf-history'/> for a
@@ -84,8 +84,7 @@
       </t>
 
       <t> This document explains some of the relevant options and
-	makes recommendations, both for the RFC series and Internet
-	Drafts.
+	makes recommendations, both for the RFC series and Internet-Drafts.
       </t>
 
       <t> The PDF format and the tools to manipulate it are
@@ -127,7 +126,7 @@
 	</t>
 
 	<section title='General Visible Requirements'>
-	  <t> For a consistent 'look' of RFC and good style, the PDFs
+	  <t> For a consistent "look" of RFC and good style, the PDFs
 	    produced by the RFC editor should have a clear, consistent,
 	    identifiable and easy-to-read
 	    style. They should print well on the widest range of
@@ -151,19 +150,21 @@
 	    Whatever page size is chosen, the margins and header
 	    positioning will need to be chosen to look good on both
 	    paper sizes using common printing methods.  In addition, for
-	    both Internet Drafts and RFCs, margins should be the
+	    both Internet-Drafts and RFCs, margins should be the
 	    smallest consistent with the above requirement.
 	  </t>
 	</section>
 
 	<section title='Headers and Footers'>
-	  <t>Page headers and footers are part of the page layout.
+	  <t>
+	    Page headers and footers are part of the page layout.
 	    There are a variety of options. Note that page headers and
 	    footers in PDF can be typeset in a way that the entire
 	    (longer) title might fit.
 	  </t>
 
-	  <t>Page headers and footers should contain similar
+	  <t>
+	    Recommendation: Page headers and footers should contain similar
 	    information as the headings in the current text versions of
 	    documents, including page numbers, title, author, working
 	    group. However, the page headers and footers should be typeset
@@ -180,8 +181,9 @@
 	    to impinge on the margins.
 	  </t>
 	  <t>Recommendation: When the XML "editing=yes" option has been chosen,
-	    show paragraph numbeers in the
-	    right margin (not left), using a small font and light color.
+	    show paragraph numbers in the right margin, using a small font and light color.
+	    (The right margin instead of the left margin prevents the paragraph
+	    numbers from being confused with the section numbers.)
 	    If possible, code them in a way as to not interfere with screen readers.
 	  </t>
 	</section>
@@ -220,7 +222,7 @@
 		Similarly, tables should not be split from the table titles.
 	      </t>
 	      <t hangText='keepWithNext and keepWithPrevious:'>
-		The XML attributes of 'keepWithNext' and 'keepWithPrevious'
+		The XML attributes of "keepWithNext" and "keepWithPrevious"
 		should be followed whenever possible.
 	      </t>
 	      <t hangText='Whitespace Preservation:'>
@@ -233,18 +235,18 @@
 	    used to automate these processes. In some cases, the
 	    automated processes require some manual assistance
 	    to insure, for example, that a text line intended
-	    as a heading is 'kept' with the text it is heading for.
+	    as a heading is "kept" with the text it is heading for.
 	  </t>
 	  <t>Recommendation: <!-- Minimize the requirements for authors
-	    to add specific markup to the XML source for assisting with
-	    manually enhancing layout for Internet Drafts. -->
+				  to add specific markup to the XML source for assisting with
+				  manually enhancing layout for Internet-Drafts. -->
 	    Choose a layout engine so that manual
 	    intervention is minimized, and that widow and
 	    orphan processing, heading and title contiguation
 	    are automatic.
 	  </t>
 	</section>
-	<section title='Similarity to other outputs'>
+	<section title='Similarity to Other Outputs'>
 	  <t>There is some advantage to having the PDF files look like
 	    the text or HTML renderings of the same document.  There are
 	    several options even so.
@@ -283,8 +285,10 @@
 	    </list>
 	  </t>
 	</section>
+
 	<section title="Typeface Choices">
-	  <t> A PDF may refer to a font by name, or it may use an
+	  <t>
+	    A PDF may refer to a font by name, or it may use an
 	    embedded font.  When a font is not embedded, a PDF viewer
 	    will attempt to locate a locally installed font of the same
 	    name.  If it can not find an exact match, it will find a
@@ -292,15 +296,20 @@
 	    fall back to something implementation dependent and
 	    usually undesirable.
 	  </t>
-	  <t>Recommendation: for consistent viewing, all fonts should
-	    be embedded.
+	  <t>
+	    In addition, the PDF/A standards mandate the embedding
+	    of fonts. Preferably, the software generating the files
+	    would produce PDF/A-conforming files directly, thus ensuring
+	    that all glyphs include Unicode mappings and embedded fonts
+	    from the outset.
 	  </t>
-	  <t>In addition, if the HTML version of the document is
+
+	  <t>If the HTML version of the document is
 	    being visually mimicked, the font(s) chosen should have
 	    both variable width and constant width components, as well
 	    as bold and italic representations.
 	  </t>
-	  <t> The typefaces used by Internet Drafts and by RFCs
+	  <t> The typefaces used by Internet-Drafts and by RFCs
 	    need not be identical.
 	  </t>
 	  <t> Few fonts have glyphs for the entire repertoire of
@@ -316,6 +325,10 @@
 	  </t>
 	  <t> Recommendations:
 	    <list style='symbols'>
+	      <t>
+		Recommendation: for consistent viewing, all fonts should
+		be embedded.
+	      </t>
 	      <t> For readability when printed, the main body text
 		should be in a serif font and the headings in a sans-serif
 		font.
@@ -326,12 +339,12 @@
 	      </t>
 
 	      <t> Type faces used by the xml2rfc application
-		for Internet drafts should be freely available,
+		for Internet-drafts should be freely available,
 		and included with the xml2rfc application.
 	      </t>
 
 	      <t> The range of Unicode characters allowed in
-		the XML source for Internet Drafts and RFCs may
+		the XML source for Internet-Drafts and RFCs may
 		be bounded by the availability of embeddable fonts with
 		appropriate glyphs.
 	      </t>
@@ -342,16 +355,6 @@
 		consider acquiring the rights to use such a font.
 	      </t>
 	    </list>
-
-	  </t>
-	</section>
-
-	<section title='Embedding of Fonts'>
-	  <t>The PDF/A standards mandate the embedding
-	    of fonts. Preferably, the software generating the files
-	    would produce PDF/A-conforming files directly, thus ensuring
-	    that all glyphs include Unicode mappings and embedded fonts
-	    from the outset.
 	  </t>
 	</section>
 
@@ -361,7 +364,7 @@
 	    layout processors of English text often have the
 	    option of hyphenating words, or using existing
 	    hyphens as a place to introduce word breaks.
-	    However, line breaks mid-word where the 'word'
+	    However, line breaks mid-word where the "word"
 	    is actually technically a sequence of characters
 	    representing a protocol element or protocol
 	    sequence is actively harmful.
@@ -380,6 +383,8 @@
 	    <list style='symbols'>
 	      <t>hyperlinks within the document
 	      </t>
+	      <t>hyperlinks to other RFCs and Internet-Drafts
+	      </t>
 	      <t>hyperlinks to external locations
 	      </t>
 	      <t>hyperlinks within a table of contents
@@ -387,19 +392,20 @@
 	    </list>
 	  </t>
 	  <t>
-	    Where should hyperlinks to RFCs point? to the info page for
-	    the RFC? to the PDF version of the RFC?  (NOTE: the RFC
-	    Series Editor has stated a preference for them to point to
-	    the info page for the RFC.)  Similar questions need to be
-	    answered on references to internet drafts: Where should
-	    hyperlinks to internet drafts point?  To the datatracker
+	    One question that must be answered is
+	    where should hyperlinks to RFCs point? To the info page for
+	    the RFC? To the PDF version of the RFC?
+	  </t>
+	  <t>
+	    Similar questions need to be
+	    answered on references to Internet-Drafts: Where should
+	    hyperlinks to Internet-Drafts point?  To the datatracker
 	    entry?  To the tools entry?  To a PDF version of the
-	    internet draft?
+	    Internet-Draft?
 	  </t>
 
 	  <t>Recommendations:
 	    <list style='symbols'>
-
 	      <t>All hyperlinks available in the HTML rendition of the
 		RFC should also be visible and active in the PDF
 		produced.
@@ -407,10 +413,16 @@
 		external resources.
 	      </t>
 	      <t>The table of contents, including page numbers, are useful
-		when printed. These should also be hyperlinked to their respective sections.
+		when printed. These should also be hyperlinked to their
+		respective sections.
 	      </t>
-	      <t>Hyperlinks to RFCs and Internet drafts from the
-		references section should point to a "landing" page which
+	      <t>Hyperlinks to RFCs from the
+		references section should point to the RFC "info" page, which
+		then links to the various formats available.
+	      </t>
+	      <t>Hyperlinks to Internet-Drafts from the
+		references section should point to the datatracker entry
+		page for the draft, which
 		then links to the various formats available.
 	      </t>
 	    </list>
@@ -423,7 +435,7 @@
 	  of PDF files in a variety of workflows, at the cost of extra
 	  effort in the xml2rfc conversion process; the tradeoffs may be
 	  different for the RFC editor production of RFCs and for
-	  Internet Drafts.
+	  Internet-Drafts.
 	</t>
 
 	<section title='Internal Text Representation' anchor='internal'>
@@ -432,19 +444,19 @@
 	    <list style='symbols'>
 
 	      <t>as an image of the visual representation, such as a
-		JPEG image of the word 'IETF'. That is, there might be no internal
+		JPEG image of the word "IETF". That is, there might be no internal
 		representation of letters, words or paragraphs at all.
 	      </t>
 
 	      <t>placing individual characters in position on the page,
 		such as saying "put an 'F' here", then "put an 'T' before
 		it", then "put an 'E' before that", then "put an 'I'
-		before that" to render the word 'IETF'. That is, there might be
+		before that" to render the word "IETF". That is, there might be
 		no internal representation of words or paragraphs at all.
 	      </t>
 
 	      <t>placing words in position on the page, such as keeping
-		the word 'IETF' would be kept together. That is, there might be
+		the word "IETF" would be kept together. That is, there might be
 		no internal representation of paragraphs at all.
 	      </t>
 
@@ -510,7 +522,7 @@
 	      </t>
 	      <t>Alt-text for images should also support Unicode.
 	      </t>
-	  </list>
+	    </list>
 	  </t>
 	</section>
 
@@ -561,7 +573,7 @@
 	</section>
 
 	<section title='Document Structure Support'>
-	  <t>PDF supports an 'outline' feature where sections of the
+	  <t>PDF supports an "outline" feature where sections of the
 	    document are marked; this oould be used in addition to the
 	    table of contents as a navigation aid.
 	  </t>
@@ -636,7 +648,7 @@
 		feature for xml2rfc's PDF output.
 	      </t>
 	      <t>If possible, make this a standard feature for
-		Internet Drafts as well.
+		Internet-Drafts as well.
 	      </t>
 
 	      <t>Finding, extracting and embedding other components
@@ -662,7 +674,7 @@
 	  since the RFC editor maintains a repository of all RFCs which
 	  is widely replicated. However, the RFC Editor and staff are at
 	  times called to provide evidence that a particular RFC is the
-	  'original' and has not been visually modified, and there
+	  "original" and has not been visually modified, and there
 	  may be other use cases.
 	  As signatures also apply to embedded content, embedding the
 	  XML source will provide a way of signing the source XML as well.
@@ -677,7 +689,7 @@
 	</t>
 
 	<t>Recommendation:
-	  At this time, the authors see no need for Internet Drafts to be signed
+	  At this time, the authors see no need for Internet-Drafts to be signed
 	  with a PDF digital signature.
 	</t>
       </section>
@@ -719,14 +731,14 @@
 	    supported by widely available viewers.
 	  </t>
 
-	  <t> For RFCs, require PDF/A-3 with conformance level 'U'.
+	  <t> For RFCs, require PDF/A-3 with conformance level "U".
 	    This captures the archivability and
 	    long-term stability of PDF 1.7 files, mandatory Unicode mapping,
 	    and many of the requirement features.
 	  </t>
 
 	  <t>Use PDF/A-3 for embedding additional data (including
-	    the XML source file) in RFCs and Internet Drafts.
+	    the XML source file) in RFCs and Internet-Drafts.
 	  </t>
 
 	  <t> Use PDF/UA.
@@ -813,7 +825,7 @@
 
     </references>
 
-    <section title='History and Current Use of PDF with RFCs and Internet Drafts'>
+    <section title='History and Current Use of PDF with RFCs and Internet-Drafts'>
       <t>NOTE: this section is meant as an overview
 	to give some background.
       </t>
@@ -833,15 +845,15 @@
 	  generate the PDF.
 	</t>
       </section>
-      <section title='Internet Drafts'>
+      <section title='Internet-Drafts'>
 	<t>In addition to PDFs generated and published by the RFC
 	  editor, the IETF tools community has also long supported PDF
-	  for Internet Drafts.  Most RFCs start with Internet Drafts,
-	  edited by individual authors.  The Internet drafts submission
+	  for Internet-Drafts.  Most RFCs start with Internet-Drafts,
+	  edited by individual authors.  The Internet-Drafts submission
 	  tool at https://datatracker.ietf.org/submit/ accepts PDF and
 	  Postscript files in addition to the (required) text submission
 	  and (currently optional) XML.  If a PDF wasn't submitted for a
-	  particular version of an Internet Draft, the tools would
+	  particular version of an Internet-Draft, the tools would
 	  generate one from the Postscript, HTML, or text.
 	</t>
       </section>
@@ -912,7 +924,7 @@
 
       <t>This section discusses tools for viewing, comparing,
 	creating, manipulating, transforming PDF files, including those
-	currently in use by the RFC editor and Internet drafts, as well
+	currently in use by the RFC editor and Internet-Drafts, as well
 	as outlining available PDF tools for various processes.
       </t>
 
@@ -925,7 +937,7 @@
 
 	<t>PDF viewers vary in capabilities, and it is important to note
 	  which PDF viewers support the features utilized in PDF RFCs and
-	  Internet drafts (features such as links, digital signatures,
+	  Internet-Drafts (features such as links, digital signatures,
 	  Tagged PDF and others mentioned in
 	  <xref target='requirements'/>).
 	</t>
@@ -960,7 +972,7 @@
 	  </list>
 	</t>
 
-	<t>Several 'legacy' viewers to consider include:
+	<t>Several "legacy" viewers to consider include:
 	  Ghostview, Xpdf.
 	</t>
       </section>
@@ -1017,7 +1029,7 @@
 	</t>
 	<t>Validation of an arbitrary author-generated PDF file
 	  would be quite difficult; there are few PDF validation
-	  tools. However, if internet drafts and RFCs are generated by
+	  tools. However, if RFCs and Internet-Drafts are generated by
 	  conversion from XML via xml2rfc, then explicit validation of PDF
 	  and adherance to expected profiles would mainly be useful to insure
 	  that xml2rfc has functioned properly.
@@ -1025,8 +1037,8 @@
 	<t>Recommendations:
 	  <list style='symbols'>
 	    <t>Discourage (but allow) submission of a PDF representation
-	      for Internet Drafts. In most cases, the PDF for an Internet
-	      draft should be produced automatically when XML is suhmitted,
+	      for Internet-Drafts. In most cases, the PDF for an Internet-Draft
+	      should be produced automatically when XML is suhmitted,
 	      with an opportunity to verify the conversion.
 	    </t>
 	  </list>
