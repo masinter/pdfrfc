@@ -143,11 +143,14 @@
 	    standard for the rest of the world).  Usually PDF printing
 	    software is used in a "shrink to fit" mode where the
 	    printing is adjusted to fit the paper in the printer.
+	    There is some controversy, but the
+	    argument for choosing A4 over US Letter is appealing.
 	  </t>
 
-	  <t>Recommendation: There is some controversy, but the
-	    argument for choosing A4 over US Letter is appealing.
-	    Whatever page size is chosen, the margins and header
+	  <t>Recommendation:
+	    The Internet-Draft and RFC processors should produce A4 size
+	    by default.
+	    However, the margins and header
 	    positioning will need to be chosen to look good on both
 	    paper sizes using common printing methods.  In addition, for
 	    both Internet-Drafts and RFCs, margins should be the
@@ -184,7 +187,8 @@
 	    show paragraph numbers in the right margin, using a small font and light color.
 	    (The right margin instead of the left margin prevents the paragraph
 	    numbers from being confused with the section numbers.)
-	    If possible, code them in a way as to not interfere with screen readers.
+	    If possible, the paragraph numbers should be coded in a way
+	    that they do not not interfere with screen readers.
 	  </t>
 	</section>
 
@@ -497,7 +501,7 @@
 	      <t>We should investigate the use of PDF role maps to capture
 		more of the xml2rfc source structure, to the point where
 		it might even be possible to reconstruct much or all of
-		the source. However, there is not a compelling use case
+		the XML source structure. However, there is not a compelling use case
 		over embedding the original XML, as described in
 		<xref target='embedXML' />.
 	      </t>
@@ -544,11 +548,11 @@
 	</section>
 
 	<section title='Text Description of Images (Alt-Text)'>
-	  <t>NOTE: This section should describe how alt-text
-	    for images is presented in PDF.
-	    One possibility is to follow the guidance found in
-	    <eref target="http://www.w3.org/TR/WCAG20-TECHS/PDF1.html"/>.
-	    More TBD
+	  <t>
+	    Following the guidance found in
+	    <eref target="http://www.w3.org/TR/WCAG20-TECHS/PDF1.html"/>,
+	    alt-text for artwork and figures should be stored using the
+	    PDF /Alt property.
 	  </t>
 	</section>
 
@@ -585,7 +589,7 @@
 	    sections of the document.
 	  </t>
 	  <t>
-	    Requirement: The section structure of an RFC should be
+	    Recommendation: The section structure of an RFC should be
 	    mapped into the PDF elements for the document structure.
 	    This would include section headings for the boilerplate
 	    sections such as the Abstract, Status of the Document, Table
@@ -638,6 +642,11 @@
 		supported through other mechanisms from the XML source
 		files, but could also be supported within the PDF.
 	      </t>
+	      <t>Finding, extracting and embedding other components
+		may require additional markup to clearly identify them,
+		and additional review to insure the correctness of
+		embedded files that are not visible.
+	      </t>
 	    </list>
 	  </t>
 	  <t>
@@ -650,11 +659,8 @@
 	      <t>If possible, make this a standard feature for
 		Internet-Drafts as well.
 	      </t>
-
-	      <t>Finding, extracting and embedding other components
-		will require additional markup to clearly identify them,
-		and additional review to insure the correctness of
-		embedded files that are not visible.
+	      <t>
+		Named &lt;sourcecode&gt; entries should be embedded.
 	      </t>
 	    </list>
 	  </t>
@@ -682,7 +688,7 @@
 
 	<t>
 	  Recommendation:
-	  PDFs produced by the RFC editor will be signed with a PDF digital
+	  PDFs produced by the RFC editor should be signed with a PDF digital
 	  signature.
 	  The management of certificates for the RFC editor function
 	  needs further review.
@@ -727,11 +733,11 @@
 
       <t>Recommendations:
 	<list>
-	  <t> Choose PDF 1.7; although relatively recent, it is well
+	  <t>Use PDF 1.7; although relatively recent, it is well
 	    supported by widely available viewers.
 	  </t>
 
-	  <t> For RFCs, require PDF/A-3 with conformance level "U".
+	  <t>For RFCs, require PDF/A-3 with conformance level "U".
 	    This captures the archivability and
 	    long-term stability of PDF 1.7 files, mandatory Unicode mapping,
 	    and many of the requirement features.
@@ -741,7 +747,7 @@
 	    the XML source file) in RFCs and Internet-Drafts.
 	  </t>
 
-	  <t> Use PDF/UA.
+	  <t>Use PDF/UA.
 	  </t>
 	</list>
       </t>
