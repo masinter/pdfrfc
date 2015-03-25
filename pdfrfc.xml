@@ -340,7 +340,7 @@
 	      <t>
 		The choice of type faces with respect to serif, sans serif,
 		monospace, etc., should follow the recommendations for
-		HTML and CSS rendering <xref target='I-D.hildebrand-rfc'/>.
+		HTML and CSS rendering <xref target='I-D.hildebrand-html-rfc'/>.
 	      </t>
 
 	      <t>
