@@ -334,21 +334,20 @@
 	      <t>
 		Recommendation: for consistent viewing, all fonts should
 		be embedded.
-		The fonts used must be available for use by the IETF communicity.
+		The fonts used must be available for use by the IETF community.
 	      </t>
 
 	      <t>
 		The choice of type faces with respect to serif, sans serif,
 		monospace, etc., should follow the recommendations for
-		HTML and CSS rendering.
+		HTML and CSS rendering <xref target='I-D.hildebrand-rfc'/>.
 	      </t>
 
 	      <t>
 		The range of Unicode characters allowed in
 		the XML source for Internet-Drafts and RFCs may
 		be bounded by the availability of embeddable fonts with
-		appropriate glyphs.
-		This may be a moving target over time.
+		appropriate glyphs <xref target='I-D.flanagan-nonascii'/>.
 	      </t>
 	    </list>
 	  </t>
@@ -366,10 +365,10 @@
 	    sequence is actively harmful.
 	  </t>
 	  <t>
-	    <cref>Compare this wording with that in the HTML document</cref>
-	    Recommendation: do not introduce any hyphens
-	    into the visual display or any line breaks
-	    mid-word even for hyphens in the text.
+	    Recommendation: avoid introducing hyphenated
+	    line breaks mid-word into the visual display,
+	    consistent with requirements for plain text
+	    and HTML.
 	  </t>
 	</section>
 
@@ -496,11 +495,11 @@
 	      </t>
 
 	      <t>
-		<cref>Larry, you were going to rewrite this paragraph</cref>
-		We should investigate the use of PDF role maps to capture
-		more of the xml2rfc source structure, to the point where
-		it might even be possible to reconstruct much or all of
-		the XML source structure. However, there is not a compelling use case
+		It might be possible to use the "role map" annotation
+		to capture enough of the xml2rfc source structure,
+		to the point where it is possible to reconstruct
+		the XML source structure completely.
+		However, there is not a compelling case to do so
 		over embedding the original XML, as described in
 		<xref target='embedXML' />.
 	      </t>
@@ -548,35 +547,41 @@
 
 	<section title='Text Description of Images (Alt-Text)'>
 	  <t>
-	    <cref> need to add an intro paragraph here</cref>
-	    Following the guidance found in
-	    <eref target="http://www.w3.org/TR/WCAG20-TECHS/PDF1.html"/>,
-	    alt-text for artwork and figures should be stored using the
-	    PDF /Alt property.
+	    Guidelines for accessibility of PDF 
+	    <eref target="http://www.w3.org/TR/WCAG20-TECHS/PDF1.html"/>
+	    recommend that images, formulas, and other non-text items
+	    provide textual alternatives, using the '/Alt' Tag in
+	    PDF to provide human-readable text that can be vocalized
+	    by text-to-speech technology.
+	  </t>
+	  <t>
+	    Recommendation: Any alt-text for artwork and figures
+	    available in the XML source should be stored using the PDF
+	    /Alt property. Internet draft authors and the RFC editor
+	    should insure inclusion of alt-text for all SVG or images,
+	    within the XML source.
 	  </t>
 	</section>
 
 	<section title='Metadata Support'>
 	  <t>
-	    <cref>check out Google Scholar meta data format</cref>
 	    Metadata encodes information about the document authors,
-	    the document series, date created, etc. using the RDF Dublin
-	    core (and other elements).  Having this metadata within the
-	    PDF file allows it to be used by search engines, viewers and
-	    other reuse tools.
-	  </t>
-
-	  <t>
-	    <cref>Make sure that the info page and what is embedded within the PDF are consistent.</cref>
-	    PDF supports embedded metadata using XMP
+	    the document series, date created, etc.  Having this
+	    metadata within the PDF file allows it to be used by
+	    search engines, viewers and other reuse tools.
+	    PDF supports embedded metadata in a variety of
+	    ways, including using XMP
 	    <xref target='XMP' />, the Extensible Metadata Platform (XMP).
+	    The RFC editor maintains metadata about an RFC on its
+	    info page.
 	  </t>
 	  <t>
 	    Recommendation: The PDFs generated should have all of the
 	    metadata from the XML version embedded directly as XMP
 	    metadata, including the author, date, the
 	    document series, and a URL for where the document can be
-	    retrieved.
+	    retrieved. This information should be consistent with
+	    the RFC editor info page at the time of publication.
 	  </t>
 	</section>
 
@@ -836,7 +841,8 @@
       <?rfc include='reference.RFC.3778' ?>
       <?rfc include='reference.RFC.6949' ?>
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
-
+      <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
+      
     </references>
 
     <section title='History and Current Use of PDF with RFCs and Internet-Drafts'>
