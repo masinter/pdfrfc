@@ -7,12 +7,12 @@
 <?rfc sortrefs='no'?><!-- sort the references alphabetically -->
 <?rfc linkmailto='no'?>
 <?rfc compact='yes'?>
-<?rfc comments='no'?><!-- print crefs -->
+<?rfc comments='yes'?><!-- print crefs -->
 <?rfc inline='yes'?>
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-     docName='draft-hansen-rfc-use-of-pdf-06' category='info' >
+     docName='draft-hansen-rfc-use-of-pdf-07' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -79,8 +79,11 @@
 	alternatives, not all PDFs are "equal".  For example, visually
 	similar documents could consist of scanned or rasterized images,
 	or include text layout options, hyperlinks, embedded fonts, and
-	digital signatures.  (See <xref target='pdf-history'/> for a
-	brief history of PDF.)
+	digital signatures.  (See <eref target='https://en.wikipedia.org/wiki/Portable_Document_Format'/>
+	for a history of PDF.
+	Also see <eref target='https://en.wikipedia.org/wiki/PDF/A'/> and
+	<eref target='https://en.wikipedia.org/wiki/PDF/UA'/> for descriptions of
+	PDF/A and PDF/UA, respectively.)
       </t>
 
       <t> This document explains some of the relevant options and
@@ -143,8 +146,8 @@
 	    standard for the rest of the world).  Usually PDF printing
 	    software is used in a "shrink to fit" mode where the
 	    printing is adjusted to fit the paper in the printer.
-	    There is some controversy, but the
-	    argument for choosing A4 over US Letter is appealing.
+	    There is some controversy, but the argument that A4 is
+	    an international standard is compelling.
 	  </t>
 
 	  <t>Recommendation:
@@ -152,9 +155,7 @@
 	    by default.
 	    However, the margins and header
 	    positioning will need to be chosen to look good on both
-	    paper sizes using common printing methods.  In addition, for
-	    both Internet-Drafts and RFCs, margins should be the
-	    smallest consistent with the above requirement.
+	    paper sizes using common printing methods.
 	  </t>
 	</section>
 
@@ -171,20 +172,21 @@
 	    information as the headings in the current text versions of
 	    documents, including page numbers, title, author, working
 	    group. However, the page headers and footers should be typeset
-	    in a lighter color, smaller typeface, so as to be inobtrusive.
+	    in a way so as to be inobtrusive.
 	    The page headers and footers should be placed into the PDF
 	    in a way not to interfere with screen readers. 
 	  </t>
 	</section>
 	<section title='Paragraph Numbering'>
-	  <t>One common feature of the RFC output formats
+	  <t>One common feature of the Internet-draft output formats
 	    are optional visible paragraph numbers, to aid in discussions.
 	    In the PDF and thus printed rendition, it is possible
 	    to make paragraph numbers unobtrusive, and even
 	    to impinge on the margins.
 	  </t>
 	  <t>Recommendation: When the XML "editing=yes" option has been chosen,
-	    show paragraph numbers in the right margin, using a small font and light color.
+	    show paragraph numbers in the right margin, typeset in a way so
+	    as to be inobtrusive.
 	    (The right margin instead of the left margin prevents the paragraph
 	    numbers from being confused with the section numbers.)
 	    If possible, the paragraph numbers should be coded in a way
@@ -200,8 +202,8 @@
 	    high-quality layout processors do several things:
 	    <list style='hanging'>
 	      <t hangText='Widow and Orphan Management:'>
-		Widows and orphans should be avoided automatically
-		(unless the entire paragraph is only one line).
+		Widows and orphans (<eref target='https://en.wikipedia.org/wiki/Widows_and_orphans'/>)
+		should be avoided automatically (unless the entire paragraph is only one line).
 		Insure that a page break does not occur after the first
 		line of a paragraph (orphans), if necessary, using slightly longer
 		page sizes.
@@ -332,31 +334,21 @@
 	      <t>
 		Recommendation: for consistent viewing, all fonts should
 		be embedded.
-	      </t>
-	      <t> For readability when printed, the main body text
-		should be in a serif font and the headings in a sans-serif
-		font.
+		The fonts used must be available for use by the IETF communicity.
 	      </t>
 
-	      <t> Code, BNF, and other text should use a fixed-width
-		font to aid in insuring alignment, e.g., in BNF.
+	      <t>
+		The choice of type faces with respect to serif, sans serif,
+		monospace, etc., should follow the recommendations for
+		HTML and CSS rendering.
 	      </t>
 
-	      <t> Type faces used by the xml2rfc application
-		for Internet-drafts should be freely available,
-		and included with the xml2rfc application.
-	      </t>
-
-	      <t> The range of Unicode characters allowed in
+	      <t>
+		The range of Unicode characters allowed in
 		the XML source for Internet-Drafts and RFCs may
 		be bounded by the availability of embeddable fonts with
 		appropriate glyphs.
-	      </t>
-
-	      <t> If there is a non-freely available font that provides
-		all of the desired features that is deemed better than
-		the freely-available options, the IETF community might
-		consider acquiring the rights to use such a font.
+		This may be a moving target over time.
 	      </t>
 	    </list>
 	  </t>
@@ -373,7 +365,9 @@
 	    representing a protocol element or protocol
 	    sequence is actively harmful.
 	  </t>
-	  <t>Recommendation: do not introduce any hyphens
+	  <t>
+	    <cref>Compare this wording with that in the HTML document</cref>
+	    Recommendation: do not introduce any hyphens
 	    into the visual display or any line breaks
 	    mid-word even for hyphens in the text.
 	  </t>
@@ -392,6 +386,9 @@
 	      <t>hyperlinks to external locations
 	      </t>
 	      <t>hyperlinks within a table of contents
+	      </t>
+	      <t>
+		hyperlinks within an index
 	      </t>
 	    </list>
 	  </t>
@@ -498,7 +495,9 @@
 		(PDF/UA requires this.)
 	      </t>
 
-	      <t>We should investigate the use of PDF role maps to capture
+	      <t>
+		<cref>Larry, you were going to rewrite this paragraph</cref>
+		We should investigate the use of PDF role maps to capture
 		more of the xml2rfc source structure, to the point where
 		it might even be possible to reconstruct much or all of
 		the XML source structure. However, there is not a compelling use case
@@ -549,6 +548,7 @@
 
 	<section title='Text Description of Images (Alt-Text)'>
 	  <t>
+	    <cref> need to add an intro paragraph here</cref>
 	    Following the guidance found in
 	    <eref target="http://www.w3.org/TR/WCAG20-TECHS/PDF1.html"/>,
 	    alt-text for artwork and figures should be stored using the
@@ -557,14 +557,18 @@
 	</section>
 
 	<section title='Metadata Support'>
-	  <t>Metadata encodes information about the document authors,
+	  <t>
+	    <cref>check out Google Scholar meta data format</cref>
+	    Metadata encodes information about the document authors,
 	    the document series, date created, etc. using the RDF Dublin
 	    core (and other elements).  Having this metadata within the
 	    PDF file allows it to be used by search engines, viewers and
 	    other reuse tools.
 	  </t>
 
-	  <t>PDF supports embedded metadata using XMP
+	  <t>
+	    <cref>Make sure that the info page and what is embedded within the PDF are consistent.</cref>
+	    PDF supports embedded metadata using XMP
 	    <xref target='XMP' />, the Extensible Metadata Platform (XMP).
 	  </t>
 	  <t>
@@ -662,6 +666,9 @@
 	      <t>
 		Named &lt;sourcecode&gt; entries should be embedded.
 	      </t>
+	      <t>
+		Embedded bitmap images (SVG sources, JPEGs, PNGs, etc) should be embedded.
+	      </t>
 	    </list>
 	  </t>
 	</section>
@@ -702,14 +709,14 @@
     </section>
 
     <section title='Choosing PDF versions and Standards'>
-
       <t> PDF has gone through several revisions, primarily for the addition of
-	features, as noted in in <xref target='pdf-history'/>.  PDF
+	features.  PDF
 	features have generally been added in a way that older viewers
 	'fail gracefully', but even so, the older the PDF version
 	produced, the more legacy viewers will support that version,
 	but the fewer features will be enabled.
       </t>
+
       <t>As PDF has evolved a broad set of capabilities, additional
 	standards for PDF files are applicable. These standards
 	establish ground rules that are important for specific
@@ -718,6 +725,7 @@
 	to color management and printing instructions, while the PDF/E
 	standard was designed for engineering documents.
       </t>
+
       <t>Two additional standards families are important to the
 	RFC format, though: long-term preservation (PDF/A), and user
 	acessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
@@ -865,67 +873,6 @@
       </section>
     </section>
 
-    <section title='A Synopsis of PDF Format History' anchor='pdf-history'>
-      <t>
-	<xref target='RFC3778'/> contains some history of PDF.
-	This is a capsule view, plus additional information on events that have occurred since the publication
-	of <xref target='RFC3778'/>. NOTE: currently doesn't talk about the handoff of change control to ISO
-	and the evolution as an ISO standard 32000. Plans are to update the application/pdf MIME registration
-	to include this information, and then point to that.
-      </t>
-      <t>
-	The Portable Document Format (PDF) family of document formats was invented by Adobe Systems in the early
-	1990s.
-	At the time, it was a proprietary format that underwent a variety of revisions that matched the release
-	of different versions of
-	the Adobe Acrobat products.
-	For example, Acrobat 1 supported PDF version 1.0, Acrobat 2 supported PDF version 1.1, Acrobat 5 supported PDF version 1.4, etc.
-	<eref target='http://www.adobe.com/devnet/pdf/pdf_reference_archive.html'/>
-      </t>
-      <t>
-	Each release (and extension level) introduced new features.
-	For example, (1.0) character, word and image rendering, externally-referenced or embedded fonts, (1.1) passwords, encryption,
-	device-independent color, (1.2) interactive forms, unicode, signatures, compression, (1.3) web semantic capture, embedded files,
-	Adobe javascript, (1.4) metadata streams, tagged PDF, (1.5) controllable hiding of sections, slideshows, (1.6) 3D artwork,
-	OpenType font embedding, linking into embedded files, and (1.7) video and audio support.
-	After release 1.7, additional Extension Levels have been introduced.
-	Each release also provided enhancements to the previous support.
-	For example, encryption was introduced in 1.1, but AES encryption wasn't supported until 1.7 extension level 3.
-	A PDF reader for PDF 1.1 is not able to read and display a PDF 1.7 file, but a PDF reader for PDF 1.7 can also handle all
-	previous versions of PDF.
-	The wikipedia page at  <eref target='http://en.wikipedia.org/wiki/PDF'/> has a nice summary table going into further details.
-      </t>
-      <section title='PDF Profiles' anchor='profiles'>
-	<t>
-	  Certain profiles or subsets of PDF have been standardized.
-	  PDF/X (X for Exchange), PDF/A (A for Archive), PDF/E (E for Engineering), PDF/VT (VT for Variables and Transactions), and PDF/UA
-	  (UA for Universal Access) all have ISO standards associated with them.
-	  Of particular potential interest to the RFC community are PDF/A and PDF/UA.
-	</t>
-	<section title='PDF/A'>
-	  <t>
-	    PDF/A in turn has nuances, as there have been a few updates to it and conformance levels within each version.
-	    PDF/A-1 was based on PDF release 1.4,
-	    PDF/A-2 was based on PDF release 1.7, and
-	    PDF/A-3 adds embedded arbitrary files.
-	    PDF/A is considered a profile because it mandates that certain optional features be used.
-	    At a high level, the conformance levels are B (basic), U (mandatory Unicode mapping [not in PDF/A-1]) and A (accessible).
-	    The requirements for conformance level A are that: the document structure must be represented within the PDF (e.g., section
-	    headings, table cells, paragraph divisions), tagged PDF is used (e.g., element anchors) and that language tags be used where
-	    appropriate.
-	    When referring to PDF/A, you would refer to the version and conformance level.
-	    So PDF/A-1A would be the profile for the Accessible conformance level of version 1 of PDF/A, which was based on PDF 1.4.
-	  </t>
-	</section>
-	<section title='PDF/UA'>
-	  <t>
-	    The PDF/UA (Universal Access) profile is orthogonal to the other profiles, specifying user accessibility requirements.
-	    It places some restrictions on the other profiles, such as requiring the use of higher-level constructs for the textual representation
-	    and adds additional requirements for programatic access (think automatic readers for the blind).
-	  </t>
-	</section>
-      </section>
-    </section>
     <section title='Tooling' anchor='tooling'>
 
       <t>This section discusses tools for viewing, comparing,
@@ -1072,7 +1019,7 @@
 	Duff Johnson,
 	Leonard Rosenthol,
 	....
-	<cref>
+	<!--
 	  Sean Leonard &lt;dev+ietf@seantek.com&gt;
 
 	  To make IETF docs look good, it would be nice to have a quality tool that captures all of the nuances of the vocabulary in PDF format. Desired features include:
@@ -1090,7 +1037,7 @@
 	    preserving "files" and other incorporated blobs as document-level or page-level "File Attachments" [TBD]
 	    metadata preservation [x]
 
-	</cref>
+	-->
       </t>
     </section>
   </back>
