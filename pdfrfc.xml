@@ -97,6 +97,14 @@
 	using both open source and commercial products.
       </t>
 
+      <t>
+	The details described in this document are expected to change based on experience
+	gained in implementing the RFC production center's toolset.
+	Revised documents will be published capturing those changes as the toolset is completed.
+	Other implementers must not expect those changes to remain backwards-compatible with the
+	details described in this document.
+      </t>
+
       <t>NOTE: see <eref target="https://github.com/masinter/pdfrfc"/>
 	for XML source, related files, and an issue tracker for
 	this document.
@@ -119,10 +127,10 @@
 	PDFs. Most of the discussion of tooling is to be found in
 	<xref target='tooling'/>.
       </t>
-      <t>NOTE: each option in this section will eventually outline the nature
+      <!-- t>NOTE: each option in this section will eventually outline the nature
 	of the design choice, outline the pros and cons, and make a
 	recommendation.
-      </t>
+      </t -->
 
       <section title='"Visible" Requirements'>
 	<t> PDF supports rich visible layout of fixed-sized pages.
@@ -177,6 +185,7 @@
 	    in a way not to interfere with screen readers. 
 	  </t>
 	</section>
+
 	<section title='Paragraph Numbering'>
 	  <t>One common feature of the Internet-draft output formats
 	    are optional visible paragraph numbers, to aid in discussions.
@@ -252,45 +261,6 @@
 	    are automatic.
 	  </t>
 	</section>
-	<section title='Similarity to Other Outputs'>
-	  <t>There is some advantage to having the PDF files look like
-	    the text or HTML renderings of the same document.  There are
-	    several options even so.
-	    The PDF
-	    <list style='numbers'>
-	      <t>could look like the text version of the document, or
-	      </t>
-	      <t>could look like the text version of the document but
-		with pictures rendered as pictures instead of using their
-		ASCII-art equivalent, or
-	      </t>
-	      <t>could look like the HTML version.
-	      </t>
-	    </list>
-	  </t>
-	  <t>Recommendation: the PDF rendition should look like the
-	    HTML rendition, at least in spirit.  Some
-	    differences from the HTML rendition would include different
-	    typeface and size (chosen for printing), page numbers in the
-	    table of contents and index, and the use of page headers and footers.
-	  </t>
-	  <t>
-	    Most of the choices used for the HTML rendering are thus
-	    applicable:
-	    <list>
-	      <t>
-		TBA
-	      </t>
-	    </list>
-	    Most of the choices used for the CSS rendering are also
-	    applicable:
-	    <list>
-	      <t>
-		TBA
-	      </t>
-	    </list>
-	  </t>
-	</section>
 
 	<section title="Typeface Choices">
 	  <t>
@@ -340,7 +310,8 @@
 	      <t>
 		The choice of type faces with respect to serif, sans serif,
 		monospace, etc., should follow the recommendations for
-		HTML and CSS rendering <xref target='I-D.hildebrand-html-rfc'/>.
+		HTML and CSS rendering <xref target='I-D.hildebrand-html-rfc'/>
+		and  <xref target='I-D.flanagan-rfc-css'/>.
 	      </t>
 
 	      <t>
@@ -424,6 +395,77 @@
 		references section should point to the datatracker entry
 		page for the draft, which
 		then links to the various formats available.
+	      </t>
+	    </list>
+	  </t>
+	</section>
+
+	<section title='Similarity to Other Outputs'>
+	  <t>There is some advantage to having the PDF files look like
+	    the text or HTML renderings of the same document.  There are
+	    several options even so.
+	    The PDF
+	    <list style='numbers'>
+	      <t>could look like the text version of the document, or
+	      </t>
+	      <t>could look like the text version of the document but
+		with pictures rendered as pictures instead of using their
+		ASCII-art equivalent, or
+	      </t>
+	      <t>could look like the HTML version.
+	      </t>
+	    </list>
+	  </t>
+
+	  <t>Recommendation: the PDF rendition should look like the
+	    HTML rendition, at least in spirit.  Some
+	    differences from the HTML rendition would include different
+	    typeface and size (chosen for printing), page numbers in the
+	    table of contents and index, and the use of page headers and footers.
+	  </t>
+
+	  <t>
+	    Most of the choices used for the <xref target='I-D.hildebrand-html-rfc'/>
+	    rendering and  <xref target='I-D.flanagan-rfc-css'/>  are thus applicable.
+	    See those document for specifics on the rendering of the specific XML elements.
+	    Some notes are:
+	    <list>
+	      <t>
+		Every place in the document that would receive an HTML ID would be given
+		an identical PDF named destination.
+		In addition, a named destination will be created for each page with the form
+		"pg-#", as in "pg-35".
+	      </t>
+	      <t>
+		No pilcrows are generated or made visible.
+	      </t>
+	      <t>
+		The table of contents (generated if the XML's &lt;rfc&gt;
+		element's tocInclude attribute has the value "true") 
+		will have the section number linked to that section named destination, but
+		will also include a page number that is linked to the page named destination.
+		The section title and the page number will be separated by a
+		visually-appropriate separator and the page numbers will be aligned
+		with each other.
+	      </t>
+	      <t>
+		The index (generated if the XML's &lt;rfc&gt;
+		element's indexInclude attribute has the value "true")
+		will have the section number linked to that section named destination, but
+		will also include a page number that is linked to the page named destination.
+	      </t>
+	      <t>
+		The running header in one line (on page 2 and all subsequent
+		pages) has the RFC number on the left (RFC NNNN), the (possibly
+		shortened form) title centered, and the date (Month Year) on the
+		right.
+		The text is rendered in a way that is visually non-intrusive.
+	      </t>
+	      <t>
+		The running footer in one line (on all pages) has the author's
+		last name on the left, category centered, and the page number on
+		the right ([Page N]).
+		The text is rendered in a way that is visually non-intrusive.
 	      </t>
 	    </list>
 	  </t>
@@ -610,6 +652,7 @@
 	  </t>
 	</section>
 
+	<!--
 	<section title='Tagged PDF'>
 	  <t>
 	    NOTE: say more about the use of alternative texts for
@@ -622,6 +665,7 @@
 	    <eref target="http://www.pdfa.org/2011/10/the-value-of-tagged-pdf/"/>.)
 	  </t>
 	</section>
+	-->
 
 	<section title='Embedded Files' anchor='embedXML'>
 	  <t>PDF has the capability of including other files;
@@ -840,7 +884,9 @@
     <references title='Informative References'>
       <?rfc include='reference.RFC.3778' ?>
       <?rfc include='reference.RFC.6949' ?>
+      <?rfc include='reference.RFC.7322' ?>
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
+      <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
       
     </references>
