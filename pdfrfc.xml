@@ -631,7 +631,7 @@
 
 	<section title='Document Structure Support'>
 	  <t>PDF supports an "outline" feature where sections of the
-	    document are marked; this oould be used in addition to the
+	    document are marked; this could be used in addition to the
 	    table of contents as a navigation aid.
 	  </t>
 	  <t>
