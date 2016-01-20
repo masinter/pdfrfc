@@ -735,9 +735,7 @@
 	  visual presentation as well.
 	</t>
 
-	<t>Normally, the authenticity of RFC files is not an issue,
-	  since the RFC editor maintains a repository of all RFCs which
-	  is widely replicated. However, the RFC Editor and staff are at
+	<t>The RFC Editor and staff are at
 	  times called to provide evidence that a particular RFC is the
 	  "original" and has not been visually modified, and there
 	  may be other use cases.
