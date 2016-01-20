@@ -275,10 +275,10 @@
 	  </t>
 	  <t>
 	    In addition, the PDF/A standards mandate the embedding
-	    of fonts. Preferably, the software generating the files
-	    would produce PDF/A-conforming files directly, thus ensuring
-	    that all glyphs include Unicode mappings and embedded fonts
-	    from the outset.
+	    of fonts. Instead of using additional software to embed the fonts, 
+	    the software generating the PDF files should produce PDF/A-conforming 
+	    files directly, thus ensuring that all glyphs include Unicode 
+	    mappings and embedded fonts from the outset.
 	  </t>
 
 	  <t>If the HTML version of the document is
