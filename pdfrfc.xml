@@ -1066,14 +1066,24 @@
     <section title='Acknowledgements'>
       <t>
 	The input of the following people is gratefully acknowledged:
+   	Nevil Brownlee (ISE), 
 	Brian Carpenter,
 	Chris Dearlove,
 	Martin Duerst,
-	Heather Flanagan,
+	Heather Flanagan (RSE),
 	Joe Hildebrand,
+	Paul Hoffman,
 	Duff Johnson,
+   	Ted Lemon, 
+	Henrik Levkowetz,
+   	Julian Reschke, 
+   	Adam Roach,
 	Leonard Rosenthol,
-	....
+   	Alice Russo,
+   	Robert Sparks,
+	Andrew Sullivan,
+	and
+   	Dave Thaler.
 	<!--
 	  Sean Leonard &lt;dev+ietf@seantek.com&gt;
 
