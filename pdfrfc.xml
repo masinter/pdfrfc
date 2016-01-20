@@ -200,7 +200,7 @@
 	    (The right margin instead of the left margin prevents the paragraph
 	    numbers from being confused with the section numbers.)
 	    If possible, the paragraph numbers should be coded in a way
-	    that they do not not interfere with screen readers.
+	    that they do not interfere with screen readers.
 	  </t>
 	</section>
 
