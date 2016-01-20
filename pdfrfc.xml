@@ -18,7 +18,7 @@
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
       <organization>AT&amp;T Laboratories</organization>
       <address>
-	<postal>
+	<postal>t
 	  <street>200 Laurel Ave. South</street>
 	  <city>Middletown</city>
 	  <region>NJ</region>
@@ -305,6 +305,8 @@
 		Recommendation: for consistent viewing, all fonts should
 		be embedded.
 		The fonts used must be available for use by the IETF community.
+		Some discussion of available typefaces can be found in 
+		<xref target="typefaces"/>.
 	      </t>
 
 	      <t>
@@ -1006,7 +1008,7 @@
 	</t>
       </section>
 
-      <section title='Typefaces'>
+      <section title='Typefaces' anchor='typefaces'>
 	<t>This section is intended to discuss available typefaces
 	  that might satisfy requirements. Some openly available
 	  fixed-width typefaces (without extensive Unicode support,
