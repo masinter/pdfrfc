@@ -120,7 +120,7 @@
 	affect the ability to process PDFs in other ways, but do not
 	control the way the document appears. (Of course, a viewer
 	UI might display processing capabilities, such as showing
-	if a document has been digitally signed.)
+	whether a document has been digitally signed.)
       </t>
 
       <t>In many cases, the choice of PDF requirements is heavily
