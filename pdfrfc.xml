@@ -181,7 +181,7 @@
 	    information as the headings in the current text versions of
 	    documents, including page numbers, title, author, working
 	    group. However, the page headers and footers should be typeset
-	    in a way so as to be inobtrusive.
+	    in a way so as to be unobtrusive.
 	    The page headers and footers should be placed into the PDF
 	    in a way not to interfere with screen readers. 
 	  </t>
@@ -196,7 +196,7 @@
 	  </t>
 	  <t>Recommendation: When the XML "editing=yes" option has been chosen,
 	    show paragraph numbers in the right margin, typeset in a way so
-	    as to be inobtrusive.
+	    as to be unobtrusive.
 	    (The right margin instead of the left margin prevents the paragraph
 	    numbers from being confused with the section numbers.)
 	    If possible, the paragraph numbers should be coded in a way
