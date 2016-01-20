@@ -719,7 +719,7 @@
 		Named &lt;sourcecode&gt; entries should be embedded.
 	      </t>
 	      <t>
-		Embedded bitmap images (SVG sources, JPEGs, PNGs, etc) should be embedded.
+		Bitmap images (SVG sources, JPEGs, PNGs, etc) should be embedded.
 	      </t>
 	    </list>
 	  </t>
