@@ -506,7 +506,7 @@
 
 	      <t>ensuring that the running order of text in the content
 		stream matches the logical reading order. That is, a sentence
-		sentence such as 'The Internet Engineering Task Force (IETF)
+		such as 'The Internet Engineering Task Force (IETF)
 		supports the Internet.' would be kept together as a sentence,
 		and multiple sentences within a paragraph would be kept together.
 	      </t>
@@ -519,7 +519,7 @@
 	    commenting and annotation, and accessibility
 	    (text-to-speech).
 	    Keeping the running order of text in the content stream in the
-	    proper order supports all of these auxiliar uses.
+	    proper order supports all of these auxiliary uses.
 	  </t>
 
 	  <t>In addition, the "role map" feature of PDF
