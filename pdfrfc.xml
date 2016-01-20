@@ -303,8 +303,7 @@
 	  <t> Recommendations:
 	    <list style='symbols'>
 	      <t>
-		Recommendation: for consistent viewing, all fonts should
-		be embedded.
+		For consistent viewing, all fonts should be embedded.
 		The fonts used must be available for use by the IETF community.
 		Some discussion of available typefaces can be found in 
 		<xref target="typefaces"/>.
