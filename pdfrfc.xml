@@ -461,13 +461,13 @@
 		pages) has the RFC number on the left (RFC NNNN), the (possibly
 		shortened form) title centered, and the date (Month Year) on the
 		right.
-		The text is rendered in a way that is visually non-intrusive.
+		The text is rendered in a way that is visually unobtrusive.
 	      </t>
 	      <t>
 		The running footer in one line (on all pages) has the author's
 		last name on the left, category centered, and the page number on
 		the right ([Page N]).
-		The text is rendered in a way that is visually non-intrusive.
+		The text is rendered in a way that is visually unobtrusive.
 	      </t>
 	    </list>
 	  </t>
