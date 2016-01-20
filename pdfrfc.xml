@@ -105,7 +105,8 @@
 	details described in this document.
       </t>
 
-      <t>NOTE: see <eref target="https://github.com/masinter/pdfrfc"/>
+      <t>NOTE: [RFC-EDITOR: This note should be removed before publication.]
+      	See <eref target="https://github.com/masinter/pdfrfc"/>
 	for XML source, related files, and an issue tracker for
 	this document.
       </t>
