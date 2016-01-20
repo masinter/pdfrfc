@@ -71,7 +71,7 @@
   <middle>
     <section title='Introduction'>
       <t> The RFC Series is evolving, as outlined in
-	<xref target='RFC6949'/>. Future documents will use an canonical format, XML,
+	<xref target='RFC6949'/>. Future documents will use a canonical format, XML,
 	with renderings in various formats, including PDF.
       </t>
 
