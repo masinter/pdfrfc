@@ -772,8 +772,11 @@
 	establish ground rules that are important for specific
 	applications.  For example PDF/X was specifically designed
 	for Prepress digital data exchange, with careful attention
-	to color management and printing instructions, while the PDF/E
-	standard was designed for engineering documents.
+	to color management and printing instructions. The PDF/E 
+	standard was designed for engineering documents with dynamic 
+	workflows (where a document continues to be revised after 
+	publication) and allows interactive media (including
+	animation and 3D).
       </t>
 
       <t>Two additional standards families are important to the
