@@ -780,7 +780,7 @@
 
       <t>Two additional standards families are important to the
 	RFC format, though: long-term preservation (PDF/A), and user
-	acessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
+	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
 	PDF/A-2, PDF/A-3), each of which have conformance levels.
 	These standards are then supported
 	by various software libraries and tools.
