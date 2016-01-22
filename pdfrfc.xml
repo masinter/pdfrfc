@@ -1054,15 +1054,6 @@
       </section>
 
     </section>
-    <section title='Additional Reading'>
-      <t>
-	<eref target='http://www.pdflib.com/fileadmin/pdflib/pdf/whitepaper/Whitepaper-Technical-Introduction-to-PDFA.pdf'/>
-	<eref target='http://www.pdfa.org/wp-content/uploads/2011/08/tn0003_metadata_in_pdfa-1_2008-03-128.pdf'/>
-	<eref target='http://www.pdfa.org/wp-content/uploads/2011/08/PDFA-in-a-Nutshell_1b.pdf'/>
-	<eref target='http://www.pdfa.org/2011/08/pdfa-%E2%80%93-a-look-at-the-technical-side/'/>
-	<eref target='http://pdf.editme.com/pdfa'/>
-      </t>
-    </section>
     <section title='Acknowledgements'>
       <t>
 	The input of the following people is gratefully acknowledged:
