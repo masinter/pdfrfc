@@ -364,18 +364,6 @@
 	      </t>
 	    </list>
 	  </t>
-	  <t>
-	    One question that must be answered is
-	    where should hyperlinks to RFCs point? To the info page for
-	    the RFC? To the PDF version of the RFC?
-	  </t>
-	  <t>
-	    Similar questions need to be
-	    answered on references to Internet-Drafts: Where should
-	    hyperlinks to Internet-Drafts point?  To the datatracker
-	    entry?  To the tools entry?  To a PDF version of the
-	    Internet-Draft?
-	  </t>
 
 	  <t>Recommendations:
 	    <list style='symbols'>
@@ -389,7 +377,9 @@
 		when printed. These should also be hyperlinked to their
 		respective sections.
 	      </t>
-	      <t>Hyperlinks to RFCs from the
+	      <t>
+	      	As specified in the section on Referencing RFCs in
+	      	<xref target="RFC7322"/>, hyperlinks to RFCs from the
 		references section should point to the RFC "info" page, which
 		then links to the various formats available.
 	      </t>
@@ -891,6 +881,7 @@
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
+      <?rfc include='reference.RFC.7322' ?>
       
     </references>
 
