@@ -261,7 +261,13 @@
 	  </t>
 	</section>
 
-	<section title="Paged Content Layout Engines">
+	<section title="Paged Content Layout">
+	  <t>
+	    By its nature, PDF is paginated, so pagination issues must
+	    be considered.
+	    This is reflected in two areas: running headers and footers, 
+	    and how text is layed out on a page for optimal reading.
+	  </t>
 	  <t>
 	    <xref target="page-layout"/> describes
 	    the process of creating a paged document from running text
@@ -275,7 +281,17 @@
 	    to ensure, for example, that a text line intended
 	    as a heading is "kept" with the text it is heading for.
 	  </t>
-	  <t>Recommendation: <!-- Minimize the requirements for authors
+	  <t>Recommendations:
+	  <list style='symbols'>
+	    <t>
+	    Headers and footers should be printed on each page.
+	    The information should include the RFC number or internet-draft name,
+	    the page number, the category (informational, etc.),
+	    a shortened version of the authors' names,
+	    the date of the RFC or internet-draft, and
+	    the short form of the document title.
+	    </t>
+	  <t><!-- Minimize the requirements for authors
 				  to add specific markup to the XML source for assisting with
 				  manually enhancing layout for Internet-Drafts. -->
 	    Choose a layout engine so that manual
@@ -283,6 +299,7 @@
 	    orphan processing, heading and title contiguation
 	    are automatic.
 	  </t>
+	  </list>
 	</section>
 
 	<section title="Typeface Choices">
