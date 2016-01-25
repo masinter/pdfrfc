@@ -204,48 +204,13 @@
 	  </t>
 	</section>
 
-	<section title="Paged Content Layout Quality">
-	  <t>The process of creating a paged document from running text
-	    typically involves ensuring that related material is present
-	    on the same page together, and that artifacts of pagination
-	    don't interfere with easy reading of the document. Typical
-	    high-quality layout processors do several things:
-	    <list style='hanging'>
-	      <t hangText='Widow and Orphan Management:'>
-		Widows and orphans (<eref target='https://en.wikipedia.org/wiki/Widows_and_orphans'/>)
-		should be avoided automatically (unless the entire paragraph is only one line).
-		Ensure that a page break does not occur after the first
-		line of a paragraph (orphans), if necessary, using slightly longer
-		page sizes.
-		Similarly, ensure that a page break does not occur before
-		the last line of a paragraph (widows).
-	      </t>
-	      <t hangText='Keep Section Heading Contiguous:'>
-		Do not insert a page break immediately after a section heading.
-		If there isn't room on a page for the first (two)
-		lines of a section after the section heading,
-		insert a page break before the heading.
-	      </t>
-	      <t hangText='Avoid Splitting Artwork:'>
-		Figures should not be split from figure titles.
-		If possible, keep the figure on the same page
-		as the (first) mention of the figure.
-	      </t>
-	      <t hangText='Headers for Long Tables after Page Breaks:'>
-		Another common option in producing paginated documents
-		is to include the column headings of a table if
-		the table cannot be displayed on a single page.
-		Similarly, tables should not be split from the table titles.
-	      </t>
-	      <t hangText='keepWithNext and keepWithPrevious:'>
-		The XML attributes of "keepWithNext" and "keepWithPrevious"
-		should be followed whenever possible.
-	      </t>
-	      <t hangText='Whitespace Preservation:'>
-		The XML entities such as NBSP and NBHYPHEN should be
-		followed as directed whenever possible.
-	      </t>
-	    </list>
+	<section title="Paged Content Layout Engines">
+	  <t>
+	    <xref target="page-layout"/> describes
+	    the process of creating a paged document from running text
+	    such that related material is present
+	    on the same page together and artifacts of pagination
+	    don't interfere with easy reading of the document.
 	  </t>
 	  <t>Layout engines differ in the quality of the algorithms
 	    used to automate these processes. In some cases, the
@@ -881,7 +846,6 @@
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
-      <?rfc include='reference.RFC.7322' ?>
       
     </references>
 
@@ -917,6 +881,51 @@
 	  generate one from the Postscript, HTML, or text.
 	</t>
       </section>
+    </section>
+    
+    <section title="Paged Content Layout Quality" anchor="page-layout">
+      <t>The process of creating a paged document from running text
+	typically involves ensuring that related material is present
+	on the same page together, and that artifacts of pagination
+	don't interfere with easy reading of the document. Typical
+	high-quality layout processors do several things:
+	<list style='hanging'>
+	  <t hangText='Widow and Orphan Management:'>
+	    Widows and orphans (<eref target='https://en.wikipedia.org/wiki/Widows_and_orphans'/>)
+	    should be avoided automatically (unless the entire paragraph is only one line).
+	    Ensure that a page break does not occur after the first
+	    line of a paragraph (orphans), if necessary, using slightly longer
+	    page sizes.
+	    Similarly, ensure that a page break does not occur before
+	    the last line of a paragraph (widows).
+	  </t>
+	  <t hangText='Keep Section Heading Contiguous:'>
+	    Do not insert a page break immediately after a section heading.
+	    If there isn't room on a page for the first (two)
+	    lines of a section after the section heading,
+	    insert a page break before the heading.
+	  </t>
+	  <t hangText='Avoid Splitting Artwork:'>
+	    Figures should not be split from figure titles.
+	    If possible, keep the figure on the same page
+	    as the (first) mention of the figure.
+	  </t>
+	  <t hangText='Headers for Long Tables after Page Breaks:'>
+	    Another common option in producing paginated documents
+	    is to include the column headings of a table if
+	    the table cannot be displayed on a single page.
+	    Similarly, tables should not be split from the table titles.
+	  </t>
+	  <t hangText='keepWithNext and keepWithPrevious:'>
+	    The XML attributes of "keepWithNext" and "keepWithPrevious"
+	    should be followed whenever possible.
+	  </t>
+	  <t hangText='Whitespace Preservation:'>
+	    The XML entities such as NBSP and NBHYPHEN should be
+	    followed as directed whenever possible.
+	  </t>
+	</list>
+      </t>
     </section>
 
     <section title='Tooling' anchor='tooling'>
