@@ -10,7 +10,7 @@
 <?rfc inline='yes'?>
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
-<rfc docName="draft-hardy-pdf-mime-00" category="info" obsoletes='3778'>
+<rfc docName="draft-hardy-pdf-mime-01" category="info" obsoletes='3778'>
   <front>
     <title abbrev="application/pdf">The application/pdf Media
     Type</title>
@@ -164,94 +164,6 @@
 	was subsequently updated in 1994 by Steve Zilles.
       </t>
     </section>
-    <section title='Fragment Identifiers'>
-      <t>
-	A set of fragment identifiers <xref target='RFC2396'/>
-	and their handling are defined in Adobe Technical Note
-	5428 <xref target="PDFOpen"/>.  This section summarizes
-	that material.
-      </t>
-      <t>
-	A fragment identifier consists of one or more PDF-open
-	parameters in a single URL, separated by the ampersand
-	(&amp;) or pound (#) character. Each parameter implies
-	an action to be performed and the value to be used for
-	that action.  Actions are processed and executed from
-	left to right as they appear in the character string
-	that makes up the fragment identifier.
-      </t>
-      <t>
-	The PDF-open parameters allow the specification of a
-	particular page or named destination to open.  Named
-	destinations are similar to the "anchors" used in HTML
-	or the IDs used in XML.  Once the target is specified,
-	the view of the page in which it occurs can be
-	specified, either by specifying the position of a
-	viewing rectangle and its scale or size coordinates or
-	by specifying a view relative to the viewing window in
-	which the chosen page is to be presented.
-      </t>
-      <t>
-	The list of PDF-open parameters and the action they
-	imply is:
-      </t>
-      <t>
-	namedest=&lt;name&gt;<vspace/>
-	&nbsp;&nbsp;&nbsp;&nbsp;Open to a specified named destination (which includes a view).
-      </t>
-      <t>
-	page=&lt;pagenum&gt;<vspace/>
-	&nbsp;&nbsp;&nbsp;&nbsp;Open the specified (physical) page.
-      </t>
-      <t>
-	zoom=&lt;scale&gt;,&lt;left&gt;,&lt;top&gt;<vspace/>
-	&nbsp;&nbsp;&nbsp;&nbsp;Set the &lt;scale&gt; and scrolling
-	factors. &lt;left&gt;, and &lt;top&gt; are measured from the
-	top left corner of the page, independent of the size of the
-	page.  The pair &lt;left&gt; and &lt;top&gt; are optional but
-	both must appear if present.
-      </t>
-      <t>
-	view=&lt;keyword&gt;,&lt;position&gt;<vspace/>
-	&nbsp;&nbsp;&nbsp;&nbsp;Set the view to show some specified
-	portion of the page or its bounding box; keywords are defined
-	by Table 8.2 of the PDF Reference, version 1.5 (NEEDS UPDATING
-	TO ISO REF).  The &lt;position&gt; value is required for some
-	of the keywords and not allowed for others.
-      </t>
-      <t>
-	viewrect=&lt;left&gt;,&lt;top&gt;,&lt;wd&gt;,&lt;ht&gt;<vspace/>
-	&nbsp;&nbsp;&nbsp;&nbsp;As with the zoom parameter, set the
-	scale and scrolling factors, but using an explicit width and
-	height instead of a scale percentage.
-      </t>
-      <t>
-	highlight=&lt;lt&gt;,&lt;rt&gt;,&lt;top&gt;,&lt;btm&gt;<vspace/>
-	&nbsp;&nbsp;&nbsp;&nbsp;Highlight a rectangle on the chosen
-	page where &lt;lt&gt;, &lt;rt&gt;, &lt;top&gt;, and
-	&lt;btm&gt; are the coordinates of the sides of the rectangle
-	measured from the top left corner of the page.
-      </t>
-      <t>
-	All specified actions are executed in order; later actions
-	will override the effects of previous actions; for this
-	reason, page actions should appear before zoom actions.
-	Commands are not case sensitive (except for the value of a
-	named destination).
-      </t>
-    </section>
-    <section title='Subset Standards'>
-      <t>
-	TODO: Describe the subset standards, their history and include
-	references to the ISO documents.
-      </t>
-    </section>
-    <section title='Accessibility for PDF'>
-      <t>
-	TODO: Describe the Accessibility capabilities of PDF.
-      </t>
-    </section>
-    
     <section anchor='compat' title='PDF Implementations'>
       <t>
 	There are a number of widely available, independently
@@ -379,7 +291,9 @@
 	Intended usage: COMMON
       </t>
       <t>
-	Author/Change controller: Duff Johnson &lt;duff.johnson@pdfa.org&gt;, Cherie Ekholm &lt;cheriee@microsoft.com&gt;, ISO 32000 Project Leaders
+	Author/Change controller: 
+	ISO 32000 is by ISO/TC 171/SC 02/WG 08, "PDF specification".
+	Duff Johnson &lt;duff.johnson@pdfa.org&gt; and Cherie Ekholm &lt;cheriee@microsoft.com&gt; are current ISO 32000 Project Leaders.
       </t>
     </section>
   </middle>
@@ -448,5 +362,11 @@
       <?rfc include='reference.RFC.2616' ?>
       <?rfc include='reference.RFC.3297' ?>
     </references>
+    <section title='Changes since RFC 3778'>
+      <t>The Change Controller has changed from Adobe to ISO.</t>
+      <t>The section on Fragment identifiers has been taken up by
+      the ISO PDF specification, ISO-32000-2. </t>
+    </section>
+
   </back>
 </rfc>
