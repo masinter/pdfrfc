@@ -212,14 +212,17 @@
 	    printing is adjusted to fit the paper in the printer.
 	    There is some controversy, but the argument that A4 is
 	    an international standard is compelling.
+	    However, if the margins and header positioning are chosen
+	    appropriately, the document can be printed without any
+	    scaling.
 	  </t>
 
 	  <t>Recommendation:
 	    The Internet-Draft and RFC processors should produce A4 size
 	    by default.
 	    However, the margins and header
-	    positioning will need to be chosen to look good on both
-	    paper sizes using common printing methods.
+	    positioning need to be chosen to look good on both
+	    paper sizes without scaling.
 	  </t>
 	</section>
 
