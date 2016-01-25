@@ -710,7 +710,11 @@
 	  </t>
 	  <t>Embedding content in the PDF file allows the PDF to act as
 	    a complete package, which can be transformed, archived,
-	    and digitally signed. Useful possibilities:
+	    and digitally signed. 
+	    (Some sample code illustrating how items can be attached to a 
+	    PDF file and subsequently extracted can be found
+	    at <eref target='https://github.com/Aiybe/xmptest'/>.)
+	    Useful possibilities:
 
 	    <list>
 	      <t>Embed the source XML input file itself within the PDF.
