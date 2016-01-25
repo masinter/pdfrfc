@@ -12,7 +12,7 @@
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-     docName='draft-hansen-rfc-use-of-pdf-08' category='info' >
+     docName='draft-iab-rfc-use-of-pdf-00' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -25,7 +25,7 @@
 	  <code>07748</code>
 	  <country>USA</country>
 	</postal>
-	<email>tony+rfc2pdf@maillennium.att.com</email>
+	<email>tony@att.com</email>
       </address>
     </author>
     <author initials='L.' surname='Masinter' fullname='Larry Masinter'>
@@ -71,7 +71,7 @@
   <middle>
     <section title='Introduction'>
       <t> The RFC Series is evolving, as outlined in
-	<xref target='RFC6949'/>. Future documents will use an canonical format, XML,
+	<xref target='RFC6949'/>. Future documents will use a canonical format, XML,
 	with renderings in various formats, including PDF.
       </t>
 
@@ -105,7 +105,8 @@
 	details described in this document.
       </t>
 
-      <t>NOTE: see <eref target="https://github.com/masinter/pdfrfc"/>
+      <t>NOTE: [RFC-EDITOR: This note should be removed before publication.]
+      	See <eref target="https://github.com/masinter/pdfrfc"/>
 	for XML source, related files, and an issue tracker for
 	this document.
       </t>
@@ -119,7 +120,7 @@
 	affect the ability to process PDFs in other ways, but do not
 	control the way the document appears. (Of course, a viewer
 	UI might display processing capabilities, such as showing
-	if a document has been digitally signed.)
+	whether a document has been digitally signed.)
       </t>
 
       <t>In many cases, the choice of PDF requirements is heavily
@@ -180,7 +181,7 @@
 	    information as the headings in the current text versions of
 	    documents, including page numbers, title, author, working
 	    group. However, the page headers and footers should be typeset
-	    in a way so as to be inobtrusive.
+	    in a way so as to be unobtrusive.
 	    The page headers and footers should be placed into the PDF
 	    in a way not to interfere with screen readers. 
 	  </t>
@@ -195,17 +196,17 @@
 	  </t>
 	  <t>Recommendation: When the XML "editing=yes" option has been chosen,
 	    show paragraph numbers in the right margin, typeset in a way so
-	    as to be inobtrusive.
+	    as to be unobtrusive.
 	    (The right margin instead of the left margin prevents the paragraph
 	    numbers from being confused with the section numbers.)
 	    If possible, the paragraph numbers should be coded in a way
-	    that they do not not interfere with screen readers.
+	    that they do not interfere with screen readers.
 	  </t>
 	</section>
 
 	<section title="Paged Content Layout Quality">
 	  <t>The process of creating a paged document from running text
-	    typically involves insuring that related material is present
+	    typically involves ensuring that related material is present
 	    on the same page together, and that artifacts of pagination
 	    don't interfere with easy reading of the document. Typical
 	    high-quality layout processors do several things:
@@ -213,17 +214,17 @@
 	      <t hangText='Widow and Orphan Management:'>
 		Widows and orphans (<eref target='https://en.wikipedia.org/wiki/Widows_and_orphans'/>)
 		should be avoided automatically (unless the entire paragraph is only one line).
-		Insure that a page break does not occur after the first
+		Ensure that a page break does not occur after the first
 		line of a paragraph (orphans), if necessary, using slightly longer
 		page sizes.
-		Similarly, insure that a page break does not occur before
+		Similarly, ensure that a page break does not occur before
 		the last line of a paragraph (widows).
 	      </t>
 	      <t hangText='Keep Section Heading Contiguous:'>
-		Do not page break immediately after a section heading.
+		Do not insert a page break immediately after a section heading.
 		If there isn't room on a page for the first (two)
 		lines of a section after the section heading,
-		page break before the heading.
+		insert a page break before the heading.
 	      </t>
 	      <t hangText='Avoid Splitting Artwork:'>
 		Figures should not be split from figure titles.
@@ -249,7 +250,7 @@
 	  <t>Layout engines differ in the quality of the algorithms
 	    used to automate these processes. In some cases, the
 	    automated processes require some manual assistance
-	    to insure, for example, that a text line intended
+	    to ensure, for example, that a text line intended
 	    as a heading is "kept" with the text it is heading for.
 	  </t>
 	  <t>Recommendation: <!-- Minimize the requirements for authors
@@ -274,10 +275,10 @@
 	  </t>
 	  <t>
 	    In addition, the PDF/A standards mandate the embedding
-	    of fonts. Preferably, the software generating the files
-	    would produce PDF/A-conforming files directly, thus ensuring
-	    that all glyphs include Unicode mappings and embedded fonts
-	    from the outset.
+	    of fonts. Instead of using additional software to embed the fonts, 
+	    the software generating the PDF files should produce PDF/A-conforming 
+	    files directly, thus ensuring that all glyphs include Unicode 
+	    mappings and embedded fonts from the outset.
 	  </t>
 
 	  <t>If the HTML version of the document is
@@ -302,9 +303,10 @@
 	  <t> Recommendations:
 	    <list style='symbols'>
 	      <t>
-		Recommendation: for consistent viewing, all fonts should
-		be embedded.
+		For consistent viewing, all fonts should be embedded.
 		The fonts used must be available for use by the IETF community.
+		Some discussion of available typefaces can be found in 
+		<xref target="typefaces"/>.
 	      </t>
 
 	      <t>
@@ -330,7 +332,7 @@
 	    layout processors of English text often have the
 	    option of hyphenating words, or using existing
 	    hyphens as a place to introduce word breaks.
-	    However, line breaks mid-word where the "word"
+	    However, line breaks inserted mid-word where the "word"
 	    is actually technically a sequence of characters
 	    representing a protocol element or protocol
 	    sequence is actively harmful.
@@ -362,18 +364,6 @@
 	      </t>
 	    </list>
 	  </t>
-	  <t>
-	    One question that must be answered is
-	    where should hyperlinks to RFCs point? To the info page for
-	    the RFC? To the PDF version of the RFC?
-	  </t>
-	  <t>
-	    Similar questions need to be
-	    answered on references to Internet-Drafts: Where should
-	    hyperlinks to Internet-Drafts point?  To the datatracker
-	    entry?  To the tools entry?  To a PDF version of the
-	    Internet-Draft?
-	  </t>
 
 	  <t>Recommendations:
 	    <list style='symbols'>
@@ -387,7 +377,9 @@
 		when printed. These should also be hyperlinked to their
 		respective sections.
 	      </t>
-	      <t>Hyperlinks to RFCs from the
+	      <t>
+	      	As specified in the section on Referencing RFCs in
+	      	<xref target="RFC7322"/>, hyperlinks to RFCs from the
 		references section should point to the RFC "info" page, which
 		then links to the various formats available.
 	      </t>
@@ -427,7 +419,7 @@
 	  <t>
 	    Most of the choices used for the <xref target='I-D.hildebrand-html-rfc'/>
 	    rendering and  <xref target='I-D.flanagan-rfc-css'/>  are thus applicable.
-	    See those document for specifics on the rendering of the specific XML elements.
+	    See those documents for specifics on the rendering of the specific XML elements.
 	    Some notes are:
 	    <list>
 	      <t>
@@ -459,13 +451,13 @@
 		pages) has the RFC number on the left (RFC NNNN), the (possibly
 		shortened form) title centered, and the date (Month Year) on the
 		right.
-		The text is rendered in a way that is visually non-intrusive.
+		The text is rendered in a way that is visually unobtrusive.
 	      </t>
 	      <t>
 		The running footer in one line (on all pages) has the author's
 		last name on the left, category centered, and the page number on
 		the right ([Page N]).
-		The text is rendered in a way that is visually non-intrusive.
+		The text is rendered in a way that is visually unobtrusive.
 	      </t>
 	    </list>
 	  </t>
@@ -502,9 +494,9 @@
 		no internal representation of paragraphs at all.
 	      </t>
 
-	      <t>insuring that the running order of text in the content
+	      <t>ensuring that the running order of text in the content
 		stream matches the logical reading order. That is, a sentence
-		sentence such as 'The Internet Engineering Task Force (IETF)
+		such as 'The Internet Engineering Task Force (IETF)
 		supports the Internet.' would be kept together as a sentence,
 		and multiple sentences within a paragraph would be kept together.
 	      </t>
@@ -517,7 +509,7 @@
 	    commenting and annotation, and accessibility
 	    (text-to-speech).
 	    Keeping the running order of text in the content stream in the
-	    proper order supports all of these auxiliar uses.
+	    proper order supports all of these auxiliary uses.
 	  </t>
 
 	  <t>In addition, the "role map" feature of PDF
@@ -600,7 +592,7 @@
 	    Recommendation: Any alt-text for artwork and figures
 	    available in the XML source should be stored using the PDF
 	    /Alt property. Internet draft authors and the RFC editor
-	    should insure inclusion of alt-text for all SVG or images,
+	    should ensure inclusion of alt-text for all SVG or images,
 	    within the XML source.
 	  </t>
 	</section>
@@ -629,7 +621,7 @@
 
 	<section title='Document Structure Support'>
 	  <t>PDF supports an "outline" feature where sections of the
-	    document are marked; this oould be used in addition to the
+	    document are marked; this could be used in addition to the
 	    table of contents as a navigation aid.
 	  </t>
 	  <t>
@@ -697,7 +689,7 @@
 	      </t>
 	      <t>Finding, extracting and embedding other components
 		may require additional markup to clearly identify them,
-		and additional review to insure the correctness of
+		and additional review to ensure the correctness of
 		embedded files that are not visible.
 	      </t>
 	    </list>
@@ -716,7 +708,7 @@
 		Named &lt;sourcecode&gt; entries should be embedded.
 	      </t>
 	      <t>
-		Embedded bitmap images (SVG sources, JPEGs, PNGs, etc) should be embedded.
+		Bitmap images (SVG sources, JPEGs, PNGs, etc) should be embedded.
 	      </t>
 	    </list>
 	  </t>
@@ -732,9 +724,7 @@
 	  visual presentation as well.
 	</t>
 
-	<t>Normally, the authenticity of RFC files is not an issue,
-	  since the RFC editor maintains a repository of all RFCs which
-	  is widely replicated. However, the RFC Editor and staff are at
+	<t>The RFC Editor and staff are at
 	  times called to provide evidence that a particular RFC is the
 	  "original" and has not been visually modified, and there
 	  may be other use cases.
@@ -771,13 +761,16 @@
 	establish ground rules that are important for specific
 	applications.  For example PDF/X was specifically designed
 	for Prepress digital data exchange, with careful attention
-	to color management and printing instructions, while the PDF/E
-	standard was designed for engineering documents.
+	to color management and printing instructions. The PDF/E 
+	standard was designed for engineering documents with dynamic 
+	workflows (where a document continues to be revised after 
+	publication) and allows interactive media (including
+	animation and 3D).
       </t>
 
       <t>Two additional standards families are important to the
 	RFC format, though: long-term preservation (PDF/A), and user
-	acessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
+	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
 	PDF/A-2, PDF/A-3), each of which have conformance levels.
 	These standards are then supported
 	by various software libraries and tools.
@@ -888,6 +881,7 @@
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
+      <?rfc include='reference.RFC.7322' ?>
       
     </references>
 
@@ -1006,7 +1000,7 @@
 	</t>
       </section>
 
-      <section title='Typefaces'>
+      <section title='Typefaces' anchor='typefaces'>
 	<t>This section is intended to discuss available typefaces
 	  that might satisfy requirements. Some openly available
 	  fixed-width typefaces (without extensive Unicode support,
@@ -1036,14 +1030,14 @@
 	  would be quite difficult; there are few PDF validation
 	  tools. However, if RFCs and Internet-Drafts are generated by
 	  conversion from XML via xml2rfc, then explicit validation of PDF
-	  and adherance to expected profiles would mainly be useful to insure
+	  and adherence to expected profiles would mainly be useful to ensure
 	  that xml2rfc has functioned properly.
 	</t>
 	<t>Recommendations:
 	  <list style='symbols'>
 	    <t>Discourage (but allow) submission of a PDF representation
 	      for Internet-Drafts. In most cases, the PDF for an Internet-Draft
-	      should be produced automatically when XML is suhmitted,
+	      should be produced automatically when XML is submitted,
 	      with an opportunity to verify the conversion.
 	    </t>
 	  </list>
@@ -1051,26 +1045,27 @@
       </section>
 
     </section>
-    <section title='Additional Reading'>
-      <t>
-	<eref target='http://www.pdflib.com/fileadmin/pdflib/pdf/whitepaper/Whitepaper-Technical-Introduction-to-PDFA.pdf'/>
-	<eref target='http://www.pdfa.org/wp-content/uploads/2011/08/tn0003_metadata_in_pdfa-1_2008-03-128.pdf'/>
-	<eref target='http://www.pdfa.org/wp-content/uploads/2011/08/PDFA-in-a-Nutshell_1b.pdf'/>
-	<eref target='http://www.pdfa.org/2011/08/pdfa-%E2%80%93-a-look-at-the-technical-side/'/>
-	<eref target='http://pdf.editme.com/pdfa'/>
-      </t>
-    </section>
     <section title='Acknowledgements'>
       <t>
 	The input of the following people is gratefully acknowledged:
+   	Nevil Brownlee (ISE), 
 	Brian Carpenter,
 	Chris Dearlove,
 	Martin Duerst,
-	Heather Flanagan,
+	Heather Flanagan (RSE),
 	Joe Hildebrand,
+	Paul Hoffman,
 	Duff Johnson,
+   	Ted Lemon, 
+	Henrik Levkowetz,
+   	Julian Reschke, 
+   	Adam Roach,
 	Leonard Rosenthol,
-	....
+   	Alice Russo,
+   	Robert Sparks,
+	Andrew Sullivan,
+	and
+   	Dave Thaler.
 	<!--
 	  Sean Leonard &lt;dev+ietf@seantek.com&gt;
 
