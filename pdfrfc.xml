@@ -79,11 +79,9 @@
 	alternatives, not all PDFs are "equal".  For example, visually
 	similar documents could consist of scanned or rasterized images,
 	or include text layout options, hyperlinks, embedded fonts, and
-	digital signatures.  (See <eref target='https://en.wikipedia.org/wiki/Portable_Document_Format'/>
-	for a history of PDF.
-	Also see <eref target='https://en.wikipedia.org/wiki/PDF/A'/> and
-	<eref target='https://en.wikipedia.org/wiki/PDF/UA'/> for descriptions of
-	PDF/A and PDF/UA, respectively.)
+	digital signatures.
+	(See <xref target='I-D.hardy-pdf-mime'/>
+	for a history of PDF.)
       </t>
 
       <t> This document explains some of the relevant options and
@@ -111,6 +109,63 @@
 	this document.
       </t>
     </section>
+
+    <section title='Choosing PDF versions and Standards'>
+      <t> PDF has gone through several revisions, primarily for the addition of
+	features.  PDF
+	features have generally been added in a way that older viewers
+	'fail gracefully', but even so, the older the PDF version
+	produced, the more legacy viewers will support that version,
+	but the fewer features will be enabled.
+      </t>
+
+      <t>As PDF has evolved a broad set of capabilities, additional
+	standards for PDF files are applicable. These standards
+	establish ground rules that are important for specific
+	applications.  For example PDF/X was specifically designed
+	for Prepress digital data exchange, with careful attention
+	to color management and printing instructions. The PDF/E 
+	standard was designed for engineering documents with dynamic 
+	workflows (where a document continues to be revised after 
+	publication) and allows interactive media (including
+	animation and 3D).
+      </t>
+
+      <t>Two additional standards families are important to the
+	RFC format, though: long-term preservation (PDF/A), and user
+	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
+	PDF/A-2, PDF/A-3), each of which have conformance levels.
+	These standards are then supported
+	by various software libraries and tools.
+      </t>
+
+      <t>It is effective and useful to use these standards to capture
+	PDF for RFC requirements, and they will make the PDF files useful
+	in workflows that expect them.
+      </t>
+
+      <t>Recommendations:
+	<list>
+	  <t>Use PDF 1.7; although relatively recent, it is well
+	    supported by widely available viewers.
+	  </t>
+
+	  <t>For RFCs, require PDF/A-3 with conformance level "U".
+	    This captures the archivability and
+	    long-term stability of PDF 1.7 files, mandatory Unicode mapping,
+	    and many of the requirement features.
+	  </t>
+
+	  <t>Use PDF/A-3 for embedding additional data (including
+	    the XML source file) in RFCs and Internet-Drafts.
+	  </t>
+
+	  <t>Use PDF/UA.
+	  </t>
+	</list>
+      </t>
+    </section>
+
     <section title='Options and Requirements for PDF RFCs'
 	     anchor='requirements'>
       <t>This section lays out options and requirements for PDFs produced by
@@ -157,14 +212,17 @@
 	    printing is adjusted to fit the paper in the printer.
 	    There is some controversy, but the argument that A4 is
 	    an international standard is compelling.
+	    However, if the margins and header positioning are chosen
+	    appropriately, the document can be printed without any
+	    scaling.
 	  </t>
 
 	  <t>Recommendation:
 	    The Internet-Draft and RFC processors should produce A4 size
 	    by default.
 	    However, the margins and header
-	    positioning will need to be chosen to look good on both
-	    paper sizes using common printing methods.
+	    positioning need to be chosen to look good on both
+	    paper sizes without scaling.
 	  </t>
 	</section>
 
@@ -204,48 +262,19 @@
 	  </t>
 	</section>
 
-	<section title="Paged Content Layout Quality">
-	  <t>The process of creating a paged document from running text
-	    typically involves ensuring that related material is present
-	    on the same page together, and that artifacts of pagination
-	    don't interfere with easy reading of the document. Typical
-	    high-quality layout processors do several things:
-	    <list style='hanging'>
-	      <t hangText='Widow and Orphan Management:'>
-		Widows and orphans (<eref target='https://en.wikipedia.org/wiki/Widows_and_orphans'/>)
-		should be avoided automatically (unless the entire paragraph is only one line).
-		Ensure that a page break does not occur after the first
-		line of a paragraph (orphans), if necessary, using slightly longer
-		page sizes.
-		Similarly, ensure that a page break does not occur before
-		the last line of a paragraph (widows).
-	      </t>
-	      <t hangText='Keep Section Heading Contiguous:'>
-		Do not insert a page break immediately after a section heading.
-		If there isn't room on a page for the first (two)
-		lines of a section after the section heading,
-		insert a page break before the heading.
-	      </t>
-	      <t hangText='Avoid Splitting Artwork:'>
-		Figures should not be split from figure titles.
-		If possible, keep the figure on the same page
-		as the (first) mention of the figure.
-	      </t>
-	      <t hangText='Headers for Long Tables after Page Breaks:'>
-		Another common option in producing paginated documents
-		is to include the column headings of a table if
-		the table cannot be displayed on a single page.
-		Similarly, tables should not be split from the table titles.
-	      </t>
-	      <t hangText='keepWithNext and keepWithPrevious:'>
-		The XML attributes of "keepWithNext" and "keepWithPrevious"
-		should be followed whenever possible.
-	      </t>
-	      <t hangText='Whitespace Preservation:'>
-		The XML entities such as NBSP and NBHYPHEN should be
-		followed as directed whenever possible.
-	      </t>
-	    </list>
+	<section title="Paged Content Layout">
+	  <t>
+	    By its nature, PDF is paginated, so pagination issues must
+	    be considered.
+	    This is reflected in two areas: running headers and footers, 
+	    and how text is layed out on a page for optimal reading.
+	  </t>
+	  <t>
+	    <xref target="page-layout"/> describes
+	    the process of creating a paged document from running text
+	    such that related material is present
+	    on the same page together and artifacts of pagination
+	    don't interfere with easy reading of the document.
 	  </t>
 	  <t>Layout engines differ in the quality of the algorithms
 	    used to automate these processes. In some cases, the
@@ -253,7 +282,17 @@
 	    to ensure, for example, that a text line intended
 	    as a heading is "kept" with the text it is heading for.
 	  </t>
-	  <t>Recommendation: <!-- Minimize the requirements for authors
+	  <t>Recommendations:
+	  <list style='symbols'>
+	    <t>
+	    Headers and footers should be printed on each page.
+	    The information should include the RFC number or internet-draft name,
+	    the page number, the category (informational, etc.),
+	    a shortened version of the authors' names,
+	    the date of the RFC or internet-draft, and
+	    the short form of the document title.
+	    </t>
+	  <t><!-- Minimize the requirements for authors
 				  to add specific markup to the XML source for assisting with
 				  manually enhancing layout for Internet-Drafts. -->
 	    Choose a layout engine so that manual
@@ -261,6 +300,7 @@
 	    orphan processing, heading and title contiguation
 	    are automatic.
 	  </t>
+	  </list>
 	</section>
 
 	<section title="Typeface Choices">
@@ -673,7 +713,11 @@
 	  </t>
 	  <t>Embedding content in the PDF file allows the PDF to act as
 	    a complete package, which can be transformed, archived,
-	    and digitally signed. Useful possibilities:
+	    and digitally signed. 
+	    (Some sample code illustrating how items can be attached to a 
+	    PDF file and subsequently extracted can be found
+	    at <eref target='https://github.com/Aiybe/xmptest'/>.)
+	    Useful possibilities:
 
 	    <list>
 	      <t>Embed the source XML input file itself within the PDF.
@@ -745,62 +789,6 @@
 	  with a PDF digital signature.
 	</t>
       </section>
-    </section>
-
-    <section title='Choosing PDF versions and Standards'>
-      <t> PDF has gone through several revisions, primarily for the addition of
-	features.  PDF
-	features have generally been added in a way that older viewers
-	'fail gracefully', but even so, the older the PDF version
-	produced, the more legacy viewers will support that version,
-	but the fewer features will be enabled.
-      </t>
-
-      <t>As PDF has evolved a broad set of capabilities, additional
-	standards for PDF files are applicable. These standards
-	establish ground rules that are important for specific
-	applications.  For example PDF/X was specifically designed
-	for Prepress digital data exchange, with careful attention
-	to color management and printing instructions. The PDF/E 
-	standard was designed for engineering documents with dynamic 
-	workflows (where a document continues to be revised after 
-	publication) and allows interactive media (including
-	animation and 3D).
-      </t>
-
-      <t>Two additional standards families are important to the
-	RFC format, though: long-term preservation (PDF/A), and user
-	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
-	PDF/A-2, PDF/A-3), each of which have conformance levels.
-	These standards are then supported
-	by various software libraries and tools.
-      </t>
-
-      <t>It is effective and useful to use these standards to capture
-	PDF for RFC requirements, and they will make the PDF files useful
-	in workflows that expect them.
-      </t>
-
-      <t>Recommendations:
-	<list>
-	  <t>Use PDF 1.7; although relatively recent, it is well
-	    supported by widely available viewers.
-	  </t>
-
-	  <t>For RFCs, require PDF/A-3 with conformance level "U".
-	    This captures the archivability and
-	    long-term stability of PDF 1.7 files, mandatory Unicode mapping,
-	    and many of the requirement features.
-	  </t>
-
-	  <t>Use PDF/A-3 for embedding additional data (including
-	    the XML source file) in RFCs and Internet-Drafts.
-	  </t>
-
-	  <t>Use PDF/UA.
-	  </t>
-	</list>
-      </t>
     </section>
 
   </middle>
@@ -881,8 +869,7 @@
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
-      <?rfc include='reference.RFC.7322' ?>
-      
+      <?rfc include='reference.I-D.hardy-pdf-mime' ?>
     </references>
 
     <section title='History and Current Use of PDF with RFCs and Internet-Drafts'>
@@ -917,6 +904,51 @@
 	  generate one from the Postscript, HTML, or text.
 	</t>
       </section>
+    </section>
+    
+    <section title="Paged Content Layout Quality" anchor="page-layout">
+      <t>The process of creating a paged document from running text
+	typically involves ensuring that related material is present
+	on the same page together, and that artifacts of pagination
+	don't interfere with easy reading of the document. Typical
+	high-quality layout processors do several things:
+	<list style='hanging'>
+	  <t hangText='Widow and Orphan Management:'>
+	    Widows and orphans (<eref target='https://en.wikipedia.org/wiki/Widows_and_orphans'/>)
+	    should be avoided automatically (unless the entire paragraph is only one line).
+	    Ensure that a page break does not occur after the first
+	    line of a paragraph (orphans), if necessary, using slightly longer
+	    page sizes.
+	    Similarly, ensure that a page break does not occur before
+	    the last line of a paragraph (widows).
+	  </t>
+	  <t hangText='Keep Section Heading Contiguous:'>
+	    Do not insert a page break immediately after a section heading.
+	    If there isn't room on a page for the first (two)
+	    lines of a section after the section heading,
+	    insert a page break before the heading.
+	  </t>
+	  <t hangText='Avoid Splitting Artwork:'>
+	    Figures should not be split from figure titles.
+	    If possible, keep the figure on the same page
+	    as the (first) mention of the figure.
+	  </t>
+	  <t hangText='Headers for Long Tables after Page Breaks:'>
+	    Another common option in producing paginated documents
+	    is to include the column headings of a table if
+	    the table cannot be displayed on a single page.
+	    Similarly, tables should not be split from the table titles.
+	  </t>
+	  <t hangText='keepWithNext and keepWithPrevious:'>
+	    The XML attributes of "keepWithNext" and "keepWithPrevious"
+	    should be followed whenever possible.
+	  </t>
+	  <t hangText='Whitespace Preservation:'>
+	    The XML entities such as NBSP and NBHYPHEN should be
+	    followed as directed whenever possible.
+	  </t>
+	</list>
+      </t>
     </section>
 
     <section title='Tooling' anchor='tooling'>
