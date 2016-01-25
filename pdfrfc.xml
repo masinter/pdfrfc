@@ -111,6 +111,63 @@
 	this document.
       </t>
     </section>
+
+    <section title='Choosing PDF versions and Standards'>
+      <t> PDF has gone through several revisions, primarily for the addition of
+	features.  PDF
+	features have generally been added in a way that older viewers
+	'fail gracefully', but even so, the older the PDF version
+	produced, the more legacy viewers will support that version,
+	but the fewer features will be enabled.
+      </t>
+
+      <t>As PDF has evolved a broad set of capabilities, additional
+	standards for PDF files are applicable. These standards
+	establish ground rules that are important for specific
+	applications.  For example PDF/X was specifically designed
+	for Prepress digital data exchange, with careful attention
+	to color management and printing instructions. The PDF/E 
+	standard was designed for engineering documents with dynamic 
+	workflows (where a document continues to be revised after 
+	publication) and allows interactive media (including
+	animation and 3D).
+      </t>
+
+      <t>Two additional standards families are important to the
+	RFC format, though: long-term preservation (PDF/A), and user
+	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
+	PDF/A-2, PDF/A-3), each of which have conformance levels.
+	These standards are then supported
+	by various software libraries and tools.
+      </t>
+
+      <t>It is effective and useful to use these standards to capture
+	PDF for RFC requirements, and they will make the PDF files useful
+	in workflows that expect them.
+      </t>
+
+      <t>Recommendations:
+	<list>
+	  <t>Use PDF 1.7; although relatively recent, it is well
+	    supported by widely available viewers.
+	  </t>
+
+	  <t>For RFCs, require PDF/A-3 with conformance level "U".
+	    This captures the archivability and
+	    long-term stability of PDF 1.7 files, mandatory Unicode mapping,
+	    and many of the requirement features.
+	  </t>
+
+	  <t>Use PDF/A-3 for embedding additional data (including
+	    the XML source file) in RFCs and Internet-Drafts.
+	  </t>
+
+	  <t>Use PDF/UA.
+	  </t>
+	</list>
+      </t>
+    </section>
+
     <section title='Options and Requirements for PDF RFCs'
 	     anchor='requirements'>
       <t>This section lays out options and requirements for PDFs produced by
@@ -710,62 +767,6 @@
 	  with a PDF digital signature.
 	</t>
       </section>
-    </section>
-
-    <section title='Choosing PDF versions and Standards'>
-      <t> PDF has gone through several revisions, primarily for the addition of
-	features.  PDF
-	features have generally been added in a way that older viewers
-	'fail gracefully', but even so, the older the PDF version
-	produced, the more legacy viewers will support that version,
-	but the fewer features will be enabled.
-      </t>
-
-      <t>As PDF has evolved a broad set of capabilities, additional
-	standards for PDF files are applicable. These standards
-	establish ground rules that are important for specific
-	applications.  For example PDF/X was specifically designed
-	for Prepress digital data exchange, with careful attention
-	to color management and printing instructions. The PDF/E 
-	standard was designed for engineering documents with dynamic 
-	workflows (where a document continues to be revised after 
-	publication) and allows interactive media (including
-	animation and 3D).
-      </t>
-
-      <t>Two additional standards families are important to the
-	RFC format, though: long-term preservation (PDF/A), and user
-	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
-	PDF/A-2, PDF/A-3), each of which have conformance levels.
-	These standards are then supported
-	by various software libraries and tools.
-      </t>
-
-      <t>It is effective and useful to use these standards to capture
-	PDF for RFC requirements, and they will make the PDF files useful
-	in workflows that expect them.
-      </t>
-
-      <t>Recommendations:
-	<list>
-	  <t>Use PDF 1.7; although relatively recent, it is well
-	    supported by widely available viewers.
-	  </t>
-
-	  <t>For RFCs, require PDF/A-3 with conformance level "U".
-	    This captures the archivability and
-	    long-term stability of PDF 1.7 files, mandatory Unicode mapping,
-	    and many of the requirement features.
-	  </t>
-
-	  <t>Use PDF/A-3 for embedding additional data (including
-	    the XML source file) in RFCs and Internet-Drafts.
-	  </t>
-
-	  <t>Use PDF/UA.
-	  </t>
-	</list>
-      </t>
     </section>
 
   </middle>
