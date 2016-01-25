@@ -79,11 +79,9 @@
 	alternatives, not all PDFs are "equal".  For example, visually
 	similar documents could consist of scanned or rasterized images,
 	or include text layout options, hyperlinks, embedded fonts, and
-	digital signatures.  (See <eref target='https://en.wikipedia.org/wiki/Portable_Document_Format'/>
-	for a history of PDF.
-	Also see <eref target='https://en.wikipedia.org/wiki/PDF/A'/> and
-	<eref target='https://en.wikipedia.org/wiki/PDF/UA'/> for descriptions of
-	PDF/A and PDF/UA, respectively.)
+	digital signatures.
+	(See <xref target='I-D.hardy-pdf-mime'/>
+	for a history of PDF.)
       </t>
 
       <t> This document explains some of the relevant options and
@@ -864,7 +862,7 @@
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
-      
+      <?rfc include='reference.I-D.hardy-pdf-mime' ?>
     </references>
 
     <section title='History and Current Use of PDF with RFCs and Internet-Drafts'>
