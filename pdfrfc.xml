@@ -111,8 +111,8 @@
     </section>
 
     <section title='Choosing PDF versions and Standards'>
-      <t> PDF has gone through several revisions, primarily for the addition of
-	features.  PDF
+      <t> <xref target="PDF">PDF</xref> has gone through several revisions,
+	primarily for the addition of features.  PDF
 	features have generally been added in a way that older viewers
 	'fail gracefully', but even so, the older the PDF version
 	produced, the more legacy viewers will support that version,
@@ -133,8 +133,8 @@
 
       <t>Two additional standards families are important to the
 	RFC format, though: long-term preservation (PDF/A), and user
-	accessibility (PDF/UA). These then have sub-profiles (PDF/A-1,
-	PDF/A-2, PDF/A-3), each of which have conformance levels.
+	accessibility (<xref target="PDFUA">PDF/UA</xref>). These then have sub-profiles (PDF/A-1,
+	<xref target="PDFA2">PDF/A-2</xref>, <xref target="PDFA3">PDF/A-3</xref>), each of which have conformance levels.
 	These standards are then supported
 	by various software libraries and tools.
       </t>
@@ -160,7 +160,7 @@
 	    the XML source file) in RFCs and Internet-Drafts.
 	  </t>
 
-	  <t>Use PDF/UA.
+	  <t>Use PDF/UA for user accessibility.
 	  </t>
 	</list>
       </t>
@@ -864,7 +864,7 @@
       </reference>
     </references>
     <references title='Informative References'>
-      <?rfc include='reference.RFC.3778' ?>
+      <!-- ?rfc include='reference.RFC.3778' ? -->
       <?rfc include='reference.RFC.6949' ?>
       <?rfc include='reference.RFC.7322' ?>
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
