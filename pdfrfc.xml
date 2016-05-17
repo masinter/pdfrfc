@@ -858,12 +858,14 @@
     </references>
     <references title='Informative References'>
       <!-- ?rfc include='reference.RFC.3778' ? -->
+      <?rfc include='reference.RFC.2346' ?>
       <?rfc include='reference.RFC.6949' ?>
       <?rfc include='reference.RFC.7322' ?>
       <?rfc include='reference.I-D.flanagan-nonascii' ?>
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
-      <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
       <?rfc include='reference.I-D.hardy-pdf-mime' ?>
+      <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
+      <?rfc include='reference.I-D.draft-housley-rfc-and-id-signatures' ?>
     </references>
 
     <section title='History and Current Use of PDF with RFCs and Internet-Drafts'>
