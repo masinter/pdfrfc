@@ -12,7 +12,7 @@
 <?rfc-ext parse-xml-in-artwork='yes' ?>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <rfc ipr='trust200902'
-     docName='draft-iab-rfc-use-of-pdf-01' category='info' >
+     docName='draft-iab-rfc-use-of-pdf-02' category='info' >
   <front>
     <title abbrev='PDF for RFCs'>PDF for an RFC Series Output Document Format</title>
     <author initials='T.' surname='Hansen' fullname='Tony Hansen' role='editor'>
@@ -56,7 +56,7 @@
       </address>
     </author>
     <date />
-    <!--  <area>RFC Design Team</area>  -->
+    <area>RFC Design Team</area>
     <keyword>Requests for Comment</keyword>
     <abstract>
       <t>
@@ -220,9 +220,11 @@
 	  <t>Recommendation:
 	    The Internet-Draft and RFC processors should produce A4 size
 	    by default.
-	    However, the margins and header
-	    positioning need to be chosen to look good on both
-	    paper sizes without scaling.
+	    However, the margins and header positioning need to be chosen
+	    to look good on both paper sizes without scaling.
+	    Following the advice found in <xref target='RFC2346'/>, this
+	    means that we should use A4 portrait mode with left and right
+	    margins of 20 mm, and top and bottom margins of 33 mm.
 	  </t>
 	</section>
 
@@ -500,6 +502,11 @@
 		the right ([Page N]).
 		The text is rendered in a way that is visually unobtrusive.
 	      </t>
+	      <t>
+		We should not attempt to replicate in PDF the feature of the
+		HTML format that includes a dynamic block that displays
+		up-to-date information on updates, obsoletions and errata.
+	      </t>
 	    </list>
 	  </t>
 	</section>
@@ -762,32 +769,18 @@
       </section>
       <section title='Digital Signatures'>
 	<t>
-	  PDF has supported digital signatures since PDF 1.2.  There
-	  are multiple methods for signing PDF files.  The signature
-	  is intended to apply not only to the bits in the file (that
-	  they haven't been modified) but also to lock down the
-	  visual presentation as well.
-	</t>
-
-	<t>The RFC Editor and staff are at
-	  times called to provide evidence that a particular RFC is the
-	  "original" and has not been visually modified, and there
-	  may be other use cases.
+	  The RFC Editor and staff are at times called to provide evidence
+	  that a particular RFC is the "original" and has not been modified;
+	  digital signatures can provide that verification.
 	  As signatures also apply to embedded content, embedding the
-	  XML source will provide a way of signing the source XML as well.
+	  XML source will provide a way of signing the source XML
+	  that was used to product the PDF file as well.
 	</t>
-
 	<t>
-	  Recommendation:
-	  PDFs produced by the RFC editor should be signed with a PDF digital
-	  signature.
-	  The management of certificates for the RFC editor function
-	  needs further review.
-	</t>
-
-	<t>Recommendation:
-	  At this time, the authors see no need for Internet-Drafts to be signed
-	  with a PDF digital signature.
+	  PDF has supported digital signatures since PDF 1.2, and there
+	  are multiple methods and options available for signing PDF files.
+	  The signing of internet-drafts and RFCs will be guided by
+	  <xref target='I-D.draft-housley-rfc-and-id-signatures'/>.
 	</t>
       </section>
     </section>
