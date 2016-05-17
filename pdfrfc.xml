@@ -865,7 +865,7 @@
       <?rfc include='reference.I-D.flanagan-rfc-css' ?>
       <?rfc include='reference.I-D.hardy-pdf-mime' ?>
       <?rfc include='reference.I-D.hildebrand-html-rfc' ?>
-      <?rfc include='reference.I-D.draft-housley-rfc-and-id-signatures' ?>
+      <?rfc include='reference.I-D.housley-rfc-and-id-signatures' ?>
     </references>
 
     <section title='History and Current Use of PDF with RFCs and Internet-Drafts'>
