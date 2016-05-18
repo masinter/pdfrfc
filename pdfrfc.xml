@@ -780,7 +780,7 @@
 	  PDF has supported digital signatures since PDF 1.2, and there
 	  are multiple methods and options available for signing PDF files.
 	  The signing of internet-drafts and RFCs will be guided by
-	  <xref target='I-D.draft-housley-rfc-and-id-signatures'/>.
+	  <xref target='I-D.housley-rfc-and-id-signatures'/>.
 	</t>
       </section>
     </section>
